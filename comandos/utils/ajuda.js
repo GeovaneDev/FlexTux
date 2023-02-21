@@ -41,7 +41,8 @@ module.exports = {
             /cachorro -- Envia uma imagem aleatória de cachorro fofinho.
             /gato -- Mostra uma imagem aleatória de um gato fofinho.
             /roleta-russa -- Jogar roleta-russa comigo.
-            /parouimpar -- Jogue par ou ímpar contra mim.`);
+            /parouimpar -- Jogue par ou ímpar contra mim.
+	    /panda -- Mostra uma imagem aleatória de um panda fofinho.`);
 
             let embed_economia = new Discord.EmbedBuilder()
             .setColor("Aqua")
