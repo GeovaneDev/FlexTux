@@ -73,7 +73,7 @@ Para utilizar os comandos do bot, digite `/` na caixa de texto do chat do Discor
 
 ## Personalização
 
-Para personalizar o bot, você pode alterar o ID do dono no arquivo `comandos/admin/setstatus.js` e nos arquivos `comandos/economy/addmoney.js` e `comandos/economy/removemoney.js`.
+Altere em alguns comandos de diversão na pasta "comandos/fun" e adicione o id de seu bot para o comando funcionar corretamente.
 
 ## Contribuição
 
