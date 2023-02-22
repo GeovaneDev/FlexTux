@@ -4,7 +4,7 @@ const Discord = require(`discord.js`)
 
 module.exports = {
     name: `embed`,
-    description: `Criar embed.`,
+    description: `Criar uma mensagem bonita. (Beta)`,
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

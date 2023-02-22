@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
     name: "lock",
-    description: "Bloqueie um canal.",
+    description: "Bloquear um canal.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

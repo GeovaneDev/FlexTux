@@ -1,7 +1,7 @@
 const Discord = require('discord.js') //id do seu bot no lugar do id "944555548148375592"
 module.exports = {
     name: "piscar",
-    description: "Pisque para uma pessoa.",
+    description: "Pisque para alguém e mostre que você tá pensando nele(a)!",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

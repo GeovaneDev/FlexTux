@@ -2,16 +2,8 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: "serverinfo",
-    description: "Veja as informações do servidor",
+    description: "Veja as informações do servidor.",
     type: Discord.ApplicationCommandType.ChatInput,
-    options: [
-        {
-            name: "id",
-            description: "Cole o ID do servidor",
-            type: Discord.ApplicationCommandOptionType.String,
-            require: true,
-        }
-    ],
     run: async (client, interaction) => {
 
         let membros = interaction.guild.memberCount;
@@ -21,12 +13,12 @@ module.exports = {
         let servidor = interaction.guild;
         let donoid = interaction.guild.ownerId;
         let emojis = interaction.guild.emojis.cache.size;
-        let serverid = interaction.options.getString("id")
+        let serverid = interaction.guild.id
         let impulsos = interaction.guild.premiumSubscriptionCount;
         let data = interaction.guild.createdAt.toLocaleDateString("pt-br");
 
 
-        let ryan = new Discord.EmbedBuilder()
+        let embed = new Discord.EmbedBuilder()
             .setColor("Blue")
             .setThumbnail(interaction.guild.iconURL({ dinamyc: true, format: "png", size: 4096 }))
             .setTitle(`Informações do servidor: ${interaction.guild}`)
@@ -66,6 +58,6 @@ module.exports = {
 
 
 
-        interaction.reply({ embeds: [ryan] })
+        interaction.reply({ embeds: [embed] })
     }
 }

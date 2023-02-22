@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
     name: "limpar",
-    description: "Limpe o canal de texto",
+    description: "Limpar o canal de texto.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

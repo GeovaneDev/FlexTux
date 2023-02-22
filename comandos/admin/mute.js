@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
   name: "mute",
-  description: "Silencia um usuário por um determinado tempo. (30 = 30s)",
+  description: "Silenciar um usuário.",
   type: Discord.ApplicationCommandType.ChatInput,
   
   options: [

@@ -3,7 +3,7 @@ const ms = require("ms");
 
 module.exports = {
     name: "sorteio",
-    description: "Crie um sorteio no servidor.",
+    description: "Realizar um sorteio.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

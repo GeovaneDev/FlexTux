@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 module.exports = {
     name: "beijar",
-    description: "De um beijo em uma pessoa.",
+    description: "Dê um beijinho em alguém!",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

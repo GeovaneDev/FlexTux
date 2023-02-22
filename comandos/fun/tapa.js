@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 module.exports = {
     name: "tapa",
-    description: "De um tapa em uma pessoa.",
+    description: "Dê um tapa em alguém (virtualmente, claro!) que mereça!",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

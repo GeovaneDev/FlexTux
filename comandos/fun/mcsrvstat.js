@@ -4,7 +4,7 @@ const fetch = (...args) =>
 
 module.exports = {
   name: 'mcsrvstat',
-  description: 'Veja as informações de um servidor de Minecraft.',
+  description: 'Veja as informações de um servidor de Minecraft para saber se seus amigos estão online!',
   type: Discord.ApplicationCommandType.ChatInput,
   options: [
     {

@@ -1,8 +1,7 @@
 const Discord = require('discord.js')
 module.exports = {
     name: "tocaaqui",
-    description: "Mande um toca aqui para uma pessoa.",
-    //aliases: ["kiss"],
+    description: `Mande um "toca aqui" para alguém e demonstre carinho!`,
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

@@ -10,60 +10,60 @@ module.exports = {
         let embed_painel = new Discord.EmbedBuilder()
             .setColor("Aqua")
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
-            .setDescription(`Olá ${interaction.user}, veja meus comandos interagindo com o painel abaixo:`);
+            .setDescription(`Olá ${interaction.user}, Estou aqui para ajudar, veja meus comandos abaixo interagindo com o painel:`);
 
         let embed_utilidade = new Discord.EmbedBuilder()
             .setColor("Aqua")
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
-            .setDescription(`Olá ${interaction.user}, veja meus comandos de **utilidade** abaixo:
+            .setDescription(`Olá ${interaction.user}, Aqui estão alguns comandos de **úteis**:
             /ajuda -- Mostra essa mensagem.
-            /ping -- Veja o meu ping.
+            /ping -- Descubra o meu tempo de resposta.
             /serverinfo -- Veja as informações do servidor.
             /starnick-info -- Fornece informações sobre mim.
             /traduzir -- Traduzir um texto para outro idioma.
-            /uptime -- Quanto tempo estou operando.
+            /uptime -- Quanto tempo estou online.
             /userinfo -- Veja informações de um usuário.`);
 
         let embed_diversao = new Discord.EmbedBuilder()
             .setColor("Aqua")
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
-            .setDescription(`Olá ${interaction.user}, veja meus comandos de **diversão** abaixo:
-            /abraço -- Abrace um membro.
-            /beijar -- Beije um membro.
-            /cachorro -- Envia uma imagem aleatória de cachorro fofinho.
-            /coinflip -- Jogue cara ou coroa.
-            /coinflip2 -- Jogue cara ou coroa contra mim.
-            /dado -- Jogue um dado de seis lados.
-            /facepalm -- Mande um facepalm(palma da mão no rosto) para uma pessoa.
-            /gato -- Mostra uma imagem aleatória de um gato fofinho.
-            /mcsrvstat -- Veja as informações de um servidor de Minecraft.
-            /parouimpar -- Jogue par ou ímpar contra mim.
-            /panda -- Mostra uma imagem aleatória de um panda fofinho.
-            /piscar -- Pisque para uma pessoa.
-            /roleta-russa -- Jogar roleta-russa comigo.
-            /rps -- Jogue pedra, papel ou tesoura contra mim.
-            /sus -- Mostra uma imagem mt sus.
-            /tapa -- Dê um tapa em uma pessoa.
-            /tocaaqui -- Mande um toca aqui para uma pessoa.`);
+            .setDescription(`Oli, ${interaction.user}! Aqui estão alguns comandos de **diversão** para você:
+            /abraço -- Abraça alguém para mostrar carinho!
+            /beijar -- Dê um beijinho em alguém!
+            /cachorro -- Receba uma foto aleatória de um cachorro fofo para alegrar o dia!
+            /coinflip -- Jogue cara ou coroa para ver quem vence!
+            /coinflip2 -- Jogue cara ou coroa comigo, eu amo um bom desafio!
+            /dado -- Role um dado virtual para ver qual número sai!
+            /facepalm -- Dê um tapinha na própria testa ou mande para alguém que mereça!
+            /gato -- Receba uma foto aleatória de um gato fofo para fazer "awwn"!
+            /mcsrvstat -- Veja as informações de um servidor de Minecraft para saber se seus amigos estão online!
+            /parouimpar -- Jogue par ou ímpar comigo e teste sua sorte!
+            /panda -- Receba uma foto aleatória de um panda fofo para espantar a tristeza!
+            /piscar -- Pisque para alguém e mostre que você tá pensando nele(a)!
+            /roleta-russa -- Aposte em um número e veja se você é sortudo(a)!
+            /rps -- Jogue pedra, papel ou tesoura comigo, eu adoro esse jogo!
+            /sus -- Receba uma imagem muito suspeita do Among US!
+            /tapa -- Dê um tapa em alguém (virtualmente, claro!) que mereça!
+            /tocaaqui -- Mande um "toca aqui" para alguém e demonstre carinho!`);
 
         let embed_adm = new Discord.EmbedBuilder()
             .setColor("Aqua")
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
-            .setDescription(`Olá ${interaction.user}, veja meus comandos de **administração** abaixo:
-            /admin-list -- Mostrar lista de membros com permissão do Administrador.
+            .setDescription(`Olá ${interaction.user}, aqui estão meus comandos de **administração**:
+            /admin-list -- Mostrar lista de administradores.
             /ban -- Banir um usuário.
-            /clear -- Limpe o canal de texto.
-            /embed -- Criar embed.
-            /kick -- Expulse um membro do servidor.
-            /lock -- Bloqueie um canal.
-            /mute --Silencia um usuário por um determinado tempo.
-            /setnick -- Configura o nickname do usuário no servidor.
-            /slowmode -- Configure o modo lento em um canal de texto.
-            /sorteio -- Crie um sorteio no servidor.
-            /tickets -- tive o sistema de ticket no servidor.
+            /limpar -- Limpar o canal de texto.
+            /embed -- Criar uma mensagem bonita. (Beta)
+            /kick -- Expulsar um membro.
+            /lock -- Bloquear um canal.
+            /mute -- Silenciar um usuário.
+            /setnick -- Mudar o apelido de um membro.
+            /slowmode -- Configurar modo lento.
+            /sorteio -- Realizar um sorteio.
+            /tickets -- Gerenciar tickets de suporte.
             /unban -- Desbanir um usuário.
-            /unmute -- Remover o silenciamento de um usuário.
-            /unlock -- Desbloqueie um canal.`);
+            /unmute -- Remover silenciamento.
+            /unlock -- Desbloquear um canal.`);
 
         let painel = new Discord.ActionRowBuilder().addComponents(
             new Discord.StringSelectMenuBuilder()

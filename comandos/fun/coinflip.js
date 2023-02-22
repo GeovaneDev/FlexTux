@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
     name: "coinflip",
-    description: "Jogue cara ou coroa.",
+    description: "Jogue cara ou coroa para ver quem vence!",
     type: Discord.ApplicationCommandType.ChatInput,
 
     run: async (client, interaction) => {

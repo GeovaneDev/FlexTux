@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
   name: "dado",
-  description: "Jogue um dado de seis lados.",
+  description: "Role um dado virtual para ver qual número sai!",
   type: Discord.ApplicationCommandType.ChatInput,
 
   run: async (client, interaction) => {

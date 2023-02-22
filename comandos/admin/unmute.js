@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
   name: "unmute",
-  description: "Remover o silenciamento de um usuário.",
+  description: "Remover silenciamento.",
   type: Discord.ApplicationCommandType.ChatInput,
 
   options: [

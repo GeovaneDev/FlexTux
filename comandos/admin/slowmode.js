@@ -3,7 +3,7 @@ const ms = require("ms")
 
 module.exports = {
     name: "slowmode",
-    description: "Configure o modo lento em um canal de texto.",
+    description: "Configurar modo lento.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

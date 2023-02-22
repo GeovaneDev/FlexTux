@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
   name: "ping",
-  description: "Veja o meu ping.",
+  description: "Descubra o meu tempo de resposta.",
   type: Discord.ApplicationCommandType.ChatInput,
 
   run: async (client, interaction) => {
@@ -14,7 +14,6 @@ let embed = new Discord.EmbedBuilder()
       .setDescription(`Olá ${interaction.user}, meu ping está em \`${ping}ms\`.`)
       .setColor("Random");
 
-    interaction.reply({ embeds: [embed] }).then(() => {
-    })
+    interaction.reply({ embeds: [embed] })
   }
 }

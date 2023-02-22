@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: "parouimpar",
-    description: "Jogue par ou ímpar contra mim.",
+    description: "Jogue par ou ímpar comigo e teste sua sorte!",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

@@ -3,11 +3,8 @@ const { PermissionFlagsBits, EmbedBuilder, PermissionsBitField } = require("disc
 module.exports = {
 
     name: "admin-list",
-    description: "Mostrar lista de membros com permissão do Administrador.",
+    description: "Mostrar lista de administradores.",
     permission: PermissionFlagsBits.Administrator,
-    dm: false,
-    exemple: "admin-list",
-    category: "Administrador",
     cooldown: 5,
 
     async run(client, interaction, args) {

@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: "rps",
-    description: "Jogue pedra, papel ou tesoura contra min.",
+    description: "Jogue pedra, papel ou tesoura comigo, eu adoro esse jogo!",
     type: Discord.ApplicationCommandType.ChatInput,
 
     options: [

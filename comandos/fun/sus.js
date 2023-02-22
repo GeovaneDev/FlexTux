@@ -2,7 +2,7 @@ const { ApplicationCommandType, EmbedBuilder } = require("discord.js");
 
 module.exports = {
     name: "sus",
-    description: "Mostra uma imagem mt sus.",
+    description: "Receba uma imagem muito suspeita do Among US!",
     type: ApplicationCommandType.ChatInput,
 
     run: async (client, interaction) => {

@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
     name: "setnick",
-    description: "Configura o nickname do usuário no servidor.",
+    description: "Mudar o apelido de um membro.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
     name: "unlock",
-    description: "Desbloqueie um canal.",
+    description: "Desbloquear um canal.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

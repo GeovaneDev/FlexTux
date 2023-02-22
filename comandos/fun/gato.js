@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 
 module.exports = {
   name: "gato",
-  description: "Mostra uma imagem aleatória de um gato fofinho.",
+  description: "Receba uma foto aleatória de um gato fofo para fazer "awwn"!",
   type: Discord.ApplicationCommandType.ChatInput,
 
   run: async (client, interaction) => {

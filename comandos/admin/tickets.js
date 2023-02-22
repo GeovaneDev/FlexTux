@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
   name: "tickets",
-  description: "Ative o sistema de ticket no servidor.",
+  description: "Gerenciar tickets de suporte.",
   type: Discord.ApplicationCommandType.ChatInput,
   options: [
     {

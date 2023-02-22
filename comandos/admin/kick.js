@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
     name: "kick",
-    description: "Expulse um membro do servidor.",
+    description: "Expulsar um membro.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

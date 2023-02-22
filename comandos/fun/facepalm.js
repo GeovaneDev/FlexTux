@@ -1,7 +1,7 @@
 const Discord = require('discord.js') //id do seu bot no lugar do id "944555548148375592"
 module.exports = {
     name: "facepalm",
-    description: "Mande um facepalm(palma da mão no rosto) para uma pessoa.",
+    description: "Dê um tapinha na própria testa ou mande para alguém que mereça!",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

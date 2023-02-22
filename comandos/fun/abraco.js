@@ -1,7 +1,7 @@
 const Discord = require('discord.js') //id do seu bot no lugar do id "944555548148375592"
 module.exports = {
     name: "abraço",
-    description: "De um abraço em uma pessoa.",
+    description: "Abraça alguém para mostrar carinho!",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {
