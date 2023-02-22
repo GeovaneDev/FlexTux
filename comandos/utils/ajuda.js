@@ -16,60 +16,54 @@ module.exports = {
             .setColor("Aqua")
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
             .setDescription(`Olá ${interaction.user}, veja meus comandos de **utilidade** abaixo:
-            /starnick-info -- Fornece informações sobre mim.
-            /ping -- Veja o meu ping.
             /ajuda -- Mostra essa mensagem.
-            /userinfo -- Veja informações de um usuário.
-            /uptime -- Quanto tempo estou operando.
+            /ping -- Veja o meu ping.
             /serverinfo -- Veja as informações do servidor.
-            /traduzir -- Traduzir um texto para outro idioma.`);
+            /starnick-info -- Fornece informações sobre mim.
+            /traduzir -- Traduzir um texto para outro idioma.
+            /uptime -- Quanto tempo estou operando.
+            /userinfo -- Veja informações de um usuário.`);
 
         let embed_diversao = new Discord.EmbedBuilder()
             .setColor("Aqua")
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
             .setDescription(`Olá ${interaction.user}, veja meus comandos de **diversão** abaixo:
-            /beijar -- Beije um membro.
             /abraço -- Abrace um membro.
-            /tapa -- Dê um tapa em uma pessoa.
+            /beijar -- Beije um membro.
+            /cachorro -- Envia uma imagem aleatória de cachorro fofinho.
             /coinflip -- Jogue cara ou coroa.
             /coinflip2 -- Jogue cara ou coroa contra mim.
-            /mcsrvstat -- Veja as informações de um servidor de Minecraft.
-            /sus -- Mostra uma imagem mt sus.
-            /rps -- Jogue pedra, papel ou tesoura contra min.
-            /tocaaqui -- Mande um toca aqui para uma pessoa.
-            /dado -- Jogue um dado de seis lados. (BETA)
-            /cachorro -- Envia uma imagem aleatória de cachorro fofinho.
+            /dado -- Jogue um dado de seis lados.
+            /facepalm -- Mande um facepalm(palma da mão no rosto) para uma pessoa.
             /gato -- Mostra uma imagem aleatória de um gato fofinho.
-            /roleta-russa -- Jogar roleta-russa comigo.
+            /mcsrvstat -- Veja as informações de um servidor de Minecraft.
             /parouimpar -- Jogue par ou ímpar contra mim.
-	    /panda -- Mostra uma imagem aleatória de um panda fofinho.`);
-
-            let embed_economia = new Discord.EmbedBuilder()
-            .setColor("Aqua")
-            .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
-            .setDescription(`Olá ${interaction.user}, veja meus comandos de **economia** abaixo:
-            /atm -- Veja sua quantidade de moedas em sua carteira.
-            /daily -- Resgate seu dinheiro diário.
-            /pay -- Pague uma quantia de moedas para um usuário.`);
+            /panda -- Mostra uma imagem aleatória de um panda fofinho.
+            /piscar -- Pisque para uma pessoa.
+            /roleta-russa -- Jogar roleta-russa comigo.
+            /rps -- Jogue pedra, papel ou tesoura contra mim.
+            /sus -- Mostra uma imagem mt sus.
+            /tapa -- Dê um tapa em uma pessoa.
+            /tocaaqui -- Mande um toca aqui para uma pessoa.`);
 
         let embed_adm = new Discord.EmbedBuilder()
             .setColor("Aqua")
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
             .setDescription(`Olá ${interaction.user}, veja meus comandos de **administração** abaixo:
+            /admin-list -- Mostrar lista de membros com permissão do Administrador.
             /ban -- Banir um usuário.
-            /unban -- Desbanir um usuário.
-            /slowmode -- Configure o modo lento em um canal de texto.
             /clear -- Limpe o canal de texto.
-            /setnick -- Configura o nickname do usuário no servidor.
-            /lock -- Bloqueie um canal.
-            /unlock -- Desbloqueie um canal.
+            /embed -- Criar embed.
             /kick -- Expulse um membro do servidor.
+            /lock -- Bloqueie um canal.
+            /mute --Silencia um usuário por um determinado tempo.
+            /setnick -- Configura o nickname do usuário no servidor.
+            /slowmode -- Configure o modo lento em um canal de texto.
             /sorteio -- Crie um sorteio no servidor.
             /tickets -- tive o sistema de ticket no servidor.
-            /embed -- Criar embed.
-            /admin-list -- Mostrar lista de membros com permissão do Administrador.
-            /mute --Silencia um usuário por um determinado tempo.
-            /unmute -- Remover o silenciamento de um usuário.`);
+            /unban -- Desbanir um usuário.
+            /unmute -- Remover o silenciamento de um usuário.
+            /unlock -- Desbloqueie um canal.`);
 
         let painel = new Discord.ActionRowBuilder().addComponents(
             new Discord.StringSelectMenuBuilder()
@@ -93,12 +87,6 @@ module.exports = {
                         description: "Veja meus comandos de diversão.",
                         emoji: "😅",
                         value: "diversao"
-                    },
-                    {
-                        label: "Economia",
-                        description: "Veja meus comandos de economia.",
-                        emoji: "💰",
-                        value: "economia"
                     },
                     {
                         label: "Administração",
@@ -131,8 +119,5 @@ module.exports = {
                 }
             })
         })
-
-
-
     }
 }
