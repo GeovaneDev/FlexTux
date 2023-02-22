@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
-const config = require("./config.json")
 const { QuickDB } = require('quick.db')
+"use strict";
+const dotenv = require('dotenv');
+dotenv.config();
 
 const client = new Discord.Client({
   intents: [
@@ -26,8 +28,7 @@ client.on('interactionCreate', (interaction) => {
 })
 
 client.on('ready', () => {
-  console.log(`🔥 Estou online em ${client.guilds.cache.size} Servidores!
-  🎈 Estou logado(a) como${client.user.tag}!`)
+  console.log(`🔥 Estou online em ${client.guilds.cache.size} Servidores!\n🎈 Estou logado(a) como ${client.user.tag}!`)
   client.user.setStatus("online");
   client.user.setPresence({
     activities: [{
@@ -42,6 +43,14 @@ process.on("uncaughtException", (err) => {
 
 process.on("unhandledRejection", (reason, promise) => {
   console.log("[GRAVE] Rejeição possivelmente não tratada em: Promise ", promise, " motivo: ", reason.message);
+});
+
+client.on("messageCreate", (message) => {
+  if (message.author.bot) return;
+const tempoAtual = Date.now();
+const tempoAnterior = message.createdTimestamp;
+const intervaloTempo = (tempoAtual - tempoAnterior) / 1000;
+  if (intervaloTempo > 60) return;
 });
 
 client.on("interactionCreate", async (interaction) => {
@@ -114,41 +123,8 @@ client.on("interactionCreate", async (interaction) => {
   }
 })
 
-client.on("messageDelete", (message, oldMessage, newMessage) => {
-  const channel = client.channels.cache.get("1064233786809778207");
-  const embed = new Discord.EmbedBuilder()
-    .setTitle(`<:7889discordchat:1046476120297582622> ‣ LOG | Mensagem Deletada.`)
-    .setColor('#10fee4')
-    .setFooter({ text: `© ${client.user.username} 2023` })
-    .setThumbnail(`${client.user.displayAvatarURL({ size: 2048 })}`)
-    .setTimestamp(new Date())
-    .setDescription(`**<:1288discordrole:1028430849915498606> ‣ Autor da mensagem**  \n> **Usuário:** ${message.author} \n> **ID:** ${message.author.id} \n\n**<:7889discordchat:1046476120297582622> ‣ Canal:** \n> ${message.channel} \n\n**Mensagem deletada:** \n \`\`\`${message.content}\`\`\``)
-  channel.send({ embeds: [embed] });
-})
-
-client.on("messageUpdate", (message, oldMessage, newMessage) => {
-  const channel = client.channels.cache.get("1064233786809778207");
-  const embed = new Discord.EmbedBuilder()
-    .setTitle(`<:7889discordchat:1046476120297582622> ‣ LOG | Mensagem Editada.`)
-    .setColor('#10fee4')
-    .setThumbnail(`${client.user.displayAvatarURL({ size: 2048 })}`)
-    .setFooter({ text: `© ${client.user.username} 2023` })
-    .setTimestamp(new Date())
-    .setDescription(`**<:1288discordrole:1028430849915498606> ‣ Autor da mensagem** \n> **Usuário:** ${message.author} \n> **ID:** ${message.author.id} \n\n**<:7889discordchat:1046476120297582622> ‣ Canal:** \n> ${message.channel} \n\n**Mensagem antiga:** \n \`\`\`${message.content}\`\`\` \n**Mensagem nova:** \n \`\`\`${oldMessage.content}\`\`\``)
-
-  let mensagem1 = new ActionRowBuilder().addComponents(
-    new Discord.ButtonBuilder()
-      .setLabel("Ir para mensagem")
-      .setStyle(Discord.ButtonStyle.Link)
-      .setURL(`${message.url}`)
-      .setEmoji("📩")
-  )
-
-  channel.send({ embeds: [embed], components: [mensagem1] })
-})
-
 client.slashCommands = new Discord.Collection()
 
 require('./handler')(client)
 
-client.login(config.token);
+client.login(process.env.DISCORD_TOKEN);
