@@ -1,7 +1,7 @@
 const Discord = require('discord.js') //id do seu bot no lugar do id "944555548148375592"
 module.exports = {
-    name: "cafuné",
-    description: "Faça cafuné em uma pessoa.",
+    name: "piscar",
+    description: "Pisque para uma pessoa.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {
@@ -15,24 +15,24 @@ module.exports = {
 
         let user = interaction.options.getUser("membro")
 
-        const response = await fetch("https://some-random-api.ml/animu/pat");
+        const response = await fetch("https://some-random-api.ml/animu/wink");
         const data = await response.json();
-        const cafuneImageUrl = data.link;
+        const piscarImageUrl = data.link;
 
         if (user.id === interaction.user.id) {
             const userembed = new Discord.EmbedBuilder()
-                .setImage(cafuneImageUrl)
+                .setImage(piscarImageUrl)
                 .setFooter({text: `Fonte: some-random-api.ml`})
                 .setColor("Random")
-                .setDescription(`**Eu não acho que fazer cafuné em você mesmo seja bom... Aqui, ${client.users.cache.get("944555548148375592")} Fez cafuné em ${user}.**`)
+                .setDescription(`**Eu não acho que piscar para você mesmo seja bom ou possível... Aqui, ${client.users.cache.get("944555548148375592")} Piscou para em ${user}.**`)
             interaction.reply({ embeds: [userembed] })
             return
         }
 
         if (user.id === "944555548148375592") {
             const botembed = new Discord.EmbedBuilder()
-                .setDescription(`**Awww, obrigada. ${interaction.user} Fez cafuné em ${user}.**`)
-                .setImage(cafuneImageUrl)
+                .setDescription(`**Ei, por que você está piscando para mim, ${interaction.user}?**`)
+                .setImage(piscarImageUrl)
                 .setFooter({text: `Fonte: some-random-api.ml`})
                 .setColor("Random");
             interaction.reply({ embeds: [botembed] });
@@ -40,8 +40,8 @@ module.exports = {
         }
 
         const embed = new Discord.EmbedBuilder()
-            .setDescription(`**${interaction.user} Fez cafuné em ${user}.**`)
-            .setImage(cafuneImageUrl)
+            .setDescription(`**${interaction.user} piscou para ${user}.**`)
+            .setImage(piscarImageUrl)
             .setFooter({text: `Fonte: some-random-api.ml`})
             .setColor("Random")
 
@@ -55,9 +55,9 @@ module.exports = {
             )
 
         const embed1 = new Discord.EmbedBuilder()
-            .setDescription(`**${user} Retribuiu o cafune de ${interaction.user}.**`)
+            .setDescription(`**${user} retribuiu o pisca de ${interaction.user}.**`)
             .setColor("Random")
-            .setImage(cafuneImageUrl)
+            .setImage(piscarImageUrl)
             .setFooter({text: `Fonte: some-random-api.ml`})
 
         interaction.reply({ embeds: [embed], components: [button] }).then(() => {

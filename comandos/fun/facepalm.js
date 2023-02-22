@@ -1,7 +1,7 @@
 const Discord = require('discord.js') //id do seu bot no lugar do id "944555548148375592"
 module.exports = {
-    name: "cafuné",
-    description: "Faça cafuné em uma pessoa.",
+    name: "facepalm",
+    description: "Mande um facepalm(palma da mão no rosto) para uma pessoa.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {
@@ -15,24 +15,28 @@ module.exports = {
 
         let user = interaction.options.getUser("membro")
 
-        const response = await fetch("https://some-random-api.ml/animu/pat");
+        const response = await fetch("https://some-random-api.ml/animu/face-palm");
         const data = await response.json();
-        const cafuneImageUrl = data.link;
+        const facepalmImageUrl = data.link;
+
+        const response2 = await fetch("https://some-random-api.ml/animu/hug");
+        const data2 = await response2.json();
+        const abracoImageUrl2 = data2.link;
 
         if (user.id === interaction.user.id) {
             const userembed = new Discord.EmbedBuilder()
-                .setImage(cafuneImageUrl)
+                .setImage(abracoImageUrl2)
                 .setFooter({text: `Fonte: some-random-api.ml`})
                 .setColor("Random")
-                .setDescription(`**Eu não acho que fazer cafuné em você mesmo seja bom... Aqui, ${client.users.cache.get("944555548148375592")} Fez cafuné em ${user}.**`)
+                .setDescription(`**Awww, você está fazendo um facepalm em si mesmo? Não fique triste! Deixa eu te ajudar! ${client.users.cache.get("944555548148375592")} deu um abraço para animar o dia de ${user}!**`)
             interaction.reply({ embeds: [userembed] })
             return
         }
 
         if (user.id === "944555548148375592") {
             const botembed = new Discord.EmbedBuilder()
-                .setDescription(`**Awww, obrigada. ${interaction.user} Fez cafuné em ${user}.**`)
-                .setImage(cafuneImageUrl)
+                .setDescription(`**Oh não, ${interaction.user} enviou um facepalm para mim! Será que fiz algo errado?**`)
+                .setImage(facepalmImageUrl)
                 .setFooter({text: `Fonte: some-random-api.ml`})
                 .setColor("Random");
             interaction.reply({ embeds: [botembed] });
@@ -40,8 +44,8 @@ module.exports = {
         }
 
         const embed = new Discord.EmbedBuilder()
-            .setDescription(`**${interaction.user} Fez cafuné em ${user}.**`)
-            .setImage(cafuneImageUrl)
+            .setDescription(`**${interaction.user} mandou um facepalm para ${user}.**`)
+            .setImage(facepalmImageUrl)
             .setFooter({text: `Fonte: some-random-api.ml`})
             .setColor("Random")
 
@@ -55,9 +59,9 @@ module.exports = {
             )
 
         const embed1 = new Discord.EmbedBuilder()
-            .setDescription(`**${user} Retribuiu o cafune de ${interaction.user}.**`)
+            .setDescription(`**${user} retribuiu o facepalm de ${interaction.user}... parece que essa conversa não está indo muito bem. Vamos tentar manter a calma.**`)
             .setColor("Random")
-            .setImage(cafuneImageUrl)
+            .setImage(facepalmImageUrl)
             .setFooter({text: `Fonte: some-random-api.ml`})
 
         interaction.reply({ embeds: [embed], components: [button] }).then(() => {

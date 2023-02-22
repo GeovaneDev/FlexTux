@@ -1,4 +1,4 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js') //id do seu bot no lugar do id "944555548148375592"
 module.exports = {
     name: "abraço",
     description: "De um abraço em uma pessoa.",
@@ -15,28 +15,14 @@ module.exports = {
 
         let user = interaction.options.getUser("membro")
 
-        let lista1 = [
-            'https://imgur.com/RgfGLNk.gif',
-            'https://i.imgur.com/r9aU2xv.gif',
-            'https://i.imgur.com/wOmoeF8.gif',
-            'https://i.imgur.com/nrdYNtL.gif',
-            'https://imgur.com/82xVqUg.gif'
-        ];
-
-        let lista2 = [
-            'https://imgur.com/c3WzMZu.gif',
-            'https://imgur.com/BPLqSJC.gif',
-            'https://imgur.com/ntqYLGl.gif',
-            'https://imgur.com/v47M1S4.gif',
-            'https://imgur.com/6qYOUQF.gif'
-        ];
-
-        var random1 = lista1[Math.floor(Math.random() * lista1.length)];
-        var random2 = lista2[Math.floor(Math.random() * lista2.length)];
+        const response = await fetch("https://some-random-api.ml/animu/hug");
+        const data = await response.json();
+        const abracoImageUrl = data.link;
 
         if (user.id === interaction.user.id) {
             const userembed = new Discord.EmbedBuilder()
-                .setImage(`${random1}`)
+                .setImage(abracoImageUrl)
+                .setFooter({text: `Fonte: some-random-api.ml`})
                 .setColor("Random")
                 .setDescription(`**Eu não acho que dar um abraço em você mesmo seja bom... Aqui, ${client.users.cache.get("944555548148375592")} Deu um abraço em ${user}.**`)
             interaction.reply({ embeds: [userembed] })
@@ -46,7 +32,8 @@ module.exports = {
         if (user.id === "944555548148375592") {
             const botembed = new Discord.EmbedBuilder()
                 .setDescription(`**Awww, obrigada. ${interaction.user} Deu um abraço em ${user}.**`)
-                .setImage(`${random1}`)
+                .setImage(abracoImageUrl)
+                .setFooter({text: `Fonte: some-random-api.ml`})
                 .setColor("Random");
             interaction.reply({ embeds: [botembed] });
             return
@@ -54,7 +41,8 @@ module.exports = {
 
         const embed = new Discord.EmbedBuilder()
             .setDescription(`**${interaction.user} Deu um abraço em ${user}.**`)
-            .setImage(`${random1}`)
+            .setImage(abracoImageUrl)
+            .setFooter({text: `Fonte: some-random-api.ml`})
             .setColor("Random")
 
         const button = new Discord.ActionRowBuilder()
@@ -69,7 +57,8 @@ module.exports = {
         const embed1 = new Discord.EmbedBuilder()
             .setDescription(`**${user} Retribuiu o abraço de ${interaction.user}.**`)
             .setColor("Random")
-            .setImage(`${random2}`)
+            .setImage(abracoImageUrl)
+            .setFooter({text: `Fonte: some-random-api.ml`})
 
         interaction.reply({ embeds: [embed], components: [button] }).then(() => {
             const filter = i => i.customId === '1' && i.user.id === user.id;
