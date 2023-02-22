@@ -6,7 +6,6 @@ A Starnick (ou Star) é um bot Discord.js v14 que utiliza Slash Commands(/). Ela
 
 O Bot possui as seguintes funcionalidades:
 
-- Comandos de economia
 - Comandos de diversão
 - Comandos de utilidades
 - Comandos de moderação
@@ -35,7 +34,7 @@ cd Starnick/
 npm install
 ```
 
-3. Configure as suas credenciais do Discord no arquivo `config.json` com o token do seu bot.
+3. Configure as suas credenciais do Discord no arquivo `.env.example` com o token do seu bot e mude o nome de `.env.example` para `.env`.
 
 4. Inicie o bot utilizando o comando:
 
@@ -52,13 +51,14 @@ sudo apt update -y && sudo apt install nodejs nano git -y
 git clone https://github.com/GeovaneDev/Starnick
 cd Starnick/
 npm install
-nano config.json
+nano .env.example
+mv .env.example .env
 node .
 ```
 
 ### Comandos Windows
 
-Se você estiver usando Windows, baixe e instale o [Git](https://git-scm.com/downloads) e o [Node.js](https://nodejs.org/en/) antes de executar os seguintes comandos e adicine seu token antes de usar o "node . " no arquivo "config.json":
+Se você estiver usando Windows, baixe e instale o [Git](https://git-scm.com/downloads) e o [Node.js](https://nodejs.org/en/) antes de executar os seguintes comandos e adicine seu token antes de usar o "node ." adicione seu token no arquiv `.env.example` e mude o nome de `.env.example` para `.env`:
 
 ```
 git clone https://github.com/GeovaneDev/Starnick
