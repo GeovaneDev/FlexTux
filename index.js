@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
-const { QuickDB } = require('quick.db')
+const { QuickDB } = require("quick.db");
+const db = new QuickDB();
 "use strict";
 const dotenv = require('dotenv');
 dotenv.config();
@@ -47,9 +48,9 @@ process.on("unhandledRejection", (reason, promise) => {
 
 client.on("messageCreate", (message) => {
   if (message.author.bot) return;
-const tempoAtual = Date.now();
-const tempoAnterior = message.createdTimestamp;
-const intervaloTempo = (tempoAtual - tempoAnterior) / 1000;
+  const tempoAtual = Date.now();
+  const tempoAnterior = message.createdTimestamp;
+  const intervaloTempo = (tempoAtual - tempoAnterior) / 1000;
   if (intervaloTempo > 60) return;
 });
 
@@ -120,6 +121,15 @@ client.on("interactionCreate", async (interaction) => {
       }
 
     }
+  }
+})
+
+client.on('messageCreate', async (message) => {
+  if (message.mentions.has(client.user.id)) {
+    await message.reply({embeds: [new Discord.EmbedBuilder()
+      .setDescription(`:kissing_heart: **Olá ${message.author}, meu prefix é ```/```, para ver em tudo que posso te ajudar user ```/ajuda```**`)
+      .setColor("Random")
+      ]})
   }
 })
 
