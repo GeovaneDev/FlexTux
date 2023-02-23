@@ -15,7 +15,7 @@ module.exports = {
         let embed_utilidade = new Discord.EmbedBuilder()
             .setColor("Aqua")
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
-            .setDescription(`Olá ${interaction.user}, Aqui estão alguns comandos de **úteis**:
+            .setDescription(`Olá ${interaction.user}, Aqui estão alguns comandos **úteis**:
             /ajuda -- Mostra essa mensagem.
             /ping -- Descubra o meu tempo de resposta.
             /serverinfo -- Veja as informações do servidor.
@@ -29,20 +29,17 @@ module.exports = {
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
             .setDescription(`Oli, ${interaction.user}! Aqui estão alguns comandos de **diversão** para você:
             /abraço -- Abraça alguém para mostrar carinho!
+            /animal -- Receba uma foto aleatória de um animal fofo para alegrar o dia!
             /beijar -- Dê um beijinho em alguém!
-            /cachorro -- Receba uma foto aleatória de um cachorro fofo para alegrar o dia!
             /coinflip -- Jogue cara ou coroa para ver quem vence!
             /coinflip2 -- Jogue cara ou coroa comigo, eu amo um bom desafio!
             /dado -- Role um dado virtual para ver qual número sai!
             /facepalm -- Dê um tapinha na própria testa ou mande para alguém que mereça!
-            /gato -- Receba uma foto aleatória de um gato fofo para fazer "awwn"!
             /mcsrvstat -- Veja as informações de um servidor de Minecraft para saber se seus amigos estão online!
             /parouimpar -- Jogue par ou ímpar comigo e teste sua sorte!
-            /panda -- Receba uma foto aleatória de um panda fofo para espantar a tristeza!
             /piscar -- Pisque para alguém e mostre que você tá pensando nele(a)!
             /roleta-russa -- Aposte em um número e veja se você é sortudo(a)!
             /rps -- Jogue pedra, papel ou tesoura comigo, eu adoro esse jogo!
-            /sus -- Receba uma imagem muito suspeita do Among US!
             /tapa -- Dê um tapa em alguém (virtualmente, claro!) que mereça!
             /tocaaqui -- Mande um "toca aqui" para alguém e demonstre carinho!`);
 
@@ -63,7 +60,8 @@ module.exports = {
             /tickets -- Gerenciar tickets de suporte.
             /unban -- Desbanir um usuário.
             /unmute -- Remover silenciamento.
-            /unlock -- Desbloquear um canal.`);
+            /unlock -- Desbloquear um canal.
+            /cargo-botao -- Ganhe cargos clicando no botão.`);
 
         let painel = new Discord.ActionRowBuilder().addComponents(
             new Discord.StringSelectMenuBuilder()
