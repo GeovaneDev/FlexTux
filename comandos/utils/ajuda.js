@@ -29,7 +29,7 @@ module.exports = {
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
             .setDescription(`Oli, ${interaction.user}! Aqui estão alguns comandos de **diversão** para você:
             /abraço -- Abraça alguém para mostrar carinho!
-            /animal -- Receba uma foto aleatória de um animal fofo para alegrar o dia!
+            /animalfofo -- Receba uma foto aleatória de um animal fofo para alegrar o dia!
             /beijar -- Dê um beijinho em alguém!
             /coinflip -- Jogue cara ou coroa para ver quem vence!
             /coinflip2 -- Jogue cara ou coroa comigo, eu amo um bom desafio!
