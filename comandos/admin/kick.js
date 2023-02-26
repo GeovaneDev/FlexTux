@@ -27,6 +27,10 @@ module.exports = {
             const user = interaction.options.getUser("membro")
             const membro = interaction.guild.members.cache.get(user.id)
 
+            if (!membro) {
+                return interaction.reply({ content: `Membro não encontrado.`, ephemeral: true })
+            }
+
             let motivo = interaction.options.getString("motivo")
             if (!motivo) motivo = "Não informado"
 
@@ -41,7 +45,7 @@ module.exports = {
             membro.kick(motivo).then(() => {
                 interaction.reply({ embeds: [embed] })
             }).catch(e => {
-                interaction.reply({ embeds: [embed_erro] })
+                interaction.reply({ embeds: [embed_erro], epemeral: true })
             })
         }
 

@@ -32,16 +32,31 @@ module.exports = {
     run: async (client, interaction) => {
         const animalChoice = interaction.options.getString('animal');
         const isRandom = interaction.options.getBoolean('aleatório');
+        let api;
 
-        if (!animalChoice || !isRandom) {
-            interaction.reply({
-                content: 'Por favor, selecione apenas "animal" ou "aleatório".',
-                ephemeral: true
-            });
+        if (!animalChoice && !isRandom) {
+            const erroEmbed = new Discord.EmbedBuilder()
+                .setColor("Random")
+                .setDescription(`Olá ${interaction.user}, Você precisa escolher um animal ou selecionar aleatório.`)
+            await interaction.reply({ embeds: [erroEmbed], ephemeral: true });
             return;
         }
 
-        let api;
+        if (animalChoice && isRandom) {
+            const erroEmbed = new Discord.EmbedBuilder()
+                .setColor("Random")
+                .setDescription(`Olá ${interaction.user}, Você não pode escolher um animal e um animal aleatório ao mesmo tempo.`)
+            await interaction.reply({ embeds: [erroEmbed], ephemeral: true });
+            return;
+        }
+
+        if (isRandom === false && !animalChoice) {
+            const erroEmbed = new Discord.EmbedBuilder()
+                .setColor("Random")
+                .setDescription(`Olá ${interaction.user}, Você precisa escolher um animal ou selecionar aleatório.`)
+            await interaction.reply({ embeds: [erroEmbed], ephemeral: true });
+            return;
+        }
 
         if (isRandom) {
             const apis = [

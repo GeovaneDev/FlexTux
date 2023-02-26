@@ -15,7 +15,7 @@ module.exports = {
         let embed_utilidade = new Discord.EmbedBuilder()
             .setColor("Aqua")
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
-            .setDescription(`Olá ${interaction.user}, Aqui estão alguns comandos **úteis**:
+            .setDescription(`Aqui estão alguns comandinhos que podem ser úteis para você, ${interaction.user}! 😊
             /ajuda -- Mostra essa mensagem.
             /ping -- Descubra o meu tempo de resposta.
             /serverinfo -- Veja as informações do servidor.
@@ -27,26 +27,34 @@ module.exports = {
         let embed_diversao = new Discord.EmbedBuilder()
             .setColor("Aqua")
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
-            .setDescription(`Oli, ${interaction.user}! Aqui estão alguns comandos de **diversão** para você:
-            /abraço -- Abraça alguém para mostrar carinho!
+            .setDescription(`Oi, ${interaction.user}! Aqui estão alguns comandinhos super divertidos para você usar e se divertir: 🎉🎮
             /animalfofo -- Receba uma foto aleatória de um animal fofo para alegrar o dia!
-            /beijar -- Dê um beijinho em alguém!
             /coinflip -- Jogue cara ou coroa para ver quem vence!
             /coinflip2 -- Jogue cara ou coroa comigo, eu amo um bom desafio!
             /dado -- Role um dado virtual para ver qual número sai!
-            /facepalm -- Dê um tapinha na própria testa ou mande para alguém que mereça!
             /mcsrvstat -- Veja as informações de um servidor de Minecraft para saber se seus amigos estão online!
             /parouimpar -- Jogue par ou ímpar comigo e teste sua sorte!
-            /piscar -- Pisque para alguém e mostre que você tá pensando nele(a)!
             /roleta-russa -- Aposte em um número e veja se você é sortudo(a)!
-            /rps -- Jogue pedra, papel ou tesoura comigo, eu adoro esse jogo!
+            /rps -- Jogue pedra, papel ou tesoura comigo, eu adoro esse jogo!`);
+
+        let embed_animegifs = new Discord.EmbedBuilder()
+            .setColor("Aqua")
+            .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
+            .setDescription(`Aqui estão alguns gifs de animes que você pode usar para alegrar seu dia:
+            /abraço -- Abraça alguém para mostrar carinho!
+            /beijar -- Dê um beijinho em alguém!
+            /cafune -- Faça cafuné em alguém para demostrar carinho!
+            /comemorar -- Comemore algo com alguém!
+            /facepalm -- Dê um tapinha na própria testa ou mande para alguém que mereça!
+            /palmas -- Mostre seu apoio a alguém e bata palminhas! 🎉
+            /piscar -- Pisque para alguém e mostre que você tá pensando nele(a)!
             /tapa -- Dê um tapa em alguém (virtualmente, claro!) que mereça!
             /tocaaqui -- Mande um "toca aqui" para alguém e demonstre carinho!`);
 
         let embed_adm = new Discord.EmbedBuilder()
             .setColor("Aqua")
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
-            .setDescription(`Olá ${interaction.user}, aqui estão meus comandos de **administração**:
+            .setDescription(`Aqui estão meus comandinhos de administração que podem ajudar você a cuidar do servidor com muito carinho e eficiência:
             /admin-list -- Mostrar lista de administradores.
             /ban -- Banir um usuário.
             /limpar -- Limpar o canal de texto.
@@ -85,6 +93,12 @@ module.exports = {
                         description: "Veja meus comandos de diversão.",
                         emoji: "😅",
                         value: "diversao"
+                    },
+                    {
+                        label: "Animes Gifs",
+                        description: "Veja meus comandos de gifs de animes.",
+                        emoji: "🌸",
+                        value: "animesgifs"
                     },
                     {
                         label: "Administração",

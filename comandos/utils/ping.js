@@ -9,7 +9,7 @@ module.exports = {
 
     let ping = client.ws.ping;
 
-let embed = new Discord.EmbedBuilder()
+    let embed = new Discord.EmbedBuilder()
       .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynamic: true }) })
       .setDescription(`Olá ${interaction.user}, meu ping está em \`${ping}ms\`.`)
       .setColor("Random");
