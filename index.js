@@ -11,6 +11,25 @@ const client = new Discord.Client({
   ]
 });
 
+client.on("messageCreate", (message) => {
+  if (message.author.bot) return;
+
+  let mencoes = [`<@${client.user.id}`, `<@!${client.user.id}`]
+
+  mencoes.forEach(element => {
+    if (nessage.content === element) {
+
+      let embed = new Discord.EmbedBuilder()
+      .setColor("Random")
+      .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynaimc: true})})
+      .setDescription(`😘 Olá, ${message.author} utilize \`/help\` para ver minha lista de comando.`)
+
+      message.reply({ embeds: [embed]})
+    }
+  })
+
+})
+
 module.exports = client
 
 client.on('interactionCreate', (interaction) => {
@@ -121,15 +140,6 @@ client.on("interactionCreate", async (interaction) => {
       }
 
     }
-  }
-})
-
-client.on('messageCreate', async (message) => {
-  if (message.mentions.has(client.user.id)) {
-    await message.reply({embeds: [new Discord.EmbedBuilder()
-      .setDescription(`:kissing_heart: **Olá ${message.author}, meu prefix é ```/```, para ver em tudo que posso te ajudar user ```/ajuda```**`)
-      .setColor("Random")
-      ]})
   }
 })
 
