@@ -8,6 +8,7 @@ O Bot possui as seguintes funcionalidades:
 
 - Comandos de diversão
 - Comandos de utilidades
+- Comandos de gifs de animes(exemplo: abraço, tocaaqui)
 - Comandos de moderação
 
 ## Requisitos
