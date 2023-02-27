@@ -98,7 +98,7 @@ module.exports = {
                         label: "Animes Gifs",
                         description: "Veja meus comandos de gifs de animes.",
                         emoji: "🌸",
-                        value: "animesgifs"
+                        value: "animegifs"
                     },
                     {
                         label: "Administração",
@@ -122,9 +122,9 @@ module.exports = {
                 } else if (valor === "diversao") {
                     c.deferUpdate()
                     interaction.editReply({ embeds: [embed_diversao] })
-                } else if (valor === "economia") {
+                } else if (valor === "animegifs") {
                     c.deferUpdate()
-                    interaction.editReply({ embeds: [embed_economia] })
+                    interaction.editReply({ embeds: [embed_animegifs] })
                 } else if (valor === "adm") {
                     c.deferUpdate()
                     interaction.editReply({ embeds: [embed_adm] })
