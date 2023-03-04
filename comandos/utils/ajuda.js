@@ -35,7 +35,8 @@ module.exports = {
             /mcsrvstat -- Veja as informações de um servidor de Minecraft para saber se seus amigos estão online!
             /parouimpar -- Jogue par ou ímpar comigo e teste sua sorte!
             /roleta-russa -- Aposte em um número e veja se você é sortudo(a)!
-            /rps -- Jogue pedra, papel ou tesoura comigo, eu adoro esse jogo!`);
+            /rps -- Jogue pedra, papel ou tesoura com alguém (BETA)
+            /rps2 -- Jogue pedra, papel ou tesoura comigo, eu adoro esse jogo!`);
 
         let embed_animegifs = new Discord.EmbedBuilder()
             .setColor("Aqua")

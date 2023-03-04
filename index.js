@@ -7,24 +7,32 @@ dotenv.config();
 
 const client = new Discord.Client({
   intents: [
-    Discord.GatewayIntentBits.Guilds
+    Discord.GatewayIntentBits.Guilds,
+    Discord.GatewayIntentBits.GuildMembers,
+    Discord.GatewayIntentBits.GuildBans,
+    Discord.GatewayIntentBits.GuildMessages,
+    Discord.GatewayIntentBits.DirectMessages,
+    Discord.GatewayIntentBits.GuildInvites,
+    Discord.GatewayIntentBits.GuildWebhooks,
+    Discord.GatewayIntentBits.GuildVoiceStates,
+    Discord.GatewayIntentBits.MessageContent,
   ]
 });
 
 client.on("messageCreate", (message) => {
   if (message.author.bot) return;
 
-  let mencoes = [`<@${client.user.id}`, `<@!${client.user.id}`]
+  let mencoes = [`<@${client.user.id}>`, `<@!${client.user.id}>`]
 
   mencoes.forEach(element => {
-    if (nessage.content === element) {
+    if (message.content === element) {
 
       let embed = new Discord.EmbedBuilder()
-      .setColor("Random")
-      .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynaimc: true})})
-      .setDescription(`😘 Olá, ${message.author} utilize \`/help\` para ver minha lista de comando.`)
+        .setColor("Random")
+        .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynaimc: true }) })
+        .setDescription(`😘 Olá, ${message.author} utilize \`/ajuda\` para ver minha lista de comando.`)
 
-      message.reply({ embeds: [embed]})
+      message.reply({ embeds: [embed] })
     }
   })
 
@@ -32,37 +40,53 @@ client.on("messageCreate", (message) => {
 
 module.exports = client
 
-client.on('interactionCreate', (interaction) => {
-
-  if (interaction.type === Discord.InteractionType.ApplicationCommand) {
-
+client.on('interactionCreate', async (interaction) => {
+  if (interaction.isCommand()) {
     const cmd = client.slashCommands.get(interaction.commandName);
-
-    if (!cmd) return interaction.reply(`Ocorreu um erro na execução do comando!`);
-
-    interaction["member"] = interaction.guild.members.cache.get(interaction.user.id);
-
-    cmd.run(client, interaction)
-
+    if (!cmd) {
+      return interaction.reply({
+        content: '😭 Ocorreu um erro na execução do comando!',
+        ephemeral: true
+      });
+    }
+    try {
+      interaction.member = interaction.guild.members.cache.get(interaction.user.id);
+      await cmd.run(client, interaction);
+    } catch (error) {
+      console.error(`Erro ao executar o comando "${cmd.name}": ${error}`);
+      interaction.reply({
+        content: '😭 Ocorreu um erro ao executar o comando. Informe ao desenvolvedor.',
+        ephemeral: true
+      });
+    }
   }
-})
+});
+
 
 client.on('ready', () => {
   console.log(`🔥 Estou online em ${client.guilds.cache.size} Servidores!\n🎈 Estou logado(a) como ${client.user.tag}!`)
   client.user.setStatus("online");
   client.user.setPresence({
     activities: [{
-      name: "Digite /help para a lista de comandos."
+      name: "Digite /help para a lista de comandos.",
     }],
   })
 })
 
-process.on("uncaughtException", (err) => {
-  console.log("Uncaught Exception: " + err);
+process.on('multipleResolutions', (type, reason, promise) => {
+  console.log(`🚫 Erro Detectado\n\n` + type, promise, reason)
 });
 
-process.on("unhandledRejection", (reason, promise) => {
-  console.log("[GRAVE] Rejeição possivelmente não tratada em: Promise ", promise, " motivo: ", reason.message);
+process.on('unhandledRejection', (reason, promise) => {
+  console.log(`🚫 Erro Detectado:\n\n` + reason, promise)
+});
+
+process.on('uncaughtException', (error, origin) => {
+  console.log(`🚫 Erro Detectado:\n\n` + error, origin)
+});
+
+process.on('uncaughtExceptionMonitor', (error, origin) => {
+  console.log(`🚫 Erro Detectado:\n\n` + error, origin)
 });
 
 client.on("messageCreate", (message) => {
