@@ -21,5 +21,9 @@ module.exports = async (client) => {
   });
   client.on("ready", async () => {
     client.guilds.cache.forEach(guild => guild.commands.set(SlashsArray))
+
+  });
+  client.on("guildCreate", async (guild) => {
+    await guild.commands.set(SlashsArray);
   });
 };
