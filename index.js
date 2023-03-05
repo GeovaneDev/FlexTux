@@ -61,7 +61,6 @@ client.on('interactionCreate', async (interaction) => {
   }
 });
 
-
 client.on('ready', () => {
   console.log(`🔥 Estou online em ${client.guilds.cache.size} Servidores!\n🎈 Estou logado(a) como ${client.user.tag}!`)
   client.user.setStatus("online");
