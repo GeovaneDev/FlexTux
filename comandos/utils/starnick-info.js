@@ -10,7 +10,7 @@ module.exports = {
         let dono = "691279644468445274";
         let membros = client.users.cache.size;
         let servidores = client.guilds.cache.size;
-        let bot = client.user.tag;
+        let bot = client.user.username;
         let avatar_bot = client.user.displayAvatarURL({ dynamic: true });
         let mensagem = `Eu fui criada por Geovane.js#9037.`
 

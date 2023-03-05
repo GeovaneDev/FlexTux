@@ -47,10 +47,10 @@ module.exports = {
                     }, 5000);
                 } catch (error) {
                     console.error(error);
-                    interaction.reply({ content: 'Ocorreu um erro ao tentar deletar as mensagens selecionadas.', ephemeral: true });
+                    interaction.reply({ content: '😭 Ocorreu um erro ao tentar deletar as mensagens.', ephemeral: true });
                 }
             } else {
-                interaction.reply({ content: 'Todas as mensagens selecionadas já foram deletadas.', ephemeral: true });
+                interaction.reply({ content: 'Não existe mensagens para deletar.', ephemeral: true });
             }
         }
     }

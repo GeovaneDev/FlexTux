@@ -40,13 +40,13 @@ module.exports = {
     }
 
     const mutedRole = interaction.guild.roles.cache.find(
-      (role) => role.name.toLowerCase() === "mute"
+      (role) => role.name.toLowerCase() === "Mutado"
     );
 
     if (!mutedRole) {
       return interaction.reply({
         content:
-          "Não encontrei o cargo `mute`. Por favor, crie um cargo com esse nome e tente novamente.",
+          "Não encontrei o cargo `Mutado`. Por favor, crie um cargo com esse nome e tente novamente.",
         ephemeral: true,
       });
     }

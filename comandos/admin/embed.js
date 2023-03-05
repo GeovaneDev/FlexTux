@@ -25,18 +25,18 @@ module.exports = {
         const modal = new Discord.ModalBuilder()
             .setCustomId(`Embed`)
             .setTitle(`Criar Embed 🔪`)
+
         const TítuloEmbed = new Discord.TextInputBuilder()
             .setCustomId(`TítuloEmbed`)
             .setLabel(`Título da Embed`)
             .setPlaceholder(`Insira o título da Embed.`)
             .setStyle(TextInputStyle.Short)
+
         const DescriçãoEmbed = new Discord.TextInputBuilder()
             .setCustomId(`DescriçãoEmbed`)
             .setLabel(`Descrição da Embed`)
             .setPlaceholder(`Insira a descrição da Embed`)
             .setStyle(TextInputStyle.Paragraph)
-
-
 
         const PrimeiraActionRow = new Discord.ActionRowBuilder().addComponents(TítuloEmbed);
         const SegundaActionRow = new Discord.ActionRowBuilder().addComponents(DescriçãoEmbed);
@@ -59,8 +59,7 @@ module.exports = {
                     .setColor("Random")
                     .setTitle(`${TítuloEmbed}`)
                     .setDescription(`${DescriçãoEmbed}`)
-                    .setFooter({ text: `Mensage by ${interaction.user.tag}` })
-
+                    .setFooter({ text: `- ${interaction.user.tag}` })
 
                 interaction.reply({
                     content: `**✅ Modal Submetido com sucesso.**`, ephemeral: true

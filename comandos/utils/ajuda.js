@@ -17,12 +17,14 @@ module.exports = {
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
             .setDescription(`Aqui estão alguns comandinhos que podem ser úteis para você, ${interaction.user}! 😊
             /ajuda -- Mostra essa mensagem.
+            /livro -- Pesquise informações sobre um livro.
             /ping -- Descubra o meu tempo de resposta.
             /serverinfo -- Veja as informações do servidor.
             /starnick-info -- Fornece informações sobre mim.
             /traduzir -- Traduzir um texto para outro idioma.
             /uptime -- Quanto tempo estou online.
-            /userinfo -- Veja informações de um usuário.`);
+            /userinfo -- Veja informações de um usuário.
+            /wiki -- Pesquise algo na Wikipedia.`);
 
         let embed_diversao = new Discord.EmbedBuilder()
             .setColor("Aqua")
@@ -66,7 +68,6 @@ module.exports = {
             /setnick -- Mudar o apelido de um membro.
             /slowmode -- Configurar modo lento.
             /sorteio -- Realizar um sorteio.
-            /tickets -- Gerenciar tickets de suporte.
             /unban -- Desbanir um usuário.
             /unmute -- Remover silenciamento.
             /unlock -- Desbloquear um canal.
