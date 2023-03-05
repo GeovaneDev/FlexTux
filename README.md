@@ -2,7 +2,7 @@
 
 A Starnick (ou Star) é um bot Discord.js v14 que utiliza Slash Commands(/). Ela foi desenvolvida para proporcionar uma experiência mais fácil e rápida para o seu servidor Discord.
 
-#Site
+## Site
 
 Agora a Star tem um site: [Clique aqui](https://starnick.netlify.app/)
 Utilizamos o templete: [Templete](https://github.com/Hadi-koubeissi/Discord-bot-website-template}, Mas futuramente pretendo criar um site com as explicações da Star e também um painel de controle.
