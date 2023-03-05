@@ -42,6 +42,7 @@ module.exports = {
       const embed = new Discord.EmbedBuilder()
         .setColor("Random")
         .setTitle(data.title)
+        .setFooter({ text: "Fonte: wikipedia.org"})
         .setDescription(data.description)
         .setURL(data.content_urls.desktop.page);
 

@@ -38,6 +38,7 @@ module.exports = {
       .setColor("#FFB6C1")
       .setTitle(book.title)
       .setURL(book.previewLink)
+      .setFooter({ text: "Fonte: books.google.com"})
       .setDescription(
         `**Autor(es)**: ${book.authors || "Desconhecido"}\n**Editora**: ${
           book.publisher || "Desconhecido"
