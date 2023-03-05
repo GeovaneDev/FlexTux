@@ -34,6 +34,7 @@ module.exports = {
             /coinflip -- Jogue cara ou coroa para ver quem vence!
             /coinflip2 -- Jogue cara ou coroa comigo, eu amo um bom desafio!
             /dado -- Role um dado virtual para ver qual número sai!
+            /hack -- Comando para hackear alguém. (na brincadeira, claro!)
             /mcsrvstat -- Veja as informações de um servidor de Minecraft para saber se seus amigos estão online!
             /parouimpar -- Jogue par ou ímpar comigo e teste sua sorte!
             /roleta-russa -- Aposte em um número e veja se você é sortudo(a)!
