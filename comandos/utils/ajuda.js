@@ -24,7 +24,8 @@ module.exports = {
             /traduzir -- Traduzir um texto para outro idioma.
             /uptime -- Quanto tempo estou online.
             /userinfo -- Veja informações de um usuário.
-            /wiki -- Pesquise algo na Wikipedia.`);
+            /wiki -- Pesquise algo na Wikipedia.
+            /calculo -- Faça um cálculo matemático rápido`);
 
         let embed_diversao = new Discord.EmbedBuilder()
             .setColor("Aqua")
