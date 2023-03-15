@@ -18,11 +18,12 @@ module.exports = {
 
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageMessages)) {
             interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
-        } else if (parseInt(numero) > 200 || parseInt(numero) <= 0) {
+        } else if (parseInt(numero) > 100 || parseInt(numero) <= 0) {
             let embed = new Discord.EmbedBuilder()
                 .setColor("Random")
-                .setDescription(`\`/limpar [1 - 200]\``);
-            interaction.reply({ embeds: [embed] })
+                .setDescription(`Olá, ${interaction.user} Utilize números entre 1 e 100`)
+                .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) });
+            interaction.reply({ embeds: [embed], ephemeral: true })
         } else {
             const now = new Date().getTime();
             const messages = await interaction.channel.messages.fetch({ limit: numero });
@@ -40,7 +41,7 @@ module.exports = {
                     let embed = new Discord.EmbedBuilder()
                         .setColor("Green")
                         .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL({ dynamic: true }) })
-                        .setDescription(`O canal de texto ${interaction.channel} teve \`${deletableMessages.size}\` mensagens deletadas por \`${interaction.user.username}\`.`);
+                        .setDescription(`O canal de texto ${interaction.channel} teve \`${deletableMessages.size}\` mensagens deletadas por \`${interaction.user.tag}\`.`);
                     interaction.reply({ embeds: [embed] });
                     setTimeout(() => {
                         interaction.deleteReply();

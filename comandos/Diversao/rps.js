@@ -54,7 +54,7 @@ module.exports = {
 
             othersMessage: 'Você não possui permissão para utilizar este botão!',
             mentionUser: true,
-            timeoutTime: 60000,
+            timeoutTime: 30000,
             chooseMessage: 'Você escolheu {emoji}!',
             noChangeMessage: 'Você não pode alterar sua escolha! ✋',
             askMessage: 'Eii {opponent}, {challenger} desafiou você para jogar pedra, papel ou tesoura! 🤜🤛',

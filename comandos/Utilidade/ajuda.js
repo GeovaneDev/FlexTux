@@ -17,6 +17,7 @@ module.exports = {
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
             .setDescription(`Aqui estão alguns comandinhos que podem ser úteis para você, ${interaction.user}! 😊
             /ajuda -- Mostra essa mensagem.
+            /escolher -- Escreva duas escolhas e eu vou estolher uma.
             /livro -- Pesquise informações sobre um livro.
             /ping -- Descubra o meu tempo de resposta.
             /serverinfo -- Veja as informações do servidor.
@@ -42,6 +43,13 @@ module.exports = {
             /rps -- Jogue pedra, papel ou tesoura com alguém (BETA)
             /rps2 -- Jogue pedra, papel ou tesoura comigo, eu adoro esse jogo!
             /stonks -- Cria uma imagem do meme stonks! (BETA)`);
+
+        let embed_imagem = new Discord.EmbedBuilder()
+            .setColor("Aqua")
+            .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
+            .setDescription(`Oi, ${interaction.user}! Aqui estão alguns comandinhos super divertidos de manupulação de imagem: 
+            /imagem-stonks -- Cria uma imagem do meme stonks! (Beta)
+            /imagem-xbox -- Desbloqueie uma conquista do Xbox. (Beta)`);
 
         let embed_animegifs = new Discord.EmbedBuilder()
             .setColor("Aqua")
@@ -108,6 +116,12 @@ module.exports = {
                         value: "animegifs"
                     },
                     {
+                        label: "Imagens",
+                        description: "Veja meus comandos de manupulação de imagem.",
+                        emoji: "🏙",
+                        value: "imagem"
+                    },
+                    {
                         label: "Administração",
                         description: "Veja meus comandos de administração.",
                         emoji: "🔨",
@@ -129,6 +143,9 @@ module.exports = {
                 } else if (valor === "diversao") {
                     c.deferUpdate()
                     interaction.editReply({ embeds: [embed_diversao] })
+                } else if (valor === "imagem") {
+                    c.deferUpdate()
+                    interaction.editReply({ embeds: [embed_imagem] })
                 } else if (valor === "animegifs") {
                     c.deferUpdate()
                     interaction.editReply({ embeds: [embed_animegifs] })

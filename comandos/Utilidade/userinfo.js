@@ -1,30 +1,35 @@
 const Discord = require("discord.js");
 
 module.exports = {
-  name: "userinfo",
+  name: "user",
   description: "｢Utilidade｣ Veja informações de um usuário.",
-  type: Discord.ApplicationCommandType.ChatInput,
   options: [
     {
-      name: "user",
-      description: "Mencione o usuário.",
-      type: Discord.ApplicationCommandOptionType.User,
-      required: false,
-    },
+      name: "info",
+      description: "｢Utilidade｣ Veja informações de um usuário.",
+      type: Discord.ApplicationCommandOptionType.Subcommand,
+      options: [
+        {
+          name: "user",
+          description: "Mencione o usuário.",
+          type: Discord.ApplicationCommandOptionType.User,
+          required: false,
+        },
+      ],
+    }
   ],
 
+  run: async (client, interaction) => {
+    const user = interaction.options.getUser('user') || interaction.user;
+    const member = interaction.guild.members.cache.get(user.id);
 
-run: async (client, interaction) => {
-  const user = interaction.options.getUser('user') || interaction.user;
-  const member = interaction.guild.members.cache.get(user.id);
-  
-  let data_conta = `<t:${~~(new Date(user.createdAt) / 1000)}:R>`;
+    let data_conta = `<t:${~~(new Date(user.createdAt) / 1000)}:R>`;
     let servidor = `**<t:${~~(new Date(member.joinedAt) / 1000)}:R>**`;
     let boosts = interaction.guild.premiumSubscriptionCount;
     let embed = new Discord.EmbedBuilder()
       .setDescription(`**Olá \`${interaction.user.username}\`, aqui estão informações do usuário:**\n ﾠ`)
       .setTitle('Informações de Usuário')
-      .setThumbnail(user.displayAvatarURL({dynamic: true}))
+      .setThumbnail(user.displayAvatarURL({ dynamic: true }))
       .setColor("Random")
       .addFields(
         { name: '**🔌Usuário:**', value: `\`\`\`${user.tag}\`\`\``, inline: true },
@@ -36,58 +41,59 @@ run: async (client, interaction) => {
         { name: '**📅 Data da Conta:**', value: `${data_conta}`, inline: true },
         { name: '**📅 Entrou no Servidor:**', value: `${servidor}`, inline: false },
       )
-  .setFooter({text: `Comando usado por ${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
-  .setThumbnail(user.displayAvatarURL({ dynamyc: true })) 
-  
-  let botao = new Discord.ActionRowBuilder()
-    .addComponents(
-      new Discord.ButtonBuilder()
-      .setURL(user.displayAvatarURL({dynamic: true}))
-      .setLabel(`Avatar de ${user.username}`)
-      .setStyle(Discord.ButtonStyle.Link), 
-      new Discord.ButtonBuilder()
-      .setLabel(`Cargos`)
-      .setCustomId('roles')
-      .setEmoji('📚')
-      .setStyle(Discord.ButtonStyle.Primary),
-    );
-  
-  interaction.reply({content: `${interaction.user}`,embeds: [embed], components: [botao]})   
+      .setFooter({ text: `Comando usado por ${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
+      .setThumbnail(user.displayAvatarURL({ dynamyc: true }))
 
-  const filter = (i) => {
-    return i.customId === 'roles' && i.user.id === interaction.user.id && i.message.interaction.id === interaction.id};
+    let botao = new Discord.ActionRowBuilder()
+      .addComponents(
+        new Discord.ButtonBuilder()
+          .setURL(user.displayAvatarURL({ dynamic: true }))
+          .setLabel(`Avatar de ${user.username}`)
+          .setStyle(Discord.ButtonStyle.Link),
+        new Discord.ButtonBuilder()
+          .setLabel(`Cargos`)
+          .setCustomId('roles')
+          .setEmoji('📚')
+          .setStyle(Discord.ButtonStyle.Primary),
+      );
 
-  const collector = interaction.channel.createMessageComponentCollector({ filter, time: null });
+    interaction.reply({ content: `${interaction.user}`, embeds: [embed], components: [botao] })
 
-  collector.on('collect', async (i) => {
-    if (i.customId === 'roles')  {
-     
-      
-      collector.stop();
+    const filter = (i) => {
+      return i.customId === 'roles' && i.user.id === interaction.user.id && i.message.interaction.id === interaction.id
+    };
 
-      
-      const member = interaction.guild.members.cache.get(user.id);
-      if (member) {
-        const roles = member.roles.cache 
-          .sort((a, b) => b.position - a.position)
-          .filter((role) => role != interaction.guild.roles.everyone)
-          .map((role) => role)
-          .join('\n') || `Não possui cargos.`;
+    const collector = interaction.channel.createMessageComponentCollector({ filter, time: null });
 
-        let embed = new Discord.EmbedBuilder()
-          .setColor('Red')
-          .setThumbnail(member.displayAvatarURL({ dynamic: true }))
-          .setFooter({ text: `${user.username}`, iconURL: user.displayAvatarURL({ dynamic: true }) })
-          .setAuthor({ name: `${user.tag}`, iconURL: user.displayAvatarURL({ dynamic: true }) })
-          .addFields({ name: '📚| Cargos', value: `\n${roles}`, inline: true });
-        i.reply({ content: `${interaction.user}`, ephemeral: true, embeds: [embed] });
+    collector.on('collect', async (i) => {
+      if (i.customId === 'roles') {
+
+
+        collector.stop();
+
+
+        const member = interaction.guild.members.cache.get(user.id);
+        if (member) {
+          const roles = member.roles.cache
+            .sort((a, b) => b.position - a.position)
+            .filter((role) => role != interaction.guild.roles.everyone)
+            .map((role) => role)
+            .join('\n') || `Não possui cargos.`;
+
+          let embed = new Discord.EmbedBuilder()
+            .setColor('Red')
+            .setThumbnail(member.displayAvatarURL({ dynamic: true }))
+            .setFooter({ text: `${user.username}`, iconURL: user.displayAvatarURL({ dynamic: true }) })
+            .setAuthor({ name: `${user.tag}`, iconURL: user.displayAvatarURL({ dynamic: true }) })
+            .addFields({ name: '📚| Cargos', value: `\n${roles}`, inline: true });
+          i.reply({ content: `${interaction.user}`, ephemeral: true, embeds: [embed] });
+        }
       }
-    } 
-  });
+    });
 
-  collector.on('end', async (collected) => {
-    botao.components[1].setDisabled(true);
-    interaction.editReply({ components: [botao] });
-  });
-}
+    collector.on('end', async (collected) => {
+      botao.components[1].setDisabled(true);
+      interaction.editReply({ components: [botao] });
+    });
+  }
 }

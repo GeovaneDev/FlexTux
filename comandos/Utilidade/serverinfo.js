@@ -1,9 +1,16 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "serverinfo",
+    name: "server",
     description: "｢Utilidade｣ Veja as informações do servidor.",
-    type: Discord.ApplicationCommandType.ChatInput,
+    options: [
+        {
+            name: "info",
+            description: "｢Utilidade｣ Veja as informações do servidor.",
+            type: Discord.ApplicationCommandOptionType.Subcommand,
+        }
+    ],
+
     run: async (client, interaction) => {
 
         let membros = interaction.guild.memberCount;
