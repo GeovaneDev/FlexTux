@@ -10,6 +10,12 @@ module.exports = {
             name: "status",
             description: "Qual estilo você deseja aplicar (online, dnd, idle, invisible)?",
             required: true,
+            choices: [
+                { name: "Online", value: "online", },
+                { name: "dnd", value: "dnd" },
+                { name: "Idle", value: "idle" },
+                { name: "Invisible", value: "Invisible" },
+            ],
         },
         {
             type: Discord.ApplicationCommandOptionType.String,
@@ -52,7 +58,7 @@ module.exports = {
                     }
                 )
 
-            await interaction.reply({ embeds: [embed] });
+            await interaction.reply({ embeds: [embed], ephemeral: true });
 
         } catch (error) {
             return console.log(`Ops ${interaction.user}, algo deu errado ao executar este comando.`)
