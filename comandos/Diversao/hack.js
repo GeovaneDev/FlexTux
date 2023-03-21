@@ -50,6 +50,7 @@ module.exports = {
             'gokuisthebest',
             's3nh4s3nh4',
             'abcd1234',
+            '1234567890',
             'senhasupersegura',
             'minhasenhasecreta',
             'senha123456',
@@ -86,13 +87,23 @@ module.exports = {
             interaction.reply({ embeds: [embedbot]})
             return
         }
+        if (pessoa.id === interaction.user.id) {
+            const embedself = new Discord.EmbedBuilder()
+            .setColor("Random")
+            .setAuthor({ name: `${interaction.user.username}`, iconURL: `${interaction.user.displayAvatarURL({ dynamic: true })}`})
+            .setDescription(`> Você não pode hackear você mesmo, ${interaction.user}`)
+
+            interaction.reply({ embeds: [embedself]})
+            return
+        }
 
         let aguarde = new Discord.EmbedBuilder()
             .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynamic: true }) })
             .setDescription(`> **Vítima:** \`Hackeando...\`
         > **ID:** \`Hackeando...\`
         > **Email:** \`Hackeando...\`
-        > **Senha:** \`Hackeando...\``)
+        > **Senha:** \`Hackeando...\`
+        \n> **Não se esqueça isso é apenas uma brincadeira.**`)
             .setTimestamp()
             .setThumbnail(pessoa.displayAvatarURL())
             .setColor('#f54eea')
@@ -103,7 +114,7 @@ module.exports = {
         > **ID:** \`${pessoa.id}\`
         > **Email:** \`${mail}\`
         > **Senha:** \`${password}\`
-        \n> **Não se esqueça esse é apenas um comando de brincadeira.**`)
+        \n> **Não se esqueça isso é apenas uma brincadeira.**`)
             .setTimestamp()
             .setThumbnail(pessoa.displayAvatarURL())
             .setColor('#f54eea')

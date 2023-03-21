@@ -43,9 +43,14 @@ module.exports = {
                         .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL({ dynamic: true }) })
                         .setDescription(`O canal de texto ${interaction.channel} teve \`${deletableMessages.size}\` mensagens deletadas por \`${interaction.user.tag}\`.`);
                     interaction.reply({ embeds: [embed] });
+
+                    let deletarmensagens = "false"; // Se estiver definido como "true" as mensagens seram deletadas, caso não o código sertá ignorado.
+
+                    if (deletarmensagens === "true") {
                     setTimeout(() => {
                         interaction.deleteReply();
                     }, 5000);
+                }
                 } catch (error) {
                     console.error(error);
                     interaction.reply({ content: '😭 Ocorreu um erro ao tentar deletar as mensagens.', ephemeral: true });
