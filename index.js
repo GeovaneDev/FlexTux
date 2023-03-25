@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 "use strict";
 const dotenv = require('dotenv');
+const { accessSync } = require("fs");
 dotenv.config();
 
 const client = new Discord.Client({
@@ -28,7 +29,7 @@ client.on("messageCreate", (message) => {
       let embed = new Discord.EmbedBuilder()
         .setColor("Random")
         .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynaimc: true }) })
-        .setDescription(`😘 Olá, ${message.author} utilize \`/ajuda\` para ver minha lista de comando.\n Para conhecer minha história use \`/starnick-info\`.`)
+        .setDescription(`😘 Olá, ${message.author} utilize \`/ajuda\` para ver minha lista de comando.\n Para conhecer minha história use \`/starnick info\`.`)
 
       message.reply({ embeds: [embed] })
     }
@@ -63,7 +64,7 @@ client.on('ready', () => {
   client.user.setStatus("online");
   client.user.setPresence({
     activities: [{
-      name: "Digite /help para a lista de comandos.",
+      name: "Digite /ajuda para a lista de comandos.",
    }],
   })
 })
@@ -89,7 +90,7 @@ client.on("messageCreate", (message) => {
   const tempoAtual = Date.now();
   const tempoAnterior = message.createdTimestamp;
   const intervaloTempo = (tempoAtual - tempoAnterior) / 1000;
-  if (intervaloTempo > 30) return;
+  if (intervaloTempo > 10) return;
 });
 
 client.slashCommands = new Discord.Collection()

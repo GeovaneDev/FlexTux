@@ -2,7 +2,7 @@ const Discord = require(`discord.js`);
 
 module.exports = {
     name: `embed`,
-    description: `｢Admin｣ Criar uma mensagem bonita. (Beta)`,
+    description: `｢Admin｣ Criar uma mensagem bonita.`,
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {
@@ -39,10 +39,8 @@ module.exports = {
                 { name: "Lilás", value: "Purple"},
                 { name: "Laranja", value: "Orange"},
                 { name: "Amarelo", value: "Yellow"},
-                { name: "Turquesa", value: "Teal"},
-                { name: "Cinza Claro", value: "LightGray"},
-                { name: "Cinza Escuro", value: "DarkGray"},
-                { name: "Magenta", value: "Magenta"},
+                { name: "Cinza Claro", value: "LightGrey"},
+                { name: "Cinza Escuro", value: "DarkGrey"},
                 { name: "Ouro", value: "Gold"},
                 { name: "Branco", value: "White"},
                 { name: "Preto", value: "Black"}

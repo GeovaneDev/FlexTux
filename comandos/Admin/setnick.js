@@ -31,12 +31,12 @@ module.exports = {
             membro.setNickname(`${nick}`).then(() => {
                 let embed = new Discord.EmbedBuilder()
                     .setColor("Green")
-                    .setDescription(`O usuário ${user} teve seu nickname alterado para \`${nick}\` com sucesso.`)
+                    .setDescription(`> O usuário ${user} teve seu nickname alterado para \`${nick}\` com sucesso.`)
                 interaction.reply({ embeds: [embed] })
             }).catch(e => {
                 let embed = new Discord.EmbedBuilder()
                     .setColor("Red")
-                    .setDescription(`O nick digitado possui mais de 32 caracteres.`)
+                    .setDescription(`> O nick digitado possui mais de 32 caracteres.`)
                 interaction.reply({ embeds: [embed] })
             })
         }

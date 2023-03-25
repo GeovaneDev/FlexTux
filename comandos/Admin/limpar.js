@@ -32,7 +32,7 @@ module.exports = {
             if (nonDeletableMessages.size > 0) {
                 let embed = new Discord.EmbedBuilder()
                     .setColor("Random")
-                    .setDescription("Você só pode deletar mensagens com menos de 14 dias.");
+                    .setDescription("> Você só pode deletar mensagens com menos de 14 dias.");
                 interaction.reply({ embeds: [embed] });
             }
             if (deletableMessages.size > 0) {
@@ -41,7 +41,7 @@ module.exports = {
                     let embed = new Discord.EmbedBuilder()
                         .setColor("Green")
                         .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL({ dynamic: true }) })
-                        .setDescription(`O canal de texto ${interaction.channel} teve \`${deletableMessages.size}\` mensagens deletadas por \`${interaction.user.tag}\`.`);
+                        .setDescription(`> O canal de texto ${interaction.channel} teve \`${deletableMessages.size}\` mensagens deletadas por \`${interaction.user.tag}\`.`);
                     interaction.reply({ embeds: [embed] });
 
                     let deletarmensagens = "false"; // Se estiver definido como "true" as mensagens seram deletadas, caso não o código sertá ignorado.

@@ -54,7 +54,8 @@ module.exports = {
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
             .setDescription(`
             > \`/imagem-stonks\` Cria uma imagem do meme stonks! (Beta)
-            > \`/imagem-xbox\` Desbloqueie uma conquista do Xbox. (Beta)`);
+            > \`/imagem-xbox\` Desbloqueie uma conquista do Xbox. (Beta)
+            > \`/imagem-ednaldo\` Escreva algo no pano do Ednaldo Pereira.`);
 
         let embed_animegifs = new Discord.EmbedBuilder()
             .setColor("Aqua")

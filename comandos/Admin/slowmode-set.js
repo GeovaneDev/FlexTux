@@ -38,7 +38,7 @@ module.exports = {
                     const embed = new Discord.EmbedBuilder()
                         .setColor("Random")
                         .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
-                        .setDescription(`O canal de texto ${channel} teve seu modo lento definido para \`${t}\`.`)
+                        .setDescription(`> O canal de texto ${channel} teve seu modo lento definido para \`${t}\`.`)
                     interaction.reply({ embeds: [embed] })
                     return
                 }).catch(() => {

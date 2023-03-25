@@ -22,7 +22,7 @@ module.exports = {
     run: async (client, interaction) => {
 
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.BanMembers)) {
-            interaction.reply(`Você não possui permissão para utilizar este comando.`);
+            interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true });
         } else {
             let userr = interaction.options.getUser("user");
             let user = interaction.guild.members.cache.get(userr.id)

@@ -18,12 +18,12 @@ module.exports = {
     const user = interaction.options.getUser("usuário");
     const member = interaction.guild.members.cache.get(user.id);
     const mutedRole = interaction.guild.roles.cache.find(
-        (role) => role.name.toLowerCase() === "mute"
+        (role) => role.name.toLowerCase() === "Mutado"
     );
 
     if (!mutedRole) {
       return interaction.reply(
-        "Não foi possível encontrar o cargo 'Mute'."
+        "Não foi possível encontrar o cargo 'Mutado'."
       );
     }
 

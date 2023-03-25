@@ -30,11 +30,11 @@ module.exports = {
 
             let embed = new Discord.EmbedBuilder()
                 .setColor("Green")
-                .setDescription(`O usuário ${user} (\`${user.id}\`) foi desbanido com sucesso!`);
+                .setDescription(`> O usuário ${user} (\`${user.id}\`) foi desbanido com sucesso!`);
 
             let erro = new Discord.EmbedBuilder()
                 .setColor("Red")
-                .setDescription(`Não foi possível desbanir o usuário ${user} (\`${user.id}\`) do servidor!`);
+                .setDescription(`> Não foi possível desbanir o usuário ${user} (\`${user.id}\`) do servidor!`);
 
             interaction.guild.members.unban(user.id, motivo).then(() => {
                 interaction.reply({ embeds: [embed] })

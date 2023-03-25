@@ -30,16 +30,22 @@ module.exports = {
 
       ctx.drawImage(stonks, 0, 0, canvas.width, canvas.height);
 
-      ctx.font = 'bold 28px sans-serif';
+      ctx.font = 'bold 30px sans-serif';
       ctx.fillStyle = '#ffffff';
       ctx.textAlign = 'left';
       ctx.textBaseline = 'top';
 
-      ctx.fillText(text, 0, 0);
+      ctx.fillText(text, 10, 10);
 
-      const attachment = new Discord.AttachmentBuilder(canvas.toBuffer(), 'stonks.png');
+      const attachment = new Discord.AttachmentBuilder(canvas.toBuffer(), { name: "stonks.png" })
 
-      await interaction.editReply({ content: `${interaction.user}\n`, files: [attachment] });
+      let embed = new Discord.EmbedBuilder()
+        .setColor("Green")
+        .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
+        .setDescription(`> Olá, ${interaction.user}, Aqui sua imagem do meme Stonks.`)
+        .setImage("attachment://stonks.png")
+
+      await interaction.editReply({ files: [attachment], embeds: [embed] })
     }
   }
 }
