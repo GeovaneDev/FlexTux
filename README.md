@@ -80,7 +80,7 @@ Para utilizar os comandos do bot, digite `/` na caixa de texto do chat do Discor
 
 ## Personalização
 
-Altere em alguns comandos de diversão na pasta "comandos/animesgifs" e adicione o seu id no comando de "beijar.js" ou "/beijar", para o comando funcionar perfertamente.
+Altere em alguns comandos de diversão na pasta "comandos/animesgifs" e adicione o seu id em alguns comandos, para os comandos funcionarem coretamente.
 
 ## Contribuição
 
