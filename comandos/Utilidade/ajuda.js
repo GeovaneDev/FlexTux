@@ -36,6 +36,8 @@ module.exports = {
             .setTitle(`Aqui estão alguns comandinhos para você usar e se divertir: 🎉🎮`)
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
             .setDescription(`
+            > \`/8ball\` Pergunte algo para min!
+            > \`/anagrama\` Mostra quantos anagramas têm a palavra fornecida.
             > \`/animal\` Receba uma foto aleatória de um animal fofo para alegrar o dia!
             > \`/coinflip\` Jogue cara ou coroa para ver quem vence!
             > \`/coinflip2\` Jogue cara ou coroa comigo, eu amo um bom desafio!
