@@ -50,7 +50,7 @@ client.on("messageCreate", (message) => {
       let embed = new Discord.EmbedBuilder()
         .setColor("Random")
         .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynaimc: true }) })
-        .setDescription(`😘 Olá, ${message.author} utilize \`/ajuda\` para ver minha lista de comando.\n Para conhecer minha história use \`/starnick info\`.`)
+        .setDescription(`😘 Olá, ${message.author} utilize \`/ajuda\` para ver minha lista de comando.\n Para conhecer minha história use \`/nyssabot-info\`.`)
 
       message.reply({ embeds: [embed] })
     }
