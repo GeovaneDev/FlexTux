@@ -1,10 +1,10 @@
 # NyssaBot
 
-A Starnick (ou Star) é um bot Discord.js v14 que utiliza Slash Commands(/). Ela foi desenvolvida para proporcionar uma experiência mais fácil e rápida para o seu servidor Discord.
+A Nyssa Bot (ou como é carinhosamente chamada de "Nyssinha" pelos seus amigos próximos.) é um bot Discord.js v14 que utiliza Slash Commands(/). Ela foi desenvolvida para proporcionar uma experiência mais fácil e rápida para o seu servidor Discord.
 
 ## Site
 
-Agora a Star tem um site: [Clique aqui](https://nyssabot.pages.dev/).
+Agora a Nyssa Bot tem um site: [Clique aqui](https://nyssabot.pages.dev/).
 Código Fonte do site: [Clique Aqui](https://github.com/GeovaneDev/Nyssa-bot-Website)
 
 ## Funcionalidades
