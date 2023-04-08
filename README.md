@@ -1,12 +1,11 @@
-# Starnick
+# NyssaBot
 
 A Starnick (ou Star) é um bot Discord.js v14 que utiliza Slash Commands(/). Ela foi desenvolvida para proporcionar uma experiência mais fácil e rápida para o seu servidor Discord.
 
 ## Site
 
-Agora a Star tem um site: [Clique aqui](https://starnick.netlify.app/).
-Utilizamos o templete: [Templete](https://github.com/Hadi-koubeissi/Discord-bot-website-template). 
-Mas futuramente prentedemos criar um site com as explicações da Star e também um painel de controle.
+Agora a Star tem um site: [Clique aqui](https://nyssabot.pages.dev/).
+Código Fonte do site: [Clique Aqui](https://github.com/GeovaneDev/Nyssa-bot-Website)
 
 ## Funcionalidades
 
@@ -23,6 +22,7 @@ Antes de instalar o bot, verifique se você possui os seguintes requisitos:
 
 - Node.js v18 ou superior
 - NPM (Node Package Manager)
+- Discord.js V14
 
 ## Instalação
 
@@ -31,7 +31,7 @@ Para instalar o bot, siga os seguintes passos:
 1. Clone este repositório:
 
 ```
-git clone https://github.com/GeovaneDev/Starnick
+git clone https://github.com/GeovaneDev/NyssaBot
 ```
 
 2. Instale as dependências necessárias:
@@ -55,7 +55,7 @@ Se você estiver usando Linux, execute os seguintes comandos:
 
 ```
 sudo apt update -y && sudo apt install nodejs nano git -y
-git clone https://github.com/GeovaneDev/Starnick
+git clone https://github.com/GeovaneDev/NyssaBot
 cd Starnick/
 npm install
 nano .env.example
@@ -68,7 +68,7 @@ node .
 Se você estiver usando Windows, baixe e instale o [Git](https://git-scm.com/downloads) e o [Node.js](https://nodejs.org/en/) antes de executar os seguintes comandos e adicine seu token antes de usar o "node ." adicione seu token no arquiv `.env.example` e mude o nome de `.env.example` para `.env`:
 
 ```
-git clone https://github.com/GeovaneDev/Starnick
+git clone https://github.com/GeovaneDev/NyssaBot
 cd Starnick/
 npm install
 node .
