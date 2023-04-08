@@ -80,7 +80,7 @@ Para utilizar os comandos do bot, digite `/` na caixa de texto do chat do Discor
 
 ## Personalização
 
-Altere em alguns comandos de diversão na pasta "comandos/animesgifs" e adicione o seu id em alguns comandos, para os comandos funcionarem coretamente.
+Adicione seu ID no aquivo ".env" e crie um webhook em um canal para o log de comandos e adicione no arquivo "index.js".
 
 ## Contribuição
 
