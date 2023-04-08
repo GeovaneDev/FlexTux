@@ -46,6 +46,7 @@ module.exports = {
             > \`/hack\` Comando para hackear alguém. (na brincadeira, claro!)
             > \`/mcsrvstat\` Veja as informações de um servidor de Minecraft!
             > \`/parouimpar\` Jogue par ou ímpar comigo e teste sua sorte!
+            > \`/pensamento\` Exibe um pensamento filosófico aleatório.
             > \`/roleta russa\` Aposte em um número e veja se você é sortudo(a)!
             > \`/rps\` Jogue pedra, papel ou tesoura com alguém (BETA)
             > \`/rps2\` Jogue pedra, papel ou tesoura comigo, eu adoro esse jogo!`);
@@ -55,9 +56,10 @@ module.exports = {
             .setTitle(`Aqui estão alguns comandinhos super divertidos de manupulação de imagem:`)
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
             .setDescription(`
-            > \`/imagem-stonks\` Cria uma imagem do meme stonks! (Beta)
-            > \`/imagem-xbox\` Desbloqueie uma conquista do Xbox. (Beta)
-            > \`/imagem-ednaldo\` Escreva algo no pano do Ednaldo Pereira.`);
+            > \`/imagem-stonks\` Cria uma imagem do meme stonks!
+            > \`/imagem-xbox\` Desbloqueie uma conquista do Xbox.
+            > \`/imagem-ednaldo\` Escreva algo no pano do Ednaldo Pereira.
+            > \`/meme-maker\` Crie um meme personalizado! (Beta)`);
 
         let embed_animegifs = new Discord.EmbedBuilder()
             .setColor("Aqua")

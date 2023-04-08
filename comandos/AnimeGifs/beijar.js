@@ -1,5 +1,7 @@
 const Discord = require('discord.js')
-const DONO = "691279644468445274" // seu id aqui
+const dotenv = require('dotenv');
+dotenv.config();
+
 module.exports = {
     name: "beijar",
     description: "｢Anime Gifs｣ Dê um beijinho em alguém!",
@@ -30,7 +32,7 @@ module.exports = {
             return
         }
 
-        if (user.id === client.user.id && interaction.user.id === `${DONO}`) {
+        if (user.id === client.user.id && interaction.user.id === process.env.DONO_ID) {
             const userembed = new Discord.EmbedBuilder()
                 .setImage(`https://i.imgur.com/oHMDPq9.gif`)
                 .setColor("Random")

@@ -1,5 +1,6 @@
 const Discord  = require("discord.js");
-const DONO = "691279644468445274";
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = {
     name: "setstatus",
@@ -27,7 +28,7 @@ module.exports = {
 
     run: async (client, interaction) => {
 
-        if (interaction.user.id !== DONO) return interaction.reply({ content: `Apenas o meu dono pode utilizar este comando!`, ephemeral: true })
+        if (interaction.user.id !== process.env.DONO_ID) return interaction.reply({ content: `Apenas o meu dono pode utilizar este comando!`, ephemeral: true })
 
         try {
 

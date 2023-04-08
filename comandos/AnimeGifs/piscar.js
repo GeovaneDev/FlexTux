@@ -1,4 +1,4 @@
-const Discord = require('discord.js') //id do seu bot no lugar do id "944555548148375592"
+const Discord = require('discord.js')
 module.exports = {
     name: "piscar",
     description: "｢Anime Gifs｣ Pisque para alguém e mostre que você tá pensando nele(a)!",
@@ -29,7 +29,7 @@ module.exports = {
             return
         }
 
-        if (user.id === "944555548148375592") {
+        if (user.id === client.user.id) {
             const botembed = new Discord.EmbedBuilder()
                 .setDescription(`**Ei, por que você está piscando para mim, ${interaction.user}?**`)
                 .setImage(piscarImageUrl)
