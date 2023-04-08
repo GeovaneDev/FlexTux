@@ -18,6 +18,27 @@ const client = new Discord.Client({
 
 module.exports = client
 
+const webhookUrl = 'LINK_DO_WEBHOOK_AQUI';
+const webhookClient = new Discord.WebhookClient({ url: webhookUrl });
+
+client.on('interactionCreate', async (interaction) => {
+  if (!interaction.isCommand()) return;
+
+  const args = interaction.options._hoistedOptions.map((option) => {
+    return `${option.name}: ${option.value}`;
+  });
+
+  let logMessage = new Discord.EmbedBuilder()
+  .setColor("Random")
+  .setTitle("Log de Comandos!")
+  .setDescription(`> Comando: ${interaction.commandName}
+  > Executado por: ${interaction.user.tag}
+  > Servidor: ${interaction.guild.name}
+  > Argumentos: ${args.join(', ')}`)
+
+  webhookClient.send({ embeds: [logMessage] });
+});
+
 client.on("messageCreate", (message) => {
   if (message.author.bot) return;
 
