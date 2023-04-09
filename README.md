@@ -73,7 +73,7 @@ Adicione seu ID no aquivo ".env" e crie um webhook em um canal para o log de com
 
 ## FAQ
 
-Veja nosso FAQ em [NyssaBot FAQ](https://nyssabot.pages.dev/).
+Veja nosso FAQ em [NyssaBot FAQ](https://nyssabot.pages.dev/#faq).
 
 ## Agradecimentos
 
