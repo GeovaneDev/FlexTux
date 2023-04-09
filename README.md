@@ -74,6 +74,10 @@ npm install
 node .
 ```
 
+## Bot sempre online
+
+Hospede o bot em uma servidor linux(VPS) ou em servidores de hospedagem, como a [Square Cloud](https://squarecloud.app/) ou o [Discloud](https://discloudbot.com/).
+
 ## Comandos
 
 Para utilizar os comandos do bot, digite `/` na caixa de texto do chat do Discord. Use `/ajuda` para ver a lista completa de comandos disponíveis.
