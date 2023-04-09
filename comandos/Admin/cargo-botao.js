@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 
 module.exports = {
-    name: "cargo-botao",
+    name: "cargo_botao",
     description: "｢Admin｣ Ganhe cargos clicando nos botões.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
@@ -48,7 +48,5 @@ module.exports = {
                 })
             })
         }
-
-
     }
 }

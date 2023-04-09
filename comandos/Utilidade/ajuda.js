@@ -88,13 +88,13 @@ module.exports = {
             > \`/embed\` Criar uma mensagem bonita. (Beta)
             > \`/kick\` Expulsar um membro.
             > \`/lock\` Bloquear um canal.
-            > \`/mute\` Silenciar um usuário.
             > \`/setnick\` Mudar o apelido de um membro.
             > \`/slowmode-set\` Configurar modo lento.
             > \`/slowmode off\` Desativar modo lento.
             > \`/sorteio\` Realizar um sorteio.
+            > \`/timeout\` Castigue um membro! (Beta)
+            > \`/timeout-remove\` Remova o castigo de um membro! (Beta)
             > \`/unban\` Desbanir um usuário.
-            > \`/unmute\` Remover silenciamento.
             > \`/unlock\` Desbloquear um canal.
             > \`/cargo-botao\` Ganhe cargos clicando no botão.`);
 
