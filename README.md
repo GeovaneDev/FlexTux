@@ -61,7 +61,7 @@ Se você estiver usando Windows, baixe e instale o [Git](https://git-scm.com/dow
 
 ## Bot sempre online
 
-Hospede o bot em uma servidor linux(VPS) ou em servidores de hospedagem, como a [Square Cloud](https://squarecloud.app/) ou o [Discloud](https://discloudbot.com/).
+Hospede o bot em uma [VPS](https://rockcontent.com/br/blog/vps/) como [Oracle Cloud Modo Gratuito](https://www.oracle.com/br/cloud/free/) ou [Linode](https://www.linode.com/pricing/) com preços de "Shared CPU" de 5 dólares (1gb de Ram) ou em servidores de hospedagem especifico para bots discord, como a [Square Cloud](https://squarecloud.app/) ou o [Discloud](https://discloudbot.com/).
 
 ## Comandos
 
@@ -74,6 +74,10 @@ Adicione seu ID no aquivo ".env" e crie um webhook em um canal para o log de com
 ## FAQ
 
 Veja nosso FAQ em [NyssaBot FAQ](https://nyssabot.pages.dev/).
+
+## Agradecimentos
+
+Eu gostaria de agradecer o [Ferinha](https://www.youtube.com/@OFerinha), que me ajudou ensinando em seus vídeos a programar os comandos da bot.
 
 ## Contribuição
 
