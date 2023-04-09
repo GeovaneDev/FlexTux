@@ -1,11 +1,12 @@
 # NyssaBot
 
-A Nyssa Bot (ou como é carinhosamente chamada de "Nyssinha" pelos seus amigos próximos.) é um bot Discord.js v14 que utiliza Slash Commands(/). Ela foi desenvolvida para proporcionar uma experiência mais fácil e rápida para o seu servidor Discord.
+A Nyssa Bot (ou como é carinhosamente chamada de "Nyssinha" pelos seus amigos próximos) é um bot Discord.js v14 que utiliza Slash Commands(/). Ela foi desenvolvida para proporcionar uma experiência mais fácil e rápida para o seu servidor Discord.
 
 ## Site
 
-Agora a Nyssa Bot tem um site: [Clique aqui](https://nyssabot.pages.dev/).
-Código Fonte do site: [Clique Aqui](https://github.com/GeovaneDev/Nyssa-bot-Website)
+A Nyssa Bot agora tem um site onde você pode encontrar informações sobre o bot, documentação e muito mais: [https://nyssabot.pages.dev/](https://nyssabot.pages.dev/)
+
+Código Fonte do site: [Nyssa Bot Website Código Fonte](https://github.com/GeovaneDev/Nyssa-bot-Website)
 
 ## Funcionalidades
 
@@ -13,7 +14,7 @@ O Bot possui as seguintes funcionalidades:
 
 - Comandos de diversão
 - Comandos de utilidades
-- Comandos de gifs de animes(exemplo: abraço, tocaaqui)
+- Comandos de gifs de animes (exemplo: abraço, tocaaqui)
 - Comandos de moderação
 
 ## Requisitos
@@ -35,44 +36,28 @@ git clone https://github.com/GeovaneDev/NyssaBot
 ```
 
 2. Instale as dependências necessárias:
-
 ```
 cd Starnick/
 npm install
 ```
 
-3. Configure as suas credenciais do Discord no arquivo `.env.example` com o token do seu bot e mude o nome de `.env.example` para `.env`.
+3. Configure as suas credenciais do Discord no arquivo `.env.example` com o token do seu bot e mude o nome de `.env.example` para `.env`. E adicione seu ID no aquivo ".env" e crie um webhook em um canal para o log de comandos e adicione no arquivo "index.js".
 
 4. Inicie o bot utilizando o comando:
-
 ```
 node .
 ```
 
 ### Comandos Linux
 
-Se você estiver usando Linux, execute os seguintes comandos:
-
+Se você estiver usando Linux, instale os pacotes usando:
 ```
-sudo apt update -y && sudo apt install nodejs nano git -y
-git clone https://github.com/GeovaneDev/NyssaBot
-cd Starnick/
-npm install
-nano .env.example
-mv .env.example .env
-node .
+sudo apt update -y && sudo apt upgrade -y && sudo apt install git nodejs nano -y
 ```
 
 ### Comandos Windows
 
-Se você estiver usando Windows, baixe e instale o [Git](https://git-scm.com/downloads) e o [Node.js](https://nodejs.org/en/) antes de executar os seguintes comandos e adicine seu token antes de usar o "node ." adicione seu token no arquiv `.env.example` e mude o nome de `.env.example` para `.env`:
-
-```
-git clone https://github.com/GeovaneDev/NyssaBot
-cd Starnick/
-npm install
-node .
-```
+Se você estiver usando Windows, baixe e instale o [Git](https://git-scm.com/downloads) e o [Node.js](https://nodejs.org/en/) antes de executar os seguintes comandos e adicione seu token antes de usar o "node ." adicione seu token no arquivo `.env.example` e mude o nome de `.env.example` para `.env`:
 
 ## Bot sempre online
 
@@ -85,6 +70,10 @@ Para utilizar os comandos do bot, digite `/` na caixa de texto do chat do Discor
 ## Personalização
 
 Adicione seu ID no aquivo ".env" e crie um webhook em um canal para o log de comandos e adicione no arquivo "index.js".
+
+## FAQ
+
+Veja nosso FAQ em [NyssaBot FAQ](https://nyssabot.pages.dev/).
 
 ## Contribuição
 
