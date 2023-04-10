@@ -1,5 +1,0 @@
-User-agent: *
-
-Sitemap: https://starnick.pages.dev/sitemap.xml
-
-Crawl-delay: 5
