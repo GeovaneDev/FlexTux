@@ -1,3 +1,4 @@
+const { channel } = require("diagnostics_channel");
 const Discord = require("discord.js");
 "use strict";
 const dotenv = require('dotenv');
@@ -13,13 +14,14 @@ const client = new Discord.Client({
     Discord.GatewayIntentBits.GuildVoiceStates,
     Discord.GatewayIntentBits.MessageContent,
     Discord.GatewayIntentBits.GuildPresences,
+    Discord.GatewayIntentBits.GuildInvites,
   ]
 });
 
 module.exports = client
 
-const webhookUrl = 'LINK_DO_WEBHOOK_AQUI';
-const webhookClient = new Discord.WebhookClient({ url: webhookUrl });
+const webhookUrlLogsComandos = process.env.WEBHOOK_LOGS_COMMANDS;
+const webhookClientLogsComandos = new Discord.WebhookClient({ url: webhookUrlLogsComandos });
 
 client.on('interactionCreate', async (interaction) => {
   if (!interaction.isCommand()) return;
@@ -30,13 +32,27 @@ client.on('interactionCreate', async (interaction) => {
 
   let logMessage = new Discord.EmbedBuilder()
   .setColor("Random")
-  .setTitle("Log de Comandos!")
+  .setTitle("Log de Comandos:")
   .setDescription(`> Comando: ${interaction.commandName}
   > Executado por: ${interaction.user.tag}
   > Servidor: ${interaction.guild.name}
   > Argumentos: ${args.join(', ')}`)
+  .setTimestamp();
 
-  webhookClient.send({ embeds: [logMessage] });
+  webhookClientLogsComandos.send({ embeds: [logMessage] });
+});
+
+const webhookUrlGuils = process.env.WEBHOOK_GUILDS;
+const webhookClientGuilds = new Discord.WebhookClient({ url: webhookUrlGuils });
+
+client.on('guildCreate', async (guild) => {
+  let logMessage = new Discord.EmbedBuilder()
+    .setColor('Random')
+    .setTitle('Novo servidor:')
+    .setDescription(`Fui adicionada ao servidor: ${guild.name} (${guild.id}).`)
+    .setTimestamp();
+
+    webhookClientGuilds.send({ embeds: [logMessage] });
 });
 
 client.on("messageCreate", (message) => {
@@ -50,7 +66,7 @@ client.on("messageCreate", (message) => {
       let embed = new Discord.EmbedBuilder()
         .setColor("Random")
         .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynaimc: true }) })
-        .setDescription(`😘 Olá, ${message.author} utilize \`/ajuda\` para ver minha lista de comando.\n Para conhecer minha história use \`/nyssabot-info\`.`)
+        .setDescription(`😘 Olá, ${message.author} utilize \`/ajuda\` para ver minha lista de comando.\n Para conhecer minha história use \`/nyssabot info\`.`)
 
       message.reply({ embeds: [embed] })
     }
@@ -86,7 +102,7 @@ client.on('ready', () => {
   client.user.setPresence({
     activities: [{
       name: "Digite /ajuda para a lista de comandos.",
-   }],
+    }],
   })
 })
 
