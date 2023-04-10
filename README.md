@@ -41,7 +41,7 @@ cd Starnick/
 npm install
 ```
 
-3. Configure as suas credenciais do Discord no arquivo `.env.example` com o token do seu bot e mude o nome de `.env.example` para `.env`. E adicione seu ID no aquivo ".env" e crie um webhook em um canal para o log de comandos e adicione no arquivo "index.js".
+3. Configure as suas credenciais do Discord no arquivo `.env.example` com o token do seu bot e mude o nome de `.env.example` para `.env`. E adicione seu ID no aquivo ".env" e crie dois webhooks um canal para o log de comandos e o outro para logs de servidores adicionados, por fim adicione no arquivo "index.js".
 
 4. Inicie o bot utilizando o comando:
 ```
@@ -57,7 +57,7 @@ sudo apt update -y && sudo apt upgrade -y && sudo apt install git nodejs nano -y
 
 ### Comandos Windows
 
-Se você estiver usando Windows, baixe e instale o [Git](https://git-scm.com/downloads) e o [Node.js](https://nodejs.org/en/) antes de executar os seguintes comandos e adicione seu token antes de usar o "node ." adicione seu token no arquivo `.env.example` e mude o nome de `.env.example` para `.env`:
+Se você estiver usando Windows, baixe e instale o [Git](https://git-scm.com/downloads) e o [Node.js](https://nodejs.org/en/) antes de executar os seguintes comandos e adicione seu token antes de usar o "node ." Não se esqueça de configurar o arquivo ".env.exemple" e renomear para ".env".
 
 ## Bot sempre online
 
