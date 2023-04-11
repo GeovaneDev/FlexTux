@@ -23,16 +23,20 @@ module.exports = {
             const duration = "1s";
             const msDuration = ms(duration);
 
-            await interaction.deferReply();
-
             const targetUser = await interaction.guild.members.fetch(mentionable);
             if (!targetUser) {
-                await interaction.editReply("Esse usuário não existe neste servidor.");
+                await interaction.reply({
+                    content: "Esse usuário não existe neste servidor.",
+                    ephemeral: true,
+                });
                 return;
             }
 
             if (targetUser.user.bot) {
-                await interaction.editReply("Não posso dar timeout para um bot.");
+                await interaction.reply({
+                    content: "Não posso dar timeout para um bot.",
+                    ephemeral: true,
+            });
                 return;
             }
 
@@ -41,14 +45,22 @@ module.exports = {
             const botRolePosition = interaction.guild.members.me.roles.highest.position;
 
             if (targetUserRolePosition >= requestUserRolePosition) {
-                await interaction.editReply("Você não pode dar timeout para esse usuário porque eles têm o mesmo cargo ou um cargo maior que o seu.");
+                await interaction.reply({
+                    content: "Você não pode dar timeout para esse usuário porque eles têm o mesmo cargo ou um cargo maior que o seu.",
+                    ephemeral: true,
+            });
                 return;
             }
 
             if (targetUserRolePosition >= botRolePosition) {
-                await interaction.editReply("Não posso dar timeout para esse usuário porque eles têm o mesmo cargo ou um cargo maior que o meu.");
+                await interaction.reply({
+                    content: "Não posso dar timeout para esse usuário porque eles têm o mesmo cargo ou um cargo maior que o meu.",
+                ephemeral: true,
+            });
                 return;
             }
+
+            await interaction.deferReply();
 
             try {
                 const { default: prettyMs } = await import("pretty-ms");
@@ -66,7 +78,7 @@ module.exports = {
                     return;
                 }
             } catch (error) {
-                console.log(`Houve um erro ao dar um timeout: ${error}`);
+                console.log(`Houve um erro ao remover o timeout: ${error}`);
             }
         }
     }

@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
-const ms = require("ms");
+const ms = require("ms"); // Antes de executar o comando use "npm i pretty-ms ms"
 
 module.exports = {
     name: "timeout",
-    description: "｢Admin｣ Castigue um membro! (Beta)",
+    description: "｢Admin｣ Castigue um membro!",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {
@@ -22,6 +22,7 @@ module.exports = {
             name: "motivo",
             description: "O motivo para o timeout.",
             type: Discord.ApplicationCommandOptionType.String,
+            required: false,
         },
     ],
 
@@ -34,26 +35,36 @@ module.exports = {
             const reason = interaction.options.get("motivo")?.value || "Nenhum motivo fornecido.";
             const msDuration = ms(duration);
 
-            await interaction.deferReply();
-
             const targetUser = await interaction.guild.members.fetch(mentionable);
             if (!targetUser) {
-                await interaction.editReply("Esse usuário não existe neste servidor.");
+                await interaction.reply({
+                    content: "Esse usuário não existe neste servidor.",
+                    emphemeral: true,
+                });
                 return;
             }
 
             if (targetUser.user.bot) {
-                await interaction.editReply("Não posso dar tempo limite para um bot.");
+                await interaction.reply({
+                    content: "Não posso dar timeout para um bot.",
+                    ephemeral: true, 
+                });
                 return;
             }
 
             if (isNaN(msDuration)) {
-                await interaction.editReply("Por favor, forneça uma duração de tempo limite válida.");
+                await interaction.reply({
+                    content: "Por favor, forneça uma duração de timeout válida.",
+                    ephemeral: true,
+            });
                 return;
             }
 
             if (msDuration < 5000 || msDuration > 2.419e9) {
-                await interaction.editReply("A duração do tempo limite não pode ser menor que 5 segundos ou maior que 27 dias.");
+                await interaction.reply({
+                    content: "A duração do timeout não pode ser menor que 5 segundos ou maior que 27 dias.",
+                    ephemeral: true,
+                });
                 return;
             }
 
@@ -62,14 +73,22 @@ module.exports = {
             const botRolePosition = interaction.guild.members.me.roles.highest.position;
 
             if (targetUserRolePosition >= requestUserRolePosition) {
-                await interaction.editReply("Você não pode dar timeout para esse usuário porque eles têm o mesmo cargo ou um cargo maior que o seu.");
+                await interaction.reply({
+                    content: "Você não pode dar timeout para esse usuário porque eles têm o mesmo cargo ou um cargo maior que o seu.",
+                    ephemeral: true,
+                });
                 return;
             }
 
             if (targetUserRolePosition >= botRolePosition) {
-                await interaction.editReply("Não posso dar timeout para esse usuário porque eles têm o mesmo cargo ou um cargo maior que o meu.");
+                await interaction.reply({
+                    content: "Não posso dar timeout para esse usuário porque eles têm o mesmo cargo ou um cargo maior que o meu.",
+                    ephemeral: true,
+                });
                 return;
             }
+
+            await interaction.deferReply();
 
             try {
                 const { default: prettyMs } = await import("pretty-ms");

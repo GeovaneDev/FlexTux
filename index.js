@@ -1,4 +1,3 @@
-const { channel } = require("diagnostics_channel");
 const Discord = require("discord.js");
 "use strict";
 const dotenv = require('dotenv');
