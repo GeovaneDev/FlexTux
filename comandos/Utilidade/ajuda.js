@@ -20,11 +20,13 @@ module.exports = {
             > \`/ajuda\` Mostra essa mensagem.
             > \`/ascii\` Converte um texto em ASCII
             > \`/escolher\` Escreva duas escolhas e eu vou estolher uma.
+            > \`/ocr\` Ler o texto de uma imagem.
             > \`/livro\` Pesquise informações sobre um livro.
             > \`/ping\` Descubra o meu tempo de resposta.
             > \`/qr-code\` Transformar um link em QR code.
             > \`/server-info\` Veja as informações do servidor.
             > \`/starnick info\` Fornece informações sobre mim.
+            > \`/sugestao\` Envie uma sugestão, para me ajudar a evoluir!
             > \`/traduzir\`: Traduzir um texto para outro idioma.
             > \`/uptime\` Quanto tempo estou online.
             > \`/user-avatar\` Mostra o avatar de um usuário.
@@ -85,7 +87,6 @@ module.exports = {
             > \`/ban\` Banir um usuário.
             > \`/banimentos\` Lista de banidos do servidor.
             > \`/limpar\` Limpar o canal de texto.
-            > \`/embed\` Criar uma mensagem bonita. (Beta)
             > \`/kick\` Expulsar um membro.
             > \`/lock\` Bloquear um canal.
             > \`/setnick\` Mudar o apelido de um membro.
@@ -96,7 +97,8 @@ module.exports = {
             > \`/timeout-remove\` Remova o castigo de um membro! (Beta)
             > \`/unban\` Desbanir um usuário.
             > \`/unlock\` Desbloquear um canal.
-            > \`/cargo-botao\` Ganhe cargos clicando no botão.`);
+            > \`/cargo-botao\` Ganhe cargos clicando no botão.
+            > \`/webhook\` Envia uma mensagem através de um webhook (Beta)`);
 
         let painel = new Discord.ActionRowBuilder().addComponents(
             new Discord.StringSelectMenuBuilder()
