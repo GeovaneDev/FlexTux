@@ -24,7 +24,7 @@ client.on('ready', () => {
     activities: [{
       name: "Digite /ajuda para a lista de comandos.",
     }],
-  })
+  });
 });
 
 process.on('multipleResolutions', (type, reason, promise) => {
@@ -54,14 +54,3 @@ client.slashCommands = new Discord.Collection()
 require('./handler')(client)
 
 client.login(process.env.DISCORD_TOKEN);
-
-// Página de Status
-const http = require('http');
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.write('<html><head><style>body {background-color: black; color: white;}</style></head><body><h1>Estou online</h1></body></html>');
-  res.end();
-});
-server.listen(4254, () => {
-  console.log('Servidor rodando na porta 8080');
-});

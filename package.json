@@ -25,6 +25,7 @@
     "dotenv": "^16.0.3",
     "figlet": "^1.5.2",
     "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
     "mathjs": "^11.8.0",
     "moment-timezone": "^0.5.43",
     "ms": "^2.1.3",

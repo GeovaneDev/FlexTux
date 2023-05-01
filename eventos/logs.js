@@ -33,7 +33,23 @@ client.on('guildCreate', async (guild) => {
   let logMessage = new Discord.EmbedBuilder()
     .setColor('Random')
     .setTitle('Novo servidor:')
-    .setDescription(`Fui adicionada ao servidor: ${guild.name} (${guild.id}).`)
+    .setDescription(`> Fui adicionada ao servidor: ${guild.name} (${guild.id}).
+    > Dono: ${guild.ownerId})
+    > Quantidade de Membros: ${guild.memberCount}
+    > Ícone: ${guild.iconURL}`)
+    .setTimestamp();
+
+    webhookClientGuilds.send({ embeds: [logMessage] });
+});
+
+client.on('guildDelete', async (guild) => {
+  let logMessage = new Discord.EmbedBuilder()
+    .setColor('Random')
+    .setTitle('Removido de um servidor:')
+    .setDescription(`> 😭 Fui removida do servidor: ${guild.name} (${guild.id}).
+    > Dono: ${guild.ownerId}
+    > Quantidade de Membros: ${guild.memberCount}
+    > Ícone: ${guild.iconURL}`)
     .setTimestamp();
 
     webhookClientGuilds.send({ embeds: [logMessage] });

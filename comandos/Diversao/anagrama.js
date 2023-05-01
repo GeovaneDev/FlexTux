@@ -16,12 +16,14 @@ module.exports = {
     const text = interaction.options.getString("palavra");
     const permutations = findPermutations(text);
     const numPermutations = permutations.length;
-    const message = `✍ **•** **Seu anagrama é...** \`${text}\`\n🤓 **•** A palavra \`${text}\` possui **${numPermutations}** anagramas diferentes!`;
+    const randomIndex = Math.floor(Math.random() * numPermutations);
+    const randomAnagram = permutations[randomIndex];
 
     let embed = new Discord.EmbedBuilder()
-    .setColor("Random")
-    .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
-    .setDescription(`> **Seu anagrama é...** \`${text}\`\n> A palavra \`${text}\` possui **${numPermutations}** anagramas diferentes!`)
+      .setColor("Random")
+      .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true })})
+      .setDescription(`> **Seu anagrama é** \`${randomAnagram}\`
+      > A palavra \`${text}\` possui **${numPermutations}** anagramas diferentes!`);
 
     interaction.reply({ embeds: [embed] });
   },

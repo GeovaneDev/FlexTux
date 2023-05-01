@@ -20,7 +20,7 @@ module.exports = {
         },
         {
             name: "descricao",
-            description: "Descrição do embed",
+            description: 'Descrição do embed (Use \\n para uma quebra de linha)',
             type: Discord.ApplicationCommandOptionType.String,
             required: true,
         },
@@ -113,7 +113,7 @@ module.exports = {
 
             const embed = new Discord.EmbedBuilder()
                 .setTitle(titulo)
-                .setDescription(descricao || "")
+                .setDescription(descricao ? descricao.replace(/\\n/g, "\n") : "")
                 .setColor(cor ? cor : "Random")
 
             if (imagem) {

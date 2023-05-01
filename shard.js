@@ -14,8 +14,8 @@ manager.on('shardCreate', shard => {
   
   servers[shard.id] = http.createServer((req, res) => {
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end(`Shard ${shard.id}: Estou Online`);
+    res.end(`Shard online id: ${shard.id}`);
   }).listen(port);
 });
 
-manager.spawn()
+manager.spawn({ timeout: -1 })

@@ -15,7 +15,6 @@ module.exports = {
 
     run: async (client, interaction) => {
 
-        let dono = process.env.DONO_ID;
         let membros = client.users.cache.size;
         let servidores = client.guilds.cache.size;
         let bot = client.user.username;

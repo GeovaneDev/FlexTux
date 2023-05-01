@@ -72,6 +72,7 @@ module.exports = {
             > \`/beijar\` Dê um beijinho em alguém!
             > \`/cafune\` Faça cafuné em alguém para demostrar carinho!
             > \`/comemorar\` Comemore algo com alguém!
+            > \`/dança\` Dançe com alguém!
             > \`/facepalm\` Dê um tapinha na própria testa ou mande para alguém que mereça!
             > \`/palmas\` Mostre seu apoio a alguém e bata palminhas! 🎉
             > \`/piscar\` Pisque para alguém e mostre que você tá pensando nele(a)!

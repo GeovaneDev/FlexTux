@@ -33,16 +33,17 @@ module.exports = {
                 let embed = new Discord.EmbedBuilder()
                     .setColor("Random")
                     .setDescription("> Você só pode deletar mensagens com menos de 14 dias.");
-                interaction.reply({ embeds: [embed] });
+                await interaction.reply({ embeds: [embed] });
             }
             if (deletableMessages.size > 0) {
                 try {
                     await interaction.channel.bulkDelete(deletableMessages, { filterOld: true });
+                    await interaction.deferReply();
                     let embed = new Discord.EmbedBuilder()
                         .setColor("Green")
                         .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL({ dynamic: true }) })
                         .setDescription(`> O canal de texto ${interaction.channel} teve \`${deletableMessages.size}\` mensagens deletadas por \`${interaction.user.tag}\`.`);
-                    interaction.reply({ embeds: [embed] });
+                    await interaction.editReply({ embeds: [embed] });
 
                     let deletarmensagens = "false"; // Se estiver definido como "true" as mensagens seram deletadas, caso não o código sertá ignorado.
 
@@ -53,10 +54,10 @@ module.exports = {
                 }
                 } catch (error) {
                     console.error(error);
-                    interaction.reply({ content: '😭 Ocorreu um erro ao tentar deletar as mensagens.', ephemeral: true });
+                    interaction.editReply({ content: '😭 Ocorreu um erro ao tentar deletar as mensagens.', ephemeral: true });
                 }
             } else {
-                interaction.reply({ content: 'Não existe mensagens para deletar.', ephemeral: true });
+                interaction.editReply({ content: 'Não existe mensagens para deletar.', ephemeral: true });
             }
         }
     }

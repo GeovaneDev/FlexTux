@@ -27,7 +27,13 @@ module.exports = {
         } else {
 
             let t = interaction.options.getString("tempo");
-            let tempo = ms(t);
+            let tempo;
+            if (t.endsWith("h") && parseInt(t) > 6) {
+                interaction.reply({ content: `O tempo não pode ser superior a 6 horas.`, ephemeral: true })
+                return;
+            } else {
+                tempo = ms(t);
+            }
             let channel = interaction.options.getChannel("canal");
             if (!channel || channel === null) channel = interaction.channel;
 
