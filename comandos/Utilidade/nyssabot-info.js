@@ -19,7 +19,7 @@ module.exports = {
         let servidores = client.guilds.cache.size;
         let bot = client.user.username;
         let avatar_bot = client.user.displayAvatarURL({ dynamic: true });
-        let mensagem = `Eu fui criada por Geovane.js#9037.`
+        let mensagem = `Eu fui criada por Geovane#9037.`
 
         let embed = new Discord.EmbedBuilder()
             .setColor("Random")

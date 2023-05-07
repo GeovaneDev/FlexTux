@@ -15,6 +15,7 @@ module.exports = {
 
     run: async (client, interaction) => {
         let numero = interaction.options.getNumber('quantidade')
+        interaction.channel.sendTyping();
 
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageMessages)) {
             interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
@@ -38,12 +39,11 @@ module.exports = {
             if (deletableMessages.size > 0) {
                 try {
                     await interaction.channel.bulkDelete(deletableMessages, { filterOld: true });
-                    await interaction.deferReply();
                     let embed = new Discord.EmbedBuilder()
                         .setColor("Green")
                         .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL({ dynamic: true }) })
                         .setDescription(`> O canal de texto ${interaction.channel} teve \`${deletableMessages.size}\` mensagens deletadas por \`${interaction.user.tag}\`.`);
-                    await interaction.editReply({ embeds: [embed] });
+                    await interaction.reply({ embeds: [embed] });
 
                     let deletarmensagens = "false"; // Se estiver definido como "true" as mensagens seram deletadas, caso não o código sertá ignorado.
 
@@ -54,10 +54,10 @@ module.exports = {
                 }
                 } catch (error) {
                     console.error(error);
-                    interaction.editReply({ content: '😭 Ocorreu um erro ao tentar deletar as mensagens.', ephemeral: true });
+                    interaction.reply({ content: '😭 Ocorreu um erro ao tentar deletar as mensagens.', ephemeral: true });
                 }
             } else {
-                interaction.editReply({ content: 'Não existe mensagens para deletar.', ephemeral: true });
+                interaction.reply({ content: 'Não existe mensagens para deletar.', ephemeral: true });
             }
         }
     }

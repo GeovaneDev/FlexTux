@@ -27,6 +27,7 @@ module.exports = {
     ],
 
     run: async (client, interaction) => {
+        interaction.channel.sendTyping();
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ModerateMembers)) {
             interaction.reply({ content: `Você não possui permissão para utilizar este comando. Você precisa ter a permissão de Moderar Membros!`, ephemeral: true });
         } else {

@@ -20,7 +20,7 @@ module.exports = {
     ],
 
     run: async (client, interaction) => {
-
+        interaction.channel.sendTyping();
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.BanMembers)) {
             interaction.reply({ content: `Você não possui permissão para utilizar este comando. Você precisa ter a permissão de Banir Membros.`, ephemeral: true });
         } else {

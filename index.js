@@ -3,13 +3,14 @@ const Discord = require("discord.js");
 const dotenv = require('dotenv');
 const { accessSync } = require("fs");
 const fs = require('fs');
+const { url } = require("inspector");
 dotenv.config();
 
 const client = new Discord.Client({
   intents: [
     Discord.GatewayIntentBits.Guilds,
     Discord.GatewayIntentBits.GuildMembers,
-    Discord.GatewayIntentBits.GuildBans,
+    Discord.GatewayIntentBits.GuildModeration,
     Discord.GatewayIntentBits.GuildMessages,
     Discord.GatewayIntentBits.MessageContent,
   ]
@@ -20,11 +21,33 @@ module.exports = client
 client.on('ready', () => {
   console.log(`🔥 Estou online em ${client.guilds.cache.size} Servidores!\n🎈 Estou logado(a) como ${client.user.tag}!`)
   client.user.setStatus("online");
-  client.user.setPresence({
-    activities: [{
-      name: "Digite /ajuda para a lista de comandos.",
-    }],
-  });
+  let status = [
+    {
+      name: '🎁Confira meu site: https://nyssabot.pages.dev',
+      type: Discord.ActivityType.Playing,
+    },
+    {
+      name: `💻${client.guilds.cache.size} Servidores`,
+      type: Discord.ActivityType.Playing,
+    },
+    {
+      name: `🎇${client.users.cache.size} Usuários`,
+      type: Discord.ActivityType.Playing,
+    },
+    {
+      name: '🎉Confira meu perfil no Top.gg',
+      type: Discord.ActivityType.Playing,
+    },
+    {
+      name: '💎Veja meus comandos usando /ajuda.',
+      type: Discord.ActivityType.Playing,
+    },
+  ];
+  client.user.setActivity(status[0]);
+  setInterval(() => {
+    let random = Math.floor(Math.random() * status.length);
+    client.user.setActivity(status[random]);
+  }, 120000);
 });
 
 process.on('multipleResolutions', (type, reason, promise) => {

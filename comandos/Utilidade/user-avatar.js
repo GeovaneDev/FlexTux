@@ -17,6 +17,15 @@ module.exports = {
 
         let user = interaction.options.getUser('user') || interaction.user;
 
+        if (user.id === client.user.id){
+            let embed = new Discord.EmbedBuilder()
+            .setTitle(`🖼・Aqui meu avatar`)
+            .setDescription(`> ${interaction.user} o avatar de ${user.username}!`)
+            .setColor("Random")
+            .setFooter({ text: "Eu tenho consciência de que sou muito fofa!" })
+            .setImage(avatar)
+        }
+
         const button = new Discord.ButtonBuilder()
             .setLabel("Abrir avatar no navegador")
             .setStyle(Discord.ButtonStyle.Link)
@@ -29,7 +38,7 @@ module.exports = {
         let embed = new Discord.EmbedBuilder()
             .setTitle(`🖼・Avatar de ${user.username}`)
             .setDescription(`> Aqui ${interaction.user} o avatar de ${user.username}!`)
-            .setColor('#ef53ff')
+            .setColor("Random")
             .setImage(avatar)
 
         interaction.reply({ embeds: [embed], components: [buttonAvatar] })

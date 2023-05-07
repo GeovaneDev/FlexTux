@@ -20,7 +20,6 @@ module.exports = {
             > \`/ajuda\` Mostra essa mensagem.
             > \`/ascii\` Converte um texto em ASCII
             > \`/escolher\` Escreva duas escolhas e eu vou estolher uma.
-            > \`/ocr\` Ler o texto de uma imagem.
             > \`/livro\` Pesquise informações sobre um livro.
             > \`/ping\` Descubra o meu tempo de resposta.
             > \`/qr-code\` Transformar um link em QR code.
@@ -60,8 +59,7 @@ module.exports = {
             .setDescription(`
             > \`/imagem-stonks\` Cria uma imagem do meme stonks!
             > \`/imagem-xbox\` Desbloqueie uma conquista do Xbox.
-            > \`/imagem-ednaldo\` Escreva algo no pano do Ednaldo Pereira.
-            > \`/meme-maker\` Crie um meme personalizado! (Beta)`);
+            > \`/imagem-ednaldo\` Escreva algo no pano do Ednaldo Pereira.`);
 
         let embed_animegifs = new Discord.EmbedBuilder()
             .setColor("Aqua")
@@ -99,7 +97,8 @@ module.exports = {
             > \`/unban\` Desbanir um usuário.
             > \`/unlock\` Desbloquear um canal.
             > \`/cargo-botao\` Ganhe cargos clicando no botão.
-            > \`/webhook\` Envia uma mensagem através de um webhook (Beta)`);
+            > \`/webhook-embed\` Envia uma embed através de um webhook
+            > \`/webhook-simples\` Envia uma mensagem simplesatravés de um webhook`);
 
         let painel = new Discord.ActionRowBuilder().addComponents(
             new Discord.StringSelectMenuBuilder()

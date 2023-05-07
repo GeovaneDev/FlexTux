@@ -14,6 +14,7 @@ module.exports = {
     ],
 
     run: async (client, interaction) => {
+        interaction.channel.sendTyping();
 
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageChannels)) {
             interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })

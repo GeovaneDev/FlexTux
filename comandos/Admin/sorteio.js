@@ -15,7 +15,7 @@ module.exports = {
         {
             name: "descrição",
             type: Discord.ApplicationCommandOptionType.String,
-            description: "Descreva o que será sorteado.",
+            description: "Descreva como participar.",
             required: true,
         },
         {
@@ -85,6 +85,7 @@ module.exports = {
     ],
 
     run: async (client, interaction, args) => {
+        interaction.channel.sendTyping();
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageGuild)) {
 
             interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
@@ -106,15 +107,19 @@ module.exports = {
             let click = [];
 
             let embed = new Discord.EmbedBuilder()
-                .setAuthor({ name: `Novo sorteio!`, iconURL: interaction.guild.iconURL({ dynamic: true }) })
+                .setAuthor({ name: `${premio}`, iconURL: interaction.guild.iconURL({ dynamic: true }) })
                 .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
-                .setDescription(`> Patrocinador: ${interaction.user}.
-> Prêmio: **${premio}.**
+                .setDescription(`> O que será sorteado?
+                **${premio}.**
 
-> ${desc}
+                > Como participar?
+                ${desc}
+                
+                > Patrocinador: ${interaction.user}.
 
-> Tempo: \`${tempo}\`.
-Clique no botão para parcipar.\n**Boa sorte!!!**`)
+                > Tempo: \`${tempo}\`.
+
+                Clique no botão para participar.\n**Boa sorte a todos!!!**`)
                 .setTimestamp(Date.now() + ms(tempo))
                 .setFooter({ text: "Data do sorteio:" })
                 .setColor("Random");
