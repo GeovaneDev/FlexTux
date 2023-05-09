@@ -1,4 +1,6 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
+const fetch = require("node-fetch");
+
 module.exports = {
     name: "abraço",
     description: "｢Anime Gifs｣ Abraça alguém para mostrar carinho!",
@@ -15,14 +17,14 @@ module.exports = {
 
         let user = interaction.options.getUser("membro")
 
-        const response = await fetch("https://some-random-api.ml/animu/hug");
+        const response = await fetch("https://api.otakugifs.xyz/gif?reaction=hug");
         const data = await response.json();
-        const abracoImageUrl = data.link;
+        const abracoImageUrl = data.url;
 
         if (user.id === interaction.user.id) {
             const userembed = new Discord.EmbedBuilder()
                 .setImage(abracoImageUrl)
-                .setFooter({text: `Fonte: some-random-api.ml`})
+                .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random")
                 .setDescription(`**Eu não acho que dar um abraço em você mesmo seja bom... Aqui, ${client.user} Deu um abraço em ${user}.**`)
             interaction.reply({ embeds: [userembed] })
@@ -33,7 +35,7 @@ module.exports = {
             const botembed = new Discord.EmbedBuilder()
                 .setDescription(`**Awww, obrigada. ${interaction.user} Deu um abraço em ${user}.**`)
                 .setImage(abracoImageUrl)
-                .setFooter({text: `Fonte: some-random-api.ml`})
+                .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random");
             interaction.reply({ embeds: [botembed] });
             return
@@ -42,7 +44,7 @@ module.exports = {
         const embed = new Discord.EmbedBuilder()
             .setDescription(`**${interaction.user} Deu um abraço em ${user}.**`)
             .setImage(abracoImageUrl)
-            .setFooter({text: `Fonte: some-random-api.ml`})
+            .setFooter({text: `Fonte: otakugifs.xyz`})
             .setColor("Random")
 
         const button = new Discord.ActionRowBuilder()
@@ -58,7 +60,7 @@ module.exports = {
             .setDescription(`**${user} Retribuiu o abraço de ${interaction.user}.**`)
             .setColor("Random")
             .setImage(abracoImageUrl)
-            .setFooter({text: `Fonte: some-random-api.ml`})
+            .setFooter({text: `Fonte: otakugifs.xyz`})
 
         interaction.reply({ embeds: [embed], components: [button] }).then(() => {
             const filter = i => i.customId === '1' && i.user.id === user.id;

@@ -1,4 +1,6 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
+const fetch = require("node-fetch");
+
 module.exports = {
     name: "cafune",
     description: "｢Anime Gifs｣ Faça cafuné em alguém para demostrar carinho!",
@@ -15,14 +17,14 @@ module.exports = {
 
         let user = interaction.options.getUser("membro")
 
-        const response = await fetch("https://some-random-api.ml/animu/pat");
+        const response = await fetch("https://api.otakugifs.xyz/gif?reaction=pat");
         const data = await response.json();
-        const cafuneImageUrl = data.link;
+        const cafuneImageUrl = data.url;
 
         if (user.id === interaction.user.id) {
             const userembed = new Discord.EmbedBuilder()
                 .setImage(cafuneImageUrl)
-                .setFooter({text: `Fonte: some-random-api.ml`})
+                .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random")
                 .setDescription(`**Eu não acho que fazer cafuné em você mesmo seja bom... Aqui, ${client.user} Fez cafuné em ${user}.**`)
             interaction.reply({ embeds: [userembed] })
@@ -33,7 +35,7 @@ module.exports = {
             const botembed = new Discord.EmbedBuilder()
                 .setDescription(`**Awww, obrigada. ${interaction.user} Fez cafuné em ${user}.**`)
                 .setImage(cafuneImageUrl)
-                .setFooter({text: `Fonte: some-random-api.ml`})
+                .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random");
             interaction.reply({ embeds: [botembed] });
             return
@@ -42,7 +44,7 @@ module.exports = {
         const embed = new Discord.EmbedBuilder()
             .setDescription(`**${interaction.user} Fez cafuné em ${user}.**`)
             .setImage(cafuneImageUrl)
-            .setFooter({text: `Fonte: some-random-api.ml`})
+            .setFooter({text: `Fonte: otakugifs.xyz`})
             .setColor("Random")
 
         const button = new Discord.ActionRowBuilder()
@@ -58,7 +60,7 @@ module.exports = {
             .setDescription(`**${user} Retribuiu o cafune de ${interaction.user}.**`)
             .setColor("Random")
             .setImage(cafuneImageUrl)
-            .setFooter({text: `Fonte: some-random-api.ml`})
+            .setFooter({text: `Fonte: otakugifs.xyz`})
 
         interaction.reply({ embeds: [embed], components: [button] }).then(() => {
             const filter = i => i.customId === '1' && i.user.id === user.id;

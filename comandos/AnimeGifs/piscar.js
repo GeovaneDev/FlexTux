@@ -1,4 +1,6 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
+const fetch = require("node-fetch");
+
 module.exports = {
     name: "piscar",
     description: "｢Anime Gifs｣ Pisque para alguém e mostre que você tá pensando nele(a)!",
@@ -15,14 +17,14 @@ module.exports = {
 
         let user = interaction.options.getUser("membro")
 
-        const response = await fetch("https://some-random-api.ml/animu/wink");
+        const response = await fetch("https://api.otakugifs.xyz/gif?reaction=wink");
         const data = await response.json();
-        const piscarImageUrl = data.link;
+        const piscarImageUrl = data.url;
 
         if (user.id === interaction.user.id) {
             const userembed = new Discord.EmbedBuilder()
                 .setImage(piscarImageUrl)
-                .setFooter({text: `Fonte: some-random-api.ml`})
+                .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random")
                 .setDescription(`**Eu não acho que piscar para você mesmo seja bom ou possível... Aqui, ${client.users.cache.get("944555548148375592")} Piscou para em ${user}.**`)
             interaction.reply({ embeds: [userembed] })
@@ -33,7 +35,7 @@ module.exports = {
             const botembed = new Discord.EmbedBuilder()
                 .setDescription(`**Ei, por que você está piscando para mim, ${interaction.user}?**`)
                 .setImage(piscarImageUrl)
-                .setFooter({text: `Fonte: some-random-api.ml`})
+                .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random");
             interaction.reply({ embeds: [botembed] });
             return
@@ -42,7 +44,7 @@ module.exports = {
         const embed = new Discord.EmbedBuilder()
             .setDescription(`**${interaction.user} piscou para ${user}.**`)
             .setImage(piscarImageUrl)
-            .setFooter({text: `Fonte: some-random-api.ml`})
+            .setFooter({text: `Fonte: otakugifs.xyz`})
             .setColor("Random")
 
         const button = new Discord.ActionRowBuilder()
@@ -58,7 +60,7 @@ module.exports = {
             .setDescription(`**${user} retribuiu o pisca de ${interaction.user}.**`)
             .setColor("Random")
             .setImage(piscarImageUrl)
-            .setFooter({text: `Fonte: some-random-api.ml`})
+            .setFooter({text: `Fonte: otakugifs.xyz`})
 
         interaction.reply({ embeds: [embed], components: [button] }).then(() => {
             const filter = i => i.customId === '1' && i.user.id === user.id;

@@ -1,4 +1,6 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
+const fetch = require("node-fetch");
+
 module.exports = {
     name: "palmas",
     description: "｢Anime Gifs｣ Mostre seu apoio a alguém e bata palminhas! 🎉",
@@ -21,7 +23,7 @@ module.exports = {
 
         if (user.id === interaction.user.id) {
             const userembed = new Discord.EmbedBuilder()
-                .setImage(`${palmasImageUrl}`)
+                .setImage(palmasImageUrl)
                 .setColor("Random")
                 .setFooter({ text: "Fonte: api.otakugifs.xyz"})
                 .setDescription(`**${interaction.user} bateu palmas... a si mesmo?**`)
@@ -39,7 +41,7 @@ module.exports = {
 
         const embed = new Discord.EmbedBuilder()
             .setDescription(`**${interaction.user} bateu palmas para ${user}.**`)
-            .setImage(`${palmasImageUrl}`)
+            .setImage(palmasImageUrl)
             .setFooter({ text: "Fonte: api.otakugifs.xyz"})
             .setColor("Random")
 

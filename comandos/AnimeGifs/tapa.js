@@ -1,4 +1,6 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
+const fetch = require("node-fetch");
+
 module.exports = {
     name: "tapa",
     description: "｢Anime Gifs｣ Dê um tapa em alguém (virtualmente, claro!) que mereça!",

@@ -1,4 +1,6 @@
-const Discord = require('discord.js') //id do seu bot no lugar do id "944555548148375592"
+const Discord = require('discord.js');
+const fetch = require("node-fetch");
+
 module.exports = {
     name: "facepalm",
     description: "｢Anime Gifs｣ Dê um tapinha na própria testa para alguém que mereça!",
@@ -15,18 +17,18 @@ module.exports = {
 
         let user = interaction.options.getUser("membro")
 
-        const response = await fetch("https://some-random-api.ml/animu/face-palm");
+        const response = await fetch("https://api.otakugifs.xyz/gif?reaction=facepalm");
         const data = await response.json();
-        const facepalmImageUrl = data.link;
+        const facepalmImageUrl = data.url;
 
-        const response2 = await fetch("https://some-random-api.ml/animu/hug");
+        const response2 = await fetch("https://api.otakugifs.xyz/gif?reaction=hug");
         const data2 = await response2.json();
-        const abracoImageUrl2 = data2.link;
+        const abracoImageUrl2 = data2.url;
 
         if (user.id === interaction.user.id) {
             const userembed = new Discord.EmbedBuilder()
                 .setImage(abracoImageUrl2)
-                .setFooter({text: `Fonte: some-random-api.ml`})
+                .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random")
                 .setDescription(`**Awww, você está fazendo um facepalm em si mesmo? Não fique triste! Deixa eu te ajudar! ${client.user} deu um abraço para animar o dia de ${user}!**`)
             interaction.reply({ embeds: [userembed] })
@@ -37,7 +39,7 @@ module.exports = {
             const botembed = new Discord.EmbedBuilder()
                 .setDescription(`**Oh não, ${interaction.user} enviou um facepalm para mim! Será que fiz algo errado?**`)
                 .setImage(facepalmImageUrl)
-                .setFooter({text: `Fonte: some-random-api.ml`})
+                .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random");
             interaction.reply({ embeds: [botembed] });
             return
@@ -46,7 +48,7 @@ module.exports = {
         const embed = new Discord.EmbedBuilder()
             .setDescription(`**${interaction.user} mandou um facepalm para ${user}.**`)
             .setImage(facepalmImageUrl)
-            .setFooter({text: `Fonte: some-random-api.ml`})
+            .setFooter({text: `Fonte: otakugifs.xyz`})
             .setColor("Random")
 
         const button = new Discord.ActionRowBuilder()
@@ -62,7 +64,7 @@ module.exports = {
             .setDescription(`**${user} retribuiu o facepalm de ${interaction.user}... parece que essa conversa não está indo muito bem. Vamos tentar manter a calma.**`)
             .setColor("Random")
             .setImage(facepalmImageUrl)
-            .setFooter({text: `Fonte: some-random-api.ml`})
+            .setFooter({text: `Fonte: otakugifs.xyz`})
 
         interaction.reply({ embeds: [embed], components: [button] }).then(() => {
             const filter = i => i.customId === '1' && i.user.id === user.id;
