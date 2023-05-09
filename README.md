@@ -32,12 +32,12 @@ Para instalar o bot, siga os seguintes passos:
 1. Clone este repositório:
 
 ```
-git clone https://github.com/GeovaneDev/NyssaBot
+git clone https://github.com/Nyssa-Bot/NyssaBot
 ```
 
 2. Instale as dependências necessárias:
 ```
-cd Starnick/
+cd NyssaBot/
 npm install
 ```
 
