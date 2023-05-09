@@ -6,7 +6,6 @@ module.exports = {
     type: Discord.ApplicationCommandType.ChatInput,
 
     run: async(client, interaction) => {
-        interaction.channel.sendTyping();
         if(!interaction.member.permissions.has(Discord.PermissionFlagsBits.BanMembers))
          return interaction.reply({ content: `**❌ - Você não tem permissão para utilizar este comando.**`, ephemeral: true})
 

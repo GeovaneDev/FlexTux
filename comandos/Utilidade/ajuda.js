@@ -24,7 +24,7 @@ module.exports = {
             > \`/ping\` Descubra o meu tempo de resposta.
             > \`/qr-code\` Transformar um link em QR code.
             > \`/server-info\` Veja as informações do servidor.
-            > \`/starnick info\` Fornece informações sobre mim.
+            > \`/nyssabot info \` Fornece informações sobre mim.
             > \`/sugestao\` Envie uma sugestão, para me ajudar a evoluir!
             > \`/traduzir\`: Traduzir um texto para outro idioma.
             > \`/uptime\` Quanto tempo estou online.
@@ -51,6 +51,15 @@ module.exports = {
             > \`/roleta russa\` Aposte em um número e veja se você é sortudo(a)!
             > \`/rps\` Jogue pedra, papel ou tesoura com alguém (BETA)
             > \`/rps2\` Jogue pedra, papel ou tesoura comigo, eu adoro esse jogo!`);
+
+        let embed_economia = new Discord.EmbedBuilder()
+            .setColor("Aqua")
+            .setTitle(`Aqui estão alguns comandinhos de economia:`)
+            .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
+            .setDescription(`
+            > \`/apostar\` Aposte suas moedas.
+            > \`/daily\` Recebe uma recompensa diária.
+            > \`/saldo\` Veja o saldo de alguém.`)
 
         let embed_imagem = new Discord.EmbedBuilder()
             .setColor("Aqua")
@@ -82,7 +91,6 @@ module.exports = {
             .setTitle(`Aqui estão meus comandinhos de administração que podem ajudar você a cuidar do servidor com muita eficiência:`)
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
             .setDescription(`
-            > \`/admin-list\` Mostrar lista de administradores.
             > \`/ban\` Banir um usuário.
             > \`/banimentos\` Lista de banidos do servidor.
             > \`/limpar\` Limpar o canal de texto.
@@ -94,11 +102,10 @@ module.exports = {
             > \`/sorteio\` Realizar um sorteio.
             > \`/timeout\` Castigue um membro! (Beta)
             > \`/timeout-remove\` Remova o castigo de um membro! (Beta)
-            > \`/unban\` Desbanir um usuário.
             > \`/unlock\` Desbloquear um canal.
             > \`/cargo-botao\` Ganhe cargos clicando no botão.
             > \`/webhook-embed\` Envia uma embed através de um webhook
-            > \`/webhook-simples\` Envia uma mensagem simplesatravés de um webhook`);
+            > \`/webhook-simples\` Envia uma mensagem simples através de um webhook`);
 
         let painel = new Discord.ActionRowBuilder().addComponents(
             new Discord.StringSelectMenuBuilder()
@@ -122,6 +129,12 @@ module.exports = {
                         description: "Veja meus comandos para você se divertir.",
                         emoji: "😅",
                         value: "diversao"
+                    },
+                    {
+                        label: "Economia",
+                        description: "Veja meus comandos de economia.",
+                        emoji: "💰",
+                        value: "economia"
                     },
                     {
                         label: "Animes Gifs",
@@ -157,6 +170,9 @@ module.exports = {
                 } else if (valor === "diversao") {
                     c.deferUpdate()
                     interaction.editReply({ embeds: [embed_diversao] })
+                } else if (valor === "economia") {
+                    c.deferUpdate()
+                    interaction.editReply({ embeds: [embed_economia] })
                 } else if (valor === "imagem") {
                     c.deferUpdate()
                     interaction.editReply({ embeds: [embed_imagem] })

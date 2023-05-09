@@ -20,10 +20,10 @@ module.exports = {
     ],
 
     run: async (client, interaction) => {
-        interaction.channel.sendTyping();
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.BanMembers)) {
             interaction.reply({ content: `Você não possui permissão para utilizar este comando. Você precisa ter a permissão de Banir Membros.`, ephemeral: true });
         } else {
+            interaction.deferReply();
             let userr = interaction.options.getUser("user");
             let user = interaction.guild.members.cache.get(userr.id)
             let motivo = interaction.options.getString("motivo");
@@ -31,16 +31,16 @@ module.exports = {
 
             let embed = new Discord.EmbedBuilder()
                 .setColor("Green")
-                .setDescription(`O usuário ${user} (\`${user.id}\`) foi banido com sucesso. Por ${interaction.user.tag}`);
+                .setDescription(`> O usuário ${user} (\`${user.id}\`) foi banido com sucesso.\n> Por ${interaction.user.tag}.\n> Motivo: ${motivo}.`);
 
             let erro = new Discord.EmbedBuilder()
                 .setColor("Red")
                 .setDescription(`Não foi possível banir o usuário ${user} (\`${user.id}\`) do servidor!`);
 
             user.ban({ reason: [motivo] }).then(() => {
-                interaction.reply({ embeds: [embed] })
+                interaction.editReply({ embeds: [embed] })
             }).catch(e => {
-                interaction.reply({ embeds: [erro] })
+                interaction.editReply({ embeds: [erro], ephemeral: true })
             })
         }
 

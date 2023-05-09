@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 const dotenv = require('dotenv');
 const { accessSync } = require("fs");
 const fs = require('fs');
-const { url } = require("inspector");
 dotenv.config();
 
 const client = new Discord.Client({
@@ -77,3 +76,19 @@ client.slashCommands = new Discord.Collection()
 require('./handler')(client)
 
 client.login(process.env.DISCORD_TOKEN);
+
+//Mongodb
+const { MongoClient } = require('mongodb');
+const uri = process.env.MONGODB_URI;
+const clientMongo = new MongoClient(uri);
+
+clientMongo.connect((err) => {
+  if (err) {
+    console.error(err);
+    return;
+  } else {
+    console.log("📚 Conectado ao MongoDB!")
+  }
+});
+
+module.exports.mongoClient = clientMongo;

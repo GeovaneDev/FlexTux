@@ -1,4 +1,5 @@
 const Discord = require("discord.js")
+const axios = require("axios");
 
 module.exports = {
   name: "webhook-simples",
@@ -59,6 +60,7 @@ module.exports = {
                 return;
             }
         }
+
         await interaction.deferReply({ ephemeral: true });
 
         try {
