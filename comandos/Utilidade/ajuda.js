@@ -104,6 +104,7 @@ module.exports = {
             > \`/timeout-remove\` Remova o castigo de um membro! (Beta)
             > \`/unlock\` Desbloquear um canal.
             > \`/cargo-botao\` Ganhe cargos clicando no botão.
+            > \`/webhook-docs\` Documentação de como usar os comandos de webhook!
             > \`/webhook-embed\` Envia uma embed através de um webhook
             > \`/webhook-simples\` Envia uma mensagem simples através de um webhook`);
 

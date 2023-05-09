@@ -2,43 +2,43 @@ const Discord = require("discord.js")
 const axios = require("axios");
 
 module.exports = {
-  name: "webhook-simples",
-  description: "｢Admin｣ Envia uma mensagem simples através de um webhook",
-  type: Discord.ApplicationCommandType.ChatInput,
-  options: [
-    {
-        name: "link",
-        description: "Link do webhook",
-        type: Discord.ApplicationCommandOptionType.String,
-        required: true,
-    },
-    {
-        name: "mensagem",
-        description: "Mensagem do webhook use \\n para quebrar uma linha.",
-        type: Discord.ApplicationCommandOptionType.String,
-        required: true,
-    },
-    {
-        name: "nome",
-        description: "Nome do webhook",
-        type: Discord.ApplicationCommandOptionType.String,
-        required: false,
-    },
-    {
-        name: "avatar",
-        description: "URL da imagem do avatar do webhook",
-        type: Discord.ApplicationCommandOptionType.String,
-        required: false,
-    },
-  ],
+    name: "webhook-simples",
+    description: "｢Admin｣ Envia uma mensagem simples através de um webhook",
+    type: Discord.ApplicationCommandType.ChatInput,
+    options: [
+        {
+            name: "link",
+            description: "Link do webhook",
+            type: Discord.ApplicationCommandOptionType.String,
+            required: true,
+        },
+        {
+            name: "mensagem",
+            description: "Mensagem do webhook. (Use /webhook-docs para a docs de como usar os webhook.)",
+            type: Discord.ApplicationCommandOptionType.String,
+            required: true,
+        },
+        {
+            name: "nome",
+            description: "Nome do webhook",
+            type: Discord.ApplicationCommandOptionType.String,
+            required: false,
+        },
+        {
+            name: "avatar",
+            description: "URL da imagem do avatar do webhook",
+            type: Discord.ApplicationCommandOptionType.String,
+            required: false,
+        },
+    ],
 
-  run: async (client, interaction) => {
-    const linkWebhook = interaction.options.getString("link");
-    const mensagem = interaction.options.getString("mensagem");
-    const nomeWebhook = interaction.options.getString("nome");
-    const avatarWebhook = interaction.options.getString("avatar");
+    run: async (client, interaction) => {
+        const linkWebhook = interaction.options.getString("link");
+        const mensagem = interaction.options.getString("mensagem");
+        const nomeWebhook = interaction.options.getString("nome");
+        const avatarWebhook = interaction.options.getString("avatar");
 
-    let linkValida = false;
+        let linkValida = false;
 
         if (linkWebhook) {
             if (!linkWebhook.startsWith("https://discord.com/api/webhooks/")) {
@@ -65,19 +65,19 @@ module.exports = {
 
         try {
             const webhookClient = new Discord.WebhookClient({ url: linkWebhook });
-
+            const mensagemComTags = mensagem.replace(/<personalizar_comunidade>/g, '<id:customize>').replace(/<canais_cargos>/g, '<id:browse>');
+            const mensagemComQuebrasDeLinha = mensagemComTags.replace(/\\n/g, '\n');
 
             await webhookClient.send({
-                content: `${mensagem.replace(/\\n/g, '\n')}`,
+                content: mensagemComQuebrasDeLinha,
                 username: nomeWebhook,
                 avatarURL: avatarWebhook,
             });
-
             await interaction.editReply(":white_check_mark:  Webhook enviado com sucesso!");
         } catch (error) {
             await interaction.editReply(
                 ":x:  Ocorreu um erro ao enviar o webhook. Verifique os links das imagens!"
             );
         }
-  }
+    }
 }

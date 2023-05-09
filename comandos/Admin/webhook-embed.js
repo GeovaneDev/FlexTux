@@ -20,7 +20,7 @@ module.exports = {
         },
         {
             name: "descricao",
-            description: 'Descrição do embed (Use \\n para uma quebra de linha)',
+            description: 'Descrição do embed. (Use /webhook-docs para a docs de como usar os webhook.)',
             type: Discord.ApplicationCommandOptionType.String,
             required: true,
         },
@@ -118,10 +118,13 @@ module.exports = {
         try {
             const webhookClient = new Discord.WebhookClient({ url: linkWebhook });
 
+            const descricaoComTags = descricao.replace(/<personalizar_comunidade>/g, '<id:customize>').replace(/<canais_cargos>/g, '<id:browse>');
+            const descricaoComQuebrasDeLinha = descricaoComTags.replace(/\\n/g, '\n');
             const embed = new Discord.EmbedBuilder()
                 .setTitle(titulo)
-                .setDescription(descricao ? descricao.replace(/\\n/g, "\n") : "")
-                .setColor(cor ? cor : "Random")
+                .setDescription(descricaoComQuebrasDeLinha)
+                .setColor(cor ? cor : "Random");
+
 
             if (imagem) {
                 embed.setImage(imagem);
@@ -132,7 +135,7 @@ module.exports = {
             }
 
             if (footer) {
-                embed.setFooter({text: `${footer}`});
+                embed.setFooter({ text: `${footer}` });
             }
 
             await webhookClient.send({
