@@ -59,7 +59,9 @@ module.exports = {
             .setDescription(`
             > \`/apostar\` Aposte suas moedas.
             > \`/daily\` Recebe uma recompensa diária.
-            > \`/saldo\` Veja o saldo de alguém.`)
+            > \`/pagar\` Pagar moedas a outro usuário.
+            > \`/saldo\` Veja o saldo de alguém.
+            > \`/trabalhar\` Trabalhe e ganhe algumas moedas`)
 
         let embed_imagem = new Discord.EmbedBuilder()
             .setColor("Aqua")

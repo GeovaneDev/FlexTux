@@ -24,12 +24,11 @@ module.exports = {
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.KickMembers)) {
             interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, epemeral: true })
         } else {
-            interaction.deferReply();
             const user = interaction.options.getUser("membro")
             const membro = interaction.guild.members.cache.get(user.id)
 
             if (!membro) {
-                return interaction.editReply({ content: `Membro não encontrado.`, ephemeral: true })
+                return interaction.rply({ content: `Membro não encontrado.`, ephemeral: true })
             }
 
             let motivo = interaction.options.getString("motivo")
@@ -44,9 +43,9 @@ module.exports = {
                 .setDescription(`O usuário ${membro} não foi expulso do servidor!\nHouve um erro na hora de executar este comando, por favor tente novamente.`);
 
             membro.kick(motivo).then(() => {
-                interaction.editReply({ embeds: [embed] })
+                interaction.reply({ embeds: [embed] })
             }).catch(e => {
-                interaction.editReply({ embeds: [embed_erro], epemeral: true })
+                interaction.reply({ embeds: [embed_erro], epemeral: true })
             })
         }
 

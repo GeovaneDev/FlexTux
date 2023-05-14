@@ -25,11 +25,10 @@ module.exports = {
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageChannels)) {
             interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
         } else {
-            interaction.deferReply();
             let t = interaction.options.getString("tempo");
             let tempo;
             if (t.endsWith("h") && parseInt(t) > 6) {
-                interaction.editReply({ content: `O tempo não pode ser superior a 6 horas.`, ephemeral: true })
+                interaction.reply({ content: `O tempo não pode ser superior a 6 horas.`, ephemeral: true })
                 return;
             } else {
                 tempo = ms(t);
@@ -38,7 +37,7 @@ module.exports = {
             if (!channel || channel === null) channel = interaction.channel;
 
             if (!tempo || tempo === false || tempo === null) {
-                interaction.editReply({ content: `Forneça um tempo válido: [s|m|h].`, ephemeral: true })
+                interaction.reply({ content: `Forneça um tempo válido: [s|m|h].`, ephemeral: true })
             } else {
                 channel.setRateLimitPerUser(tempo / 1000).then(() => {
                     const embed = new Discord.EmbedBuilder()
@@ -48,7 +47,7 @@ module.exports = {
                     interaction.reply({ embeds: [embed] })
                     return
                 }).catch(() => {
-                    interaction.editReply({ content: `Ops, algo deu errado ao executar este comando, verifique minhas permissões, preciso ter a permisão "Gerenciar Canais".`, ephemeral: true })
+                    interaction.reply({ content: `Ops, algo deu errado ao executar este comando, verifique minhas permissões, preciso ter a permisão "Gerenciar Canais".`, ephemeral: true })
                 })
             }
         }

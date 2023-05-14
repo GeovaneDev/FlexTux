@@ -25,7 +25,6 @@ module.exports = {
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageChannels)) {
             interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
         } else {
-            interaction.deferReply();
 
             let t = -1;
             let tempo = ms(t);
@@ -37,9 +36,9 @@ module.exports = {
                     .setColor("Random")
                     .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
                     .setDescription(`> O canal de texto ${channel} teve seu modo lento definido como \`Desativado\`.`)
-                interaction.editReply({ embeds: [embed] })
+                interaction.rply({ embeds: [embed] })
             }).catch(() => {
-                interaction.editReply({ content: `Ops, algo deu errado ao executar este comando, verifique minhas permissões, preciso ter a permisão "Gerenciar Canais".`, ephemeral: true })
+                interaction.reply({ content: `Ops, algo deu errado ao executar este comando, verifique minhas permissões, preciso ter a permisão "Gerenciar Canais".`, ephemeral: true })
             })
         }
     }
