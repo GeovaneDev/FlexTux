@@ -17,10 +17,10 @@ client.on('interactionCreate', async (interaction) => {
   let logMessage = new Discord.EmbedBuilder()
   .setColor("Random")
   .setTitle("Log de Comandos:")
-  .setDescription(`> Comando: ${interaction.commandName}
-  > Executado por: ${interaction.user.tag}
-  > Servidor: ${interaction.guild.name}
-  > Argumentos: ${args.join(', ')}`)
+  .setDescription(`> Comando: \`${interaction.commandName}\`
+  > Executado por: \`${interaction.user.tag}\`
+  > Servidor: \`${interaction.guild.name}\`
+  > Argumentos: \`${args.join(', ')}\``)
   .setTimestamp();
 
   webhookClientLogsComandos.send({ embeds: [logMessage] });
@@ -33,10 +33,9 @@ client.on('guildCreate', async (guild) => {
   let logMessage = new Discord.EmbedBuilder()
     .setColor('Random')
     .setTitle('Novo servidor:')
-    .setDescription(`> Fui adicionada ao servidor: ${guild.name} (${guild.id}).
-    > Dono: ${guild.ownerId})
-    > Quantidade de Membros: ${guild.memberCount}
-    > Ícone: ${guild.iconURL}`)
+    .setDescription(`> Fui adicionada ao servidor: **${guild.name}** (\`${guild.id}\`).
+    > Dono: \`${guild.ownerId}\`
+    > Quantidade de Membros: \`${guild.memberCount}\``)
     .setTimestamp();
 
     webhookClientGuilds.send({ embeds: [logMessage] });
@@ -46,10 +45,9 @@ client.on('guildDelete', async (guild) => {
   let logMessage = new Discord.EmbedBuilder()
     .setColor('Random')
     .setTitle('Removido de um servidor:')
-    .setDescription(`> 😭 Fui removida do servidor: ${guild.name} (${guild.id}).
-    > Dono: ${guild.ownerId}
-    > Quantidade de Membros: ${guild.memberCount}
-    > Ícone: ${guild.iconURL}`)
+    .setDescription(`> Fui removida do servidor: **${guild.name}** (\`${guild.id}\`).
+    > Dono: \`${guild.ownerId}\`
+    > Quantidade de Membros: \`${guild.memberCount}\``)
     .setTimestamp();
 
     webhookClientGuilds.send({ embeds: [logMessage] });
