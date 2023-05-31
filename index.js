@@ -47,6 +47,13 @@ client.on('ready', () => {
     let random = Math.floor(Math.random() * status.length);
     client.user.setActivity(status[random]);
   }, 120000);
+  
+  setTimeout(() => {
+    const { AutoPoster } = require('topgg-autoposter')
+    const ap = AutoPoster(process.env.TOP_GG_TOKEN, client)
+    ap.on('posted', () => {
+    })
+  }, 6000000);
 });
 
 process.on('multipleResolutions', (type, reason, promise) => {
@@ -77,7 +84,6 @@ require('./handler')(client)
 
 client.login(process.env.DISCORD_TOKEN);
 
-//Mongodb
 const { MongoClient } = require('mongodb');
 const uri = process.env.MONGODB_URI;
 const clientMongo = new MongoClient(uri);

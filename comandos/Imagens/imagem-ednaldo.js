@@ -4,7 +4,7 @@ const Canvas = require('canvas')
 module.exports = {
 
     name: "imagem-ednaldo",
-    description: "｢Diversão｣ Escreva algo no pano do Ednaldo Pereira.",
+    description: "｢Imagem｣ Escreva algo no pano do Ednaldo Pereira.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {
@@ -33,7 +33,7 @@ module.exports = {
         ctx.font = "48px sans-serif"
         ctx.fillStyle = "#00000";
         if (msg.length < 8) {
-            ctx.fillText(`${msg}`, 425, 349) // coordenadas do texto, x = 425 y = 349
+            ctx.fillText(`${msg}`, 425, 349)
 
             const attachment = new Discord.AttachmentBuilder(canvas.toBuffer(), { name: "ednaldo.png" })
             let embedEdnaldo = new Discord.EmbedBuilder()
@@ -42,7 +42,7 @@ module.exports = {
                 .setImage("attachment://ednaldo.png")
             interaction.editReply({ files: [attachment], embeds: [embedEdnaldo] })
         } else {
-            ctx.fillText(`${msg}`, 215, 349) // coordenadas do texto, x = 215 y = 349
+            ctx.fillText(`${msg}`, 215, 349)
 
             const attachment = new Discord.AttachmentBuilder(canvas.toBuffer(), { name: "ednaldo.png" })
             let embedEdnaldo = new Discord.EmbedBuilder()

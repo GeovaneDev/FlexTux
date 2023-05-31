@@ -11,7 +11,7 @@ module.exports = {
     const db = mongoClient.db('users');
     const usersCollection = db.collection('users');
 
-    const amount = Math.floor(Math.random() * 500) + 100;
+    const amount = Math.floor(Math.random() * 700) + 100;
 
     try {
       const user = await usersCollection.findOneAndUpdate(
@@ -20,7 +20,7 @@ module.exports = {
         { upsert: true, returnOriginal: false }
       );
 
-      const cooldown = 30000;
+      const cooldown = 15000;
       const remainingCooldown = Math.max(0, cooldown - (new Date() - user.value.lastWork.getTime()));
 
       if (remainingCooldown > 0) {

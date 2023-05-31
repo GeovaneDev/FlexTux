@@ -20,6 +20,7 @@ module.exports = {
             > \`/ajuda\` Mostra essa mensagem.
             > \`/ascii\` Converte um texto em ASCII
             > \`/escolher\` Escreva duas escolhas e eu vou estolher uma.
+            > \`/lembrete\` Define um lembrete
             > \`/livro\` Pesquise informações sobre um livro.
             > \`/ping\` Descubra o meu tempo de resposta.
             > \`/qr-code\` Transformar um link em QR code.
@@ -60,6 +61,7 @@ module.exports = {
             > \`/apostar\` Aposte suas moedas.
             > \`/daily\` Recebe uma recompensa diária.
             > \`/pagar\` Pagar moedas a outro usuário.
+            > \`/rank\` Mostra o rank por quantidade de dinheiro. (BETA)
             > \`/saldo\` Veja o saldo de alguém.
             > \`/trabalhar\` Trabalhe e ganhe algumas moedas`)
 
@@ -68,9 +70,13 @@ module.exports = {
             .setTitle(`Aqui estão alguns comandinhos super divertidos de manupulação de imagem:`)
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
             .setDescription(`
+            > \`/imagem-ednaldo\` Escreva algo no pano do Ednaldo Pereira.
+            > \`/imagem-passed\` Aplica o efeito 'passed' a uma imagem de perfil, estilo GTA
             > \`/imagem-stonks\` Cria uma imagem do meme stonks!
+            > \`/imagem-triggered\` Aplica o efeito 'triggered' a uma imagem de perfil.
+            > \`/imagem-wasted\` Aplica o efeito 'Wasted' a uma imagem de perfil, estilo do GTA.
             > \`/imagem-xbox\` Desbloqueie uma conquista do Xbox.
-            > \`/imagem-ednaldo\` Escreva algo no pano do Ednaldo Pereira.`);
+            > \`/mememaker\` Crie um meme personalizado.`);
 
         let embed_animegifs = new Discord.EmbedBuilder()
             .setColor("Aqua")
@@ -102,8 +108,8 @@ module.exports = {
             > \`/slowmode-set\` Configurar modo lento.
             > \`/slowmode off\` Desativar modo lento.
             > \`/sorteio\` Realizar um sorteio.
-            > \`/timeout\` Castigue um membro! (Beta)
-            > \`/timeout-remove\` Remova o castigo de um membro! (Beta)
+            > \`/timeout\` Castigue um membro!
+            > \`/timeout-remove\` Remova o castigo de um membro!
             > \`/unlock\` Desbloquear um canal.
             > \`/cargo-botao\` Ganhe cargos clicando no botão.
             > \`/webhook-docs\` Documentação de como usar os comandos de webhook!

@@ -3,7 +3,7 @@ const { createCanvas, loadImage } = require('canvas');
 
 module.exports = {
   name: "imagem-stonks",
-  description: "｢Diversão｣ Cria uma imagem do meme stonks! (Beta)",
+  description: "｢Imagem｣ Cria uma imagem do meme stonks! (Beta)",
   options: [
     {
       name: "texto",
