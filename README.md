@@ -76,7 +76,7 @@ Veja nosso FAQ em [NyssaBot FAQ](https://nyssabot.pages.dev/#faq).
 
 ## Agradecimentos
 
-Eu gostaria de agradecer o [Ferinha](https://www.youtube.com/@OFerinha), que me ajudou ensinando em seus vídeos a programar os comandos da bot. E ao desenvolvedor [GeovaneDev](https://github.com/GeovaneDev).
+Eu gostaria de agradecer o [Ferinha](https://www.youtube.com/@OFerinha), que com seus vídeo relacionados a programação tornou possível esse projeto. E ao desenvolvedor [GeovaneDev](https://github.com/GeovaneDev).
 
 ## Contribuição
 
