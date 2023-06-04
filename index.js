@@ -1,9 +1,8 @@
 const Discord = require("discord.js");
-"use strict";
-const dotenv = require('dotenv');
-const { accessSync } = require("fs");
 const fs = require('fs');
+const dotenv = require('dotenv');
 dotenv.config();
+"use strict";
 
 const client = new Discord.Client({
   intents: [
@@ -47,13 +46,12 @@ client.on('ready', () => {
     let random = Math.floor(Math.random() * status.length);
     client.user.setActivity(status[random]);
   }, 120000);
-
-  setTimeout(() => {
-    const { AutoPoster } = require('topgg-autoposter')
-    const ap = AutoPoster(process.env.TOP_GG_TOKEN, client)
-    ap.on('posted', () => {
-    })
-  }, 6000000);
+  //setTimeout(() => {
+  //  const { AutoPoster } = require('topgg-autoposter')
+  //  const ap = AutoPoster(process.env.TOP_GG_TOKEN, client)
+  //  ap.on('posted', () => {
+  //  })
+  //}, 6000000);
 });
 
 process.on('multipleResolutions', (type, reason, promise) => {

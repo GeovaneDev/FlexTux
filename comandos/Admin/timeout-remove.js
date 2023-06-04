@@ -79,7 +79,7 @@ module.exports = {
                     return;
                 }
             } catch (error) {
-                console.log(`Houve um erro ao remover o timeout: ${error}`);
+                await interaction.editReply({ content: `❌ Ops, algo deu errado. Eu preciso ter a permissão **"Membros de castigo"**!` });
             }
         }
     }

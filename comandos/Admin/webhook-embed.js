@@ -147,7 +147,7 @@ module.exports = {
             await interaction.editReply(":white_check_mark:  Webhook enviado com sucesso!");
         } catch (error) {
             await interaction.editReply(
-                ":x:  Ocorreu um erro ao enviar o webhook. Verifique os links das imagens!"
+                ":x:  Ocorreu um erro ao enviar o webhook. Verifique os links e tente novamente!"
             );
         }
     },

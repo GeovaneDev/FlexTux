@@ -38,7 +38,7 @@ module.exports = {
                     .setDescription(`> O canal de texto ${channel} teve seu modo lento definido como \`Desativado\`.`)
                 interaction.rply({ embeds: [embed] })
             }).catch(() => {
-                interaction.reply({ content: `Ops, algo deu errado ao executar este comando, verifique minhas permissões, preciso ter a permisão "Gerenciar Canais".`, ephemeral: true })
+                interaction.reply({ content: `Ops, algo deu errado ao executar este comando, verifique minhas permissões, preciso ter a permisão **"Gerenciar Usuários"**.`, ephemeral: true })
             })
         }
     }

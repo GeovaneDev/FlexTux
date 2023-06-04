@@ -47,7 +47,7 @@ module.exports = {
                     interaction.reply({ embeds: [embed] })
                     return
                 }).catch(() => {
-                    interaction.reply({ content: `Ops, algo deu errado ao executar este comando, verifique minhas permissões, preciso ter a permisão "Gerenciar Canais".`, ephemeral: true })
+                    interaction.reply({ content: `❌ Ops, algo deu errado ao executar este comando, verifique minhas permissões, preciso ter a permisão **"Gerenciar Canais"**.`, ephemeral: true })
                 })
             }
         }

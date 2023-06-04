@@ -18,13 +18,13 @@ module.exports = {
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageChannels)) {
             interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
         } else {
-            const canal = interaction.options.getChannel("canal")
+            const canal = interaction.options.getChannel("canal")|| interaction.channel;
 
             canal.permissionOverwrites.edit(interaction.guild.id, { SendMessages: true }).then(() => {
                 interaction.reply({ content: `🔓 O canal de texto ${canal} foi desbloqueado!` })
-                if (canal.id !== interaction.channel.id) return canal.send({ content: `🔓 Este canal foi desbloqueado!` })
+                if (canal.id !== interaction.channel.id) return canal.send({ content: `🔓 Este canal foi desbloqueado!`, ephemeral: true })
             }).catch(e => {
-                interaction.reply({ content: `❌ Ops, algo deu errado.` })
+                interaction.reply({ content: `❌ Ops, algo deu errado. Eu preciso ter a permissão de **Gerenciar Canais!**` })
             })
         }
 

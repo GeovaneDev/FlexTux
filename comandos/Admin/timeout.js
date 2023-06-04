@@ -27,7 +27,6 @@ module.exports = {
     ],
 
     run: async (client, interaction) => {
-        interaction.channel.sendTyping();
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ModerateMembers)) {
             interaction.reply({ content: `Você não possui permissão para utilizar este comando. Você precisa ter a permissão de Moderar Membros!`, ephemeral: true });
         } else {
@@ -122,7 +121,7 @@ module.exports = {
                     return;
                 }
             } catch (error) {
-                console.log(`Houve um erro ao dar um timeout: ${error}`);
+                await interaction.editReply(`❌ Ops, algo deu errado. Eu preciso ter a permissão **"Membros de castigo"**!`)
             }
         }
     },

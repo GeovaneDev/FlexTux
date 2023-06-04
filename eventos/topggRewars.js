@@ -38,8 +38,8 @@ app.post("/dblwebhook", webhook.listener(async vote => {
   }
 }));
 
-app.listen(80, () => {
-  console.log("🎁 Servidor do top.gg iniciado na porta 80.");
+app.listen(8080, () => {
+  console.log("🎁 Servidor do top.gg iniciado na porta 8080.");
 });
 
 async function checkAndSendReminders() {
@@ -59,10 +59,14 @@ async function checkAndSendReminders() {
         .setDescription(`Olá! Já se passaram 12 horas desde o seu último voto. Você pode votar novamente no top.gg me ajudando e também você ganha uma recompensa.\n\nhttps://top.gg/bot/944555548148375592/vote`);
 
         user2.send({ embeds: [embed] });
+        await usersCollection.updateOne(
+          { discordId: userId },
+          { $unset: { lastVote: "" } }
+        );
     }
   } catch (error) {
     console.error(error);
   }
 }
 
-const interval = setInterval(checkAndSendReminders, 5 * 60 * 1000);
+const interval = setInterval(checkAndSendReminders, 2 * 60 * 1000);

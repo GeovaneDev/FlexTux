@@ -16,8 +16,35 @@ module.exports = {
   run: async (client, interaction) => {
     const user = interaction.options.getUser('user') || interaction.user;
     const member = interaction.guild.members.cache.get(user.id);
-
     let data_conta = `<t:${~~(new Date(user.createdAt) / 1000)}:R>`;
+
+    if (!member) {
+      const embed2 = new Discord.EmbedBuilder()
+        .setDescription(`**Olá \`${interaction.user.username}\`, aqui estão informações do usuário:**\n ﾠ`)
+        .setTitle('Informações de Usuário')
+        .setThumbnail(user.displayAvatarURL({ dynamic: true }))
+        .setColor("Random")
+        .addFields(
+          { name: '**🔌Usuário:**', value: `\`\`\`${user.tag}\`\`\``, inline: true },
+          { name: '**🆔 Usuário ID:**', value: `\`\`\`${user.id}\`\`\``, inline: true },
+          { name: 'ﾠ', value: 'ﾠ', inline: true },
+          { name: '**🤖 Bot:**', value: `\`\`\`${user.bot ? "é um bot" : "Não é um bot"}\`\`\``, inline: true },
+          { name: '**📅 Data da Conta:**', value: `${data_conta}`, inline: true },
+        )
+        .setFooter({ text: `Comando usado por ${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
+        .setThumbnail(user.displayAvatarURL({ dynamyc: true }))
+
+      let botao2 = new Discord.ActionRowBuilder()
+      .addComponents(
+        new Discord.ButtonBuilder()
+          .setURL(user.displayAvatarURL({ dynamic: true }))
+          .setLabel(`Avatar de ${user.username}`)
+          .setStyle(Discord.ButtonStyle.Link),
+      );
+
+      interaction.reply({ content: `${interaction.user}`, embeds: [embed2], components: [botao2] });
+      return;
+    } else {
     let servidor = `**<t:${~~(new Date(member.joinedAt) / 1000)}:R>**`;
     let boosts = interaction.guild.premiumSubscriptionCount;
     let embed = new Discord.EmbedBuilder()
@@ -89,5 +116,6 @@ module.exports = {
       botao.components[1].setDisabled(true);
       interaction.editReply({ components: [botao] });
     });
+  }
   }
 }
