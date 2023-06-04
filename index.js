@@ -47,7 +47,7 @@ client.on('ready', () => {
     let random = Math.floor(Math.random() * status.length);
     client.user.setActivity(status[random]);
   }, 120000);
-  
+
   setTimeout(() => {
     const { AutoPoster } = require('topgg-autoposter')
     const ap = AutoPoster(process.env.TOP_GG_TOKEN, client)
@@ -88,13 +88,12 @@ const { MongoClient } = require('mongodb');
 const uri = process.env.MONGODB_URI;
 const clientMongo = new MongoClient(uri);
 
-clientMongo.connect((err) => {
-  if (err) {
-    console.error(err);
-    return;
-  } else {
-    console.log("📚 Conectado ao MongoDB!")
-  }
-});
+clientMongo.connect()
+  .then(() => {
+    console.log("📚 Conectado ao MongoDB!");
+  })
+  .catch((error) => {
+    console.error("Ocorreu um erro ao conectar ao MongoDB:", error);
+  });
 
 module.exports.mongoClient = clientMongo;
