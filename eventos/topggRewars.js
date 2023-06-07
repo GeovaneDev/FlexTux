@@ -10,7 +10,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const webhook = new Topgg.Webhook(process.env.TOP_GG_TOKEN);
+const webhook = new Topgg.Webhook(process.env.TOP_GG_WEBHOOK);
 
 app.post("/dblwebhook", webhook.listener(async vote => {
   try {
