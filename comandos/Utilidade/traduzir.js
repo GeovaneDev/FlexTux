@@ -41,10 +41,10 @@ module.exports = {
         try {
             const result = await translate(text, { to: lang });
             const embed = new Discord.EmbedBuilder()
-                .setTitle(`Tradução de "${text}"`)
+                .setTitle(`Tradução`)
                 .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true })})
                 .setFooter({ text: `${interaction.user.tag}` })
-                .setDescription(result.text);
+                .setDescription(`> Texto: ${text}\n\n> Tradução: ${result.text}`);
             await interaction.reply({ embeds: [embed] });
         } catch (error) {
             console.error(error);

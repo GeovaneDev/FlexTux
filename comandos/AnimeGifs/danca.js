@@ -31,16 +31,6 @@ module.exports = {
             return
         }
     
-        if (user.id === client.user.id) {
-            const botembed = new Discord.EmbedBuilder()
-                .setDescription(`**Awww, obrigada. ${interaction.user} está dançando com ${user}.**`)
-                .setImage(dancarImageUrl)
-                .setFooter({text: `Fonte: api.otakugifs.xyz`})
-                .setColor("Random");
-            interaction.reply({ embeds: [botembed] });
-            return
-        }
-    
         const embed = new Discord.EmbedBuilder()
             .setDescription(`**${interaction.user} está dançando com ${user}.**`)
             .setImage(dancarImageUrl)
