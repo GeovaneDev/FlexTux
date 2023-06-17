@@ -11,7 +11,7 @@ module.exports = {
 
          let fetchBans = interaction.guild.bans.fetch();
          let banMembers = (await fetchBans)
-          .map((member) => member.user.tag)
+          .map((member) => member.user.username)
           .join("\n")
            
          if(!banMembers) 
@@ -22,7 +22,7 @@ module.exports = {
 
          let embedBanidos = new Discord.EmbedBuilder()
           .setColor("Green")
-          .setAuthor({ name: `${interaction.user.tag}`, iconURL: `${interaction.user.displayAvatarURL({ dynamic: true })}`})
+          .setAuthor({ name: `${interaction.user.username}`, iconURL: `${interaction.user.displayAvatarURL({ dynamic: true })}`})
           .setTimestamp()
           .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
           .setDescription(`${banMembers}`)

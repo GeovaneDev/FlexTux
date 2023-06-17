@@ -43,7 +43,7 @@ module.exports = {
             const embed = new Discord.EmbedBuilder()
                 .setTitle(`Tradução`)
                 .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true })})
-                .setFooter({ text: `${interaction.user.tag}` })
+                .setFooter({ text: `${interaction.user.username}` })
                 .setDescription(`> Texto: ${text}\n\n> Tradução: ${result.text}`);
             await interaction.reply({ embeds: [embed] });
         } catch (error) {

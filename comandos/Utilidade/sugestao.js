@@ -34,7 +34,7 @@ module.exports = {
         });
 
         let embed = new Discord.EmbedBuilder()
-        .setAuthor({ name: `${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
+        .setAuthor({ name: `${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
         .setTitle(`Nova sugestão!`)
         .setDescription(`**Sugestão:\n ${sugestao}**`)
         .setColor("Random")

@@ -33,8 +33,6 @@ module.exports = {
                     return;
                 }
 
-                let user = interaction.user.tag;
-
                 let embed = new Discord.EmbedBuilder()
                     .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
                     .setColor("Random")

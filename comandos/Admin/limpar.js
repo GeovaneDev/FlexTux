@@ -42,7 +42,7 @@ module.exports = {
                     let embed = new Discord.EmbedBuilder()
                         .setColor("Green")
                         .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL({ dynamic: true }) })
-                        .setDescription(`> O canal de texto ${interaction.channel} teve \`${deletableMessages.size}\` mensagens deletadas por \`${interaction.user.tag}\`.`);
+                        .setDescription(`> O canal de texto ${interaction.channel} teve \`${deletableMessages.size}\` mensagens deletadas por \`${interaction.user.username}\`.`);
                     await interaction.reply({ embeds: [embed] });
 
                     let deletarmensagens = "false"; // Se estiver definido como "true" as mensagens seram deletadas, caso não o código sertá ignorado.

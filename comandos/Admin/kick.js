@@ -36,7 +36,7 @@ module.exports = {
 
             let embed = new Discord.EmbedBuilder()
                 .setColor("Green")
-                .setDescription(`O usuário ${membro} foi expulso com sucesso!\n\n> Motivo: \`${motivo}\`\n\n> Por ${interaction.user.tag}.`)
+                .setDescription(`O usuário ${membro} foi expulso com sucesso!\n\n> Motivo: \`${motivo}\`\n\n> Por ${interaction.user.username}.`)
 
             let embed_erro = new Discord.EmbedBuilder()
                 .setColor("Red")

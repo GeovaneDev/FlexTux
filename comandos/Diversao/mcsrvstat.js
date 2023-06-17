@@ -30,7 +30,7 @@ module.exports = {
         `Olá ${interaction.user} estas são as informações do servidor:\nIp: ${ip}\nVersão: ${server.version}\nPlayers: ${server.players.online}/${server.players.max}`
       )
       .setColor('Random')
-      .setFooter({ text: `Mensage by ${interaction.user.tag}` })
+      .setFooter({ text: `Mensage by ${interaction.user.username}` })
     interaction.reply({ embeds: [embed] })
   }
 }

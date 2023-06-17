@@ -25,13 +25,13 @@ module.exports = {
         .setThumbnail(user.displayAvatarURL({ dynamic: true }))
         .setColor("Random")
         .addFields(
-          { name: '**🔌Usuário:**', value: `\`\`\`${user.tag}\`\`\``, inline: true },
+          { name: '**🔌Usuário:**', value: `\`\`\`${user.username}\`\`\``, inline: true },
           { name: '**🆔 Usuário ID:**', value: `\`\`\`${user.id}\`\`\``, inline: true },
           { name: 'ﾠ', value: 'ﾠ', inline: true },
           { name: '**🤖 Bot:**', value: `\`\`\`${user.bot ? "é um bot" : "Não é um bot"}\`\`\``, inline: true },
           { name: '**📅 Data da Conta:**', value: `${data_conta}`, inline: true },
         )
-        .setFooter({ text: `Comando usado por ${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
+        .setFooter({ text: `Comando usado por ${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
         .setThumbnail(user.displayAvatarURL({ dynamyc: true }))
 
       let botao2 = new Discord.ActionRowBuilder()
@@ -53,7 +53,7 @@ module.exports = {
       .setThumbnail(user.displayAvatarURL({ dynamic: true }))
       .setColor("Random")
       .addFields(
-        { name: '**🔌Usuário:**', value: `\`\`\`${user.tag}\`\`\``, inline: true },
+        { name: '**🔌Usuário:**', value: `\`\`\`${user.username}\`\`\``, inline: true },
         { name: '**🆔 Usuário ID:**', value: `\`\`\`${user.id}\`\`\``, inline: true },
         { name: 'ﾠ', value: 'ﾠ', inline: true },
         { name: '**🤖 Bot:**', value: `\`\`\`${user.bot ? "é um bot" : "Não é um bot"}\`\`\``, inline: true },
@@ -62,7 +62,7 @@ module.exports = {
         { name: '**📅 Data da Conta:**', value: `${data_conta}`, inline: true },
         { name: '**📅 Entrou no Servidor:**', value: `${servidor}`, inline: false },
       )
-      .setFooter({ text: `Comando usado por ${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
+      .setFooter({ text: `Comando usado por ${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
       .setThumbnail(user.displayAvatarURL({ dynamyc: true }))
 
     let botao = new Discord.ActionRowBuilder()
@@ -105,7 +105,7 @@ module.exports = {
             .setColor('Red')
             .setThumbnail(member.displayAvatarURL({ dynamic: true }))
             .setFooter({ text: `${user.username}`, iconURL: user.displayAvatarURL({ dynamic: true }) })
-            .setAuthor({ name: `${user.tag}`, iconURL: user.displayAvatarURL({ dynamic: true }) })
+            .setAuthor({ name: `${user.username}`, iconURL: user.displayAvatarURL({ dynamic: true }) })
             .addFields({ name: '📚| Cargos', value: `\n${roles}`, inline: true });
           i.reply({ content: `${interaction.user}`, ephemeral: true, embeds: [embed] });
         }
