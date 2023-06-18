@@ -4,7 +4,7 @@ dotenv.config();
 
 module.exports = {
     name: "atualizacao",
-    description: "｢Developer｣ Defina meu status para atualização. - Somente o criador pode usar 😉",
+    description: "｢Developer｣ Defina meu status para atualização. - Somente o desenvolvedor pode usar 😉",
     type: Discord.ApplicationCommandType.ChatInput,
 
     run: async (client, interaction) => {

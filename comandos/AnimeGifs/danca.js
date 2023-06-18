@@ -40,6 +40,27 @@ module.exports = {
         interaction.reply({ embeds: [embed] }).then(() => {
             const filter = i => i.customId === '1' && i.user.id === user.id;
             const collector = interaction.channel.createMessageComponentCollector({ filter, max: 1 });
+
+            collector.on('collect', async i => {
+                if (i.customId === '1') {
+                    i.reply({ embeds: [embed1] })
+                }
+            });
+
+            collector.on("end", () => {
+                interaction.editReply({
+                    components: [
+                        new Discord.ActionRowBuilder()
+                            .addComponents(
+                                new Discord.ButtonBuilder()
+                                    .setCustomId('1')
+                                    .setLabel('Retribuir')
+                                    .setStyle(Discord.ButtonStyle.Primary)
+                                    .setDisabled(true)
+                            )
+                    ]
+                })
+            })
         })
     }
 }

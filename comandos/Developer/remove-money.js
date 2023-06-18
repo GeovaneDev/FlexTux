@@ -5,7 +5,7 @@ dotenv.config();
 
 module.exports = {
   name: 'remove-money',
-  description: '｢Developer｣ Remove dinheiro do seu saldo. - Somente o criador pode usar 😉',
+  description: '｢Developer｣ Remove dinheiro do seu saldo. - Somente o desenvolvedor pode usar 😉',
   type: Discord.ApplicationCommandType.ChatInput,
   options: [
     {

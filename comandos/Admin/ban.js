@@ -30,12 +30,13 @@ module.exports = {
             if (!motivo) motivo = "Não definido.";
 
             let embed = new Discord.EmbedBuilder()
+                .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true })})
                 .setColor("Green")
-                .setDescription(`> O usuário ${user} (\`${user.id}\`) foi banido com sucesso.\n> Por ${interaction.user.tag}.\n> Motivo: ${motivo}.`);
+                .setDescription(`> O usuário ${user} (\`${user.id}\`) foi banido com sucesso.\n> Por ${interaction.user.username}.\n> Motivo: ${motivo}.`);
 
             let erro = new Discord.EmbedBuilder()
                 .setColor("Red")
-                .setDescription(`Não foi possível banir o usuário ${user} (\`${user.id}\`) do servidor!`);
+                .setDescription(`❌ Não foi possível banir o usuário ${user} (\`${user.id}\`) do servidor!`);
 
             user.ban({ reason: [motivo] }).then(() => {
                 interaction.editReply({ embeds: [embed] })

@@ -21,13 +21,22 @@ module.exports = {
         const data = await response.json();
         const abracoImageUrl = data.url;
 
+        const buttonDisabled = new Discord.ActionRowBuilder()
+                .addComponents(
+                    new Discord.ButtonBuilder()
+                        .setCustomId('1')
+                        .setLabel('Retribuir')
+                        .setStyle(Discord.ButtonStyle.Primary)
+                        .setDisabled(true)
+                )
+
         if (user.id === interaction.user.id) {
             const userembed = new Discord.EmbedBuilder()
                 .setImage(abracoImageUrl)
                 .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random")
                 .setDescription(`**Eu não acho que dar um abraço em você mesmo seja bom... Aqui, ${client.user} Deu um abraço em ${user}.**`)
-            interaction.reply({ embeds: [userembed] })
+            interaction.reply({ embeds: [userembed], components: [buttonDisabled] })
             return
         }
 
@@ -37,7 +46,8 @@ module.exports = {
                 .setImage(abracoImageUrl)
                 .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random");
-            interaction.reply({ embeds: [botembed] });
+
+            interaction.reply({ embeds: [botembed], components: [buttonDisabled] });
             return
         }
 

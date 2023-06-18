@@ -21,13 +21,22 @@ module.exports = {
         const data = await response.json();
         const piscarImageUrl = data.url;
 
+        const buttonDisabled = new Discord.ActionRowBuilder()
+        .addComponents(
+            new Discord.ButtonBuilder()
+                .setCustomId('1')
+                .setLabel('Retribuir')
+                .setStyle(Discord.ButtonStyle.Primary)
+                .setDisabled(true)
+        )
+
         if (user.id === interaction.user.id) {
             const userembed = new Discord.EmbedBuilder()
                 .setImage(piscarImageUrl)
                 .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random")
                 .setDescription(`**Eu não acho que piscar para você mesmo seja bom ou possível... Aqui, ${client.users.cache.get("944555548148375592")} Piscou para em ${user}.**`)
-            interaction.reply({ embeds: [userembed] })
+            interaction.reply({ embeds: [userembed], components: [buttonDisabled] })
             return
         }
 
@@ -37,7 +46,7 @@ module.exports = {
                 .setImage(piscarImageUrl)
                 .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random");
-            interaction.reply({ embeds: [botembed] });
+            interaction.reply({ embeds: [botembed], components: [buttonDisabled] });
             return
         }
 

@@ -39,21 +39,30 @@ module.exports = {
         var random1 = lista1[Math.floor(Math.random() * lista1.length)];
         var random2 = lista2[Math.floor(Math.random() * lista2.length)];
 
+        const buttonDisabled = new Discord.ActionRowBuilder()
+        .addComponents(
+            new Discord.ButtonBuilder()
+                .setCustomId('1')
+                .setLabel('Retribuir')
+                .setStyle(Discord.ButtonStyle.Primary)
+                .setDisabled(true)
+        )
+
         if (user.id === interaction.user.id) {
             const userembed = new Discord.EmbedBuilder()
                 .setImage(`${random1}`)
                 .setColor("Random")
-                .setDescription(`**Como você dar um toca aqui em você mesmo? Aqui, ${client.users.cache.get("944555548148375592")} mandou um toca aqui para${user}**`)
-            interaction.reply({ embeds: [userembed] })
+                .setDescription(`**Como você dar um toca aqui em você mesmo? Aqui, ${client.user} mandou um toca aqui para${user}**`)
+            interaction.reply({ embeds: [userembed], components: [buttonDisabled] })
             return
         }
 
         if (user.id === client.user.id) { 
             const botembed = new Discord.EmbedBuilder()
-                .setDescription(`**Awww, obrigada. ${interaction.user} mandou um toca aqui para ${user}.**`)
+                .setDescription(`**Obrigada. ${interaction.user} mandou um toca aqui para ${user}.**`)
                 .setImage(`${random1}`)
                 .setColor("Random");
-            interaction.reply({ embeds: [botembed] });
+            interaction.reply({ embeds: [botembed], components: [buttonDisabled] });
             return
         }
 

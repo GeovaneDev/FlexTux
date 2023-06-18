@@ -5,7 +5,7 @@ dotenv.config();
 
 module.exports = {
   name: 'add-money',
-  description: '｢Developer｣ Adiciona dinheiro ao seu saldo. - Somente o criador pode usar 😉',
+  description: '｢Developer｣ Adiciona dinheiro ao seu saldo. - Somente o desenvolvedor pode usar 😉',
   type: Discord.ApplicationCommandType.ChatInput,
   options: [
     {

@@ -68,18 +68,6 @@ module.exports = {
                     name: "12 Horas",
                     value: "12h",
                 },
-                {
-                    name: "1 Dia",
-                    value: "24h",
-                },
-                {
-                    name: "3 dias",
-                    value: "72h",
-                },
-                {
-                    name: "1 Semana",
-                    value: "168h",
-                },
             ],
         },
     ],

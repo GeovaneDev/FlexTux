@@ -21,21 +21,22 @@ module.exports = {
         const data = await response.json();
         const tapamImageUrl = data.url;
 
+        const buttonDisabled = new Discord.ActionRowBuilder()
+        .addComponents(
+            new Discord.ButtonBuilder()
+                .setCustomId('1')
+                .setLabel('Retribuir')
+                .setStyle(Discord.ButtonStyle.Primary)
+                .setDisabled(true)
+        )
+
         if (user.id === interaction.user.id) {
             const userembed = new Discord.EmbedBuilder()
                 .setImage(`${tapamImageUrl}`)
                 .setColor("Random")
                 .setDescription(`**${user}... se deu um tapa?**`)
 
-                const button = new Discord.ActionRowBuilder()
-            .addComponents(
-                new Discord.ButtonBuilder()
-                    .setCustomId('1')
-                    .setLabel('Retribuir')
-                    .setStyle(Discord.ButtonStyle.Primary)
-                    .setDisabled(true)
-            )
-            interaction.reply({ embeds: [userembed], components: [button] })
+            interaction.reply({ embeds: [userembed], components: [buttonDisabled] })
             return
         }
 
@@ -45,15 +46,7 @@ module.exports = {
                 .setImage(`${tapamImageUrl}`)
                 .setColor("Random");
 
-            const button = new Discord.ActionRowBuilder()
-            .addComponents(
-                new Discord.ButtonBuilder()
-                    .setCustomId('1')
-                    .setLabel('Retribuir')
-                    .setStyle(Discord.ButtonStyle.Primary)
-                    .setDisabled(true)
-            )
-            interaction.reply({ embeds: [botembed], components: [button] });
+            interaction.reply({ embeds: [botembed], components: [buttonDisabled] });
             return
         }
 

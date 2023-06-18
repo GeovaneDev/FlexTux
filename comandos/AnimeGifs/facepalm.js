@@ -25,13 +25,22 @@ module.exports = {
         const data2 = await response2.json();
         const abracoImageUrl2 = data2.url;
 
+        const buttonDisabled = new Discord.ActionRowBuilder()
+        .addComponents(
+            new Discord.ButtonBuilder()
+                .setCustomId('1')
+                .setLabel('Retribuir')
+                .setStyle(Discord.ButtonStyle.Primary)
+                .setDisabled(true)
+        )
+
         if (user.id === interaction.user.id) {
             const userembed = new Discord.EmbedBuilder()
                 .setImage(abracoImageUrl2)
                 .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random")
                 .setDescription(`**Awww, você está fazendo um facepalm em si mesmo? Não fique triste! Deixa eu te ajudar! ${client.user} deu um abraço para animar o dia de ${user}!**`)
-            interaction.reply({ embeds: [userembed] })
+            interaction.reply({ embeds: [userembed], components: [buttonDisabled] })
             return
         }
 
@@ -41,7 +50,7 @@ module.exports = {
                 .setImage(facepalmImageUrl)
                 .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random");
-            interaction.reply({ embeds: [botembed] });
+            interaction.reply({ embeds: [botembed], components: [buttonDisabled] });
             return
         }
 

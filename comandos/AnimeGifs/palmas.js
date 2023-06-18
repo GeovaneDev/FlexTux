@@ -26,7 +26,7 @@ module.exports = {
                 .setImage(palmasImageUrl)
                 .setColor("Random")
                 .setFooter({ text: "Fonte: api.otakugifs.xyz"})
-                .setDescription(`**${interaction.user} bateu palmas... a si mesmo?**`)
+                .setDescription(`**${interaction.user} bateu palmas... para si mesmo?**`)
             interaction.reply({ embeds: [userembed] })
             return
         }

@@ -5,7 +5,7 @@ dotenv.config();
 
 module.exports = {
   name: 'reset-saldo',
-  description: '｢Developer｣ Reseta o saldo do usuário. - Somente o criador pode usar 😉',
+  description: '｢Developer｣ Reseta o saldo do usuário. - Somente o desenvolvedor pode usar 😉',
   type: Discord.ApplicationCommandType.ChatInput,
   options: [
     {

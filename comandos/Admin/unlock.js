@@ -9,7 +9,7 @@ module.exports = {
             name: "canal",
             description: "Mencione um canal para o desbloquear o chat.",
             type: Discord.ApplicationCommandOptionType.Channel,
-            required: true,
+            required: false,
         }
     ],
 

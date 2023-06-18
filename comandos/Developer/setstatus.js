@@ -4,7 +4,7 @@ dotenv.config();
 
 module.exports = {
     name: "setstatus",
-    description: "｢Developer｣ Configure meu status. - Somente o criador pode usar 😉.",
+    description: "｢Developer｣ Configure meu status. - Somente o desenvolvedor pode usar 😉.",
     options: [
         {
             type: Discord.ApplicationCommandOptionType.String,
