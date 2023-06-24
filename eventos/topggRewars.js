@@ -20,23 +20,39 @@ app.post("/dblwebhook", webhook.listener(async vote => {
     const db = mongoClient.db('users');
     const usersCollection = db.collection('users');
 
+    const user = await usersCollection.findOne({ discordId: userId });
+    if (user && user.lastVote) {
+      const lastVoteTime = moment(user.lastVote);
+      const currentTime = moment();
+      const elapsedTime = currentTime.diff(lastVoteTime, 'hours');
+
+      if (elapsedTime < 11) {
+        return;
+      }
+    }
+
     const result = await usersCollection.updateOne(
       { discordId: userId },
       { $inc: { balance: +amount }, $set: { lastVote: moment().toDate() } },
       { upsert: true }
     );
 
-    const user = await client.users.fetch(userId);
+    const fetchedUser = await client.users.fetch(userId);
     let embed = new Discord.EmbedBuilder()
       .setColor("Random")
       .setTitle("Obrigado por votar no top.gg!")
-      .setDescription(`Obrigada por votar em mim. Cada voto me ajuda a crescer.\n\nComo recompensa, você ganhou **${amount} moedas**!\n\nContinue votando!`);
+      .setDescription(`Obrigado por votar em mim! Cada voto me ajudar a crescer.\n\nComo forma de agradecimento, você acaba de ganhar **${amount} moedas**!\n\nContinue votando para receber recompensas!`);
 
-    user.send({ embeds: [embed] });
+    fetchedUser.send({ embeds: [embed] });
   } catch (error) {
     console.error(error);
   }
 }));
+
+//Página de Status
+//app.get("/", (req, res) => {
+//  res.send("Estou Online!");
+//});
 
 app.listen(8080, () => {
   console.log("🎁 Servidor do top.gg iniciado na porta 8080.");
@@ -52,17 +68,17 @@ async function checkAndSendReminders() {
     for (const user of users) {
       const userId = user.discordId;
 
-      const user2 = await client.users.fetch(userId);
+      const fetchedUser = await client.users.fetch(userId);
       let embed = new Discord.EmbedBuilder()
         .setColor("Random")
         .setTitle("Vote na Nyssa Bot no Top.gg!")
-        .setDescription(`Olá! Já se passaram 12 horas desde o seu último voto. Você pode votar novamente no top.gg me ajudando e também você ganha uma recompensa.\n\nhttps://top.gg/bot/944555548148375592/vote`);
+        .setDescription(`Olá! Já se passaram 12 horas desde o seu último voto. Você pode votar novamente no top.gg para me ajudar e, além disso, receber uma recompensa especial.\n\n[Clique aqui para votar]https://top.gg/bot/944555548148375592/vote)`);
 
-        user2.send({ embeds: [embed] });
-        await usersCollection.updateOne(
-          { discordId: userId },
-          { $unset: { lastVote: "" } }
-        );
+      fetchedUser.send({ embeds: [embed] });
+      await usersCollection.updateOne(
+        { discordId: userId },
+        { $unset: { lastVote: "" } }
+      );
     }
   } catch (error) {
     console.error(error);
