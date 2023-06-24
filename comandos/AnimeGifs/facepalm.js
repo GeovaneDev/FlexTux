@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const fetch = require("node-fetch");
 
 module.exports = {
     name: "facepalm",
@@ -17,11 +16,12 @@ module.exports = {
 
         let user = interaction.options.getUser("membro")
 
-        const response = await fetch("https://api.otakugifs.xyz/gif?reaction=facepalm");
+        const fetch = await import('node-fetch');
+        const response = await fetch.default("https://api.otakugifs.xyz/gif?reaction=facepalm");
         const data = await response.json();
         const facepalmImageUrl = data.url;
 
-        const response2 = await fetch("https://api.otakugifs.xyz/gif?reaction=hug");
+        const response2 = await fetch.default("https://api.otakugifs.xyz/gif?reaction=hug");
         const data2 = await response2.json();
         const abracoImageUrl2 = data2.url;
 

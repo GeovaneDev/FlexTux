@@ -36,7 +36,7 @@ module.exports = {
                 return;
             }
 
-            const reward = Math.floor(Math.random() * (6000 - 1000 + 1)) + 1000;
+            const reward = Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000;
 
             const result = await usersCollection.updateOne(
                 { discordId: userId },

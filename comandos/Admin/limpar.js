@@ -15,16 +15,16 @@ module.exports = {
 
     run: async (client, interaction) => {
         let numero = interaction.options.getNumber('quantidade')
-        interaction.channel.sendTyping();
+        interaction.deferReply({ ephemeral: true });
 
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageMessages)) {
-            interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
+            interaction.editReply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
         } else if (parseInt(numero) > 100 || parseInt(numero) <= 0) {
             let embed = new Discord.EmbedBuilder()
                 .setColor("Random")
                 .setDescription(`Olá, ${interaction.user} Utilize números entre 1 e 100`)
                 .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) });
-            interaction.reply({ embeds: [embed], ephemeral: true })
+            interaction.editReply({ embeds: [embed], ephemeral: true })
         } else {
             const now = new Date().getTime();
             const messages = await interaction.channel.messages.fetch({ limit: numero });
@@ -34,7 +34,7 @@ module.exports = {
                 let embed = new Discord.EmbedBuilder()
                     .setColor("Random")
                     .setDescription("> Você só pode deletar mensagens com menos de 14 dias.");
-                await interaction.reply({ embeds: [embed] });
+                await interaction.editReply({ embeds: [embed] });
             }
             if (deletableMessages.size > 0) {
                 try {
@@ -43,7 +43,7 @@ module.exports = {
                         .setColor("Green")
                         .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL({ dynamic: true }) })
                         .setDescription(`> O canal de texto ${interaction.channel} teve \`${deletableMessages.size}\` mensagens deletadas por \`${interaction.user.username}\`.`);
-                    await interaction.reply({ embeds: [embed] });
+                    await interaction.editReply({ embeds: [embed] });
 
                     let deletarmensagens = "false"; // Se estiver definido como "true" as mensagens seram deletadas, caso não o código sertá ignorado.
 
@@ -54,10 +54,10 @@ module.exports = {
                 }
                 } catch (error) {
                     console.error(error);
-                    interaction.reply({ content: '😭 Ocorreu um erro ao tentar deletar as mensagens.', ephemeral: true });
+                    interaction.editReply({ content: '😭 Ocorreu um erro ao tentar deletar as mensagens.', ephemeral: true });
                 }
             } else {
-                interaction.reply({ content: 'Não existe mensagens para deletar.', ephemeral: true });
+                interaction.editReply({ content: 'Não existe mensagens para deletar.', ephemeral: true });
             }
         }
     }

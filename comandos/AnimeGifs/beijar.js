@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const fetch = require("node-fetch");
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -19,7 +18,8 @@ module.exports = {
 
         let user = interaction.options.getUser("membro")
 
-        const response = await fetch("https://api.otakugifs.xyz/gif?reaction=kiss");
+        const fetch = await import('node-fetch');
+        const response = await fetch.default("https://api.otakugifs.xyz/gif?reaction=kiss");
         const data = await response.json();
         const beijoImageUrl = data.url;
 

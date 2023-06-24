@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const fetch = require('node-fetch');
 
 module.exports = {
     name: 'animal',
@@ -27,8 +26,8 @@ module.exports = {
 
     run: async (client, interaction) => {
         const animalChoice = interaction.options.getString('animal');
-        let randomChoice;
         await interaction.deferReply();
+        let randomChoice;
 
         if (animalChoice === "isRandom") {
             const apis = [
@@ -50,58 +49,67 @@ module.exports = {
         .setFooter({ text: "Fonte: some-random-api.com" })
 
         if (animalChoice === "panda" || randomChoice === "panda") {
-            const response = await fetch('https://some-random-api.com/animal/panda');
+            const fetch = await import('node-fetch');
+            const response = await fetch.default('https://some-random-api.com/animal/panda');
             const data = await response.json();
             const pandaImageUrl = data.image;
             embed.setDescription(`Olá ${interaction.user}, Awww, aqui está uma foto de um panda fofinho!`)
             embed.setImage(pandaImageUrl);
         } else if (animalChoice === "dog" || randomChoice === "dog") {
-            const response = await fetch('https://dog.ceo/api/breeds/image/random');
+            const fetch = await import('node-fetch');
+            const response = await fetch.default('https://dog.ceo/api/breeds/image/random');
             const data = await response.json();
             const dogImageUrl = data.message;
             embed.setFooter({ text: "Fonte: dog.ceo" })
             embed.setDescription(`Olá ${interaction.user}, Awww, aqui está uma foto de um cachorrinho fofinho!`)
             embed.setImage(dogImageUrl);
         } else if (animalChoice === "cat" || randomChoice === "cat") {
-            const response = await fetch("https://api.thecatapi.com/v1/images/search");
+            const fetch = await import('node-fetch');
+            const response = await fetch.default("https://api.thecatapi.com/v1/images/search");
             const data = await response.json();
             const catImageUrl = data[0].url;
             embed.setFooter({ text: "Fonte: thecatapi.com" })
             embed.setDescription(`Olá ${interaction.user}, Awww, aqui está uma foto de um gatinho fofinho!`)
             embed.setImage(catImageUrl);
         } else if (animalChoice === "bird" || randomChoice === "bird") {
-            const response = await fetch("https://some-random-api.com/animal/bird");
+            const fetch = await import('node-fetch');
+            const response = await fetch.default("https://some-random-api.com/animal/bird");
             const data = await response.json();
             const birdImageUrl = data.image;
             embed.setDescription(`Olá ${interaction.user}, Awww, aqui está uma foto de um pássaro fofinho!`)
             embed.setImage(birdImageUrl);
         } else if (animalChoice === "fox" || randomChoice === "fox") {
-            const response = await fetch("https://some-random-api.com/animal/fox");
+            const fetch = await import('node-fetch');
+            const response = await fetch.default("https://some-random-api.com/animal/fox");
             const data = await response.json();
             const foxImageUrl = data.image;
             embed.setFooter({ text: "Fonte: randomfox.ca" })
             embed.setDescription(`Olá ${interaction.user}, Awww, aqui está uma foto de um raposa fofinho!`)
             embed.setImage(foxImageUrl);
         } else if (animalChoice === "kangaroo" || randomChoice === "kangaroo") {
-            const response = await fetch("https://some-random-api.com/animal/kangaroo");
+            const fetch = await import('node-fetch');
+            const response = await fetch.default("https://some-random-api.com/animal/kangaroo");
             const data = await response.json();
             const kangarooImageUrl = data.image;
             embed.setDescription(`Olá ${interaction.user}, Awww, aqui está uma foto de um canguru fofinho!`)
             embed.setImage(kangarooImageUrl);
         } else if (animalChoice === "koala" || randomChoice === "koala") {
-            const response = await fetch("https://some-random-api.com/animal/koala");
+            const fetch = await import('node-fetch');
+            const response = await fetch.default("https://some-random-api.com/animal/koala");
             const data = await response.json();
             const koalaImageUrl = data.image;
             embed.setDescription(`Olá ${interaction.user}, Awww, aqui está uma foto de um coala fofinho!`)
             embed.setImage(koalaImageUrl);
         } else if (animalChoice === "raccoon" || randomChoice === "raccoon") {
-            const response = await fetch("https://some-random-api.com/animal/raccoon");
+            const fetch = await import('node-fetch');
+            const response = await fetch.default("https://some-random-api.com/animal/raccoon");
             const data = await response.json();
             const raccoonImageUrl = data.image;
             embed.setDescription(`Olá ${interaction.user}, Awww, aqui está uma foto de um guaxinim fofinho!`)
             embed.setImage(raccoonImageUrl);
         } else if (animalChoice === "red_panda" || randomChoice === "red_panda") {
-            const response = await fetch("https://some-random-api.com/animal/red_panda");
+            const fetch = await import('node-fetch');
+            const response = await fetch.default("https://some-random-api.com/animal/red_panda");
             const data = await response.json();
             const redpandaImageUrl = data.image;
             embed.setDescription(`Olá ${interaction.user}, Awww, aqui está uma foto de um Panda vermelho fofinho!`)
