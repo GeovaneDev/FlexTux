@@ -15,16 +15,18 @@ module.exports = {
 
     run: async (client, interaction) => {
         let numero = interaction.options.getNumber('quantidade')
-        interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply({ ephemeral: true });
 
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageMessages)) {
-            interaction.editReply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
+            await interaction.editReply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
+            return
         } else if (parseInt(numero) > 100 || parseInt(numero) <= 0) {
             let embed = new Discord.EmbedBuilder()
                 .setColor("Random")
                 .setDescription(`Olá, ${interaction.user} Utilize números entre 1 e 100`)
                 .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) });
-            interaction.editReply({ embeds: [embed], ephemeral: true })
+            await interaction.editReply({ embeds: [embed], ephemeral: true })
+            return
         } else {
             const now = new Date().getTime();
             const messages = await interaction.channel.messages.fetch({ limit: numero });

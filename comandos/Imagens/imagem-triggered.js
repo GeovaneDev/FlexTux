@@ -1,5 +1,4 @@
 const Discord = require("discord.js")
-const fetch = require("node-fetch");
 
 module.exports = {
   name: "imagem-triggered",
@@ -22,7 +21,8 @@ module.exports = {
     let useravatar = user.displayAvatarURL();
     useravatar = useravatar.replace(/\.(jpg|jpeg|gif|png|webp)$/i, ".png");
     await interaction.deferReply();
-    const response = await fetch(`https://some-random-api.com/canvas/overlay/triggered?avatar=${useravatar}`);
+    const fetch = await import('node-fetch');
+    const response = await fetch.default(`https://some-random-api.com/canvas/overlay/triggered?avatar=${useravatar}`);
     const buffer = await response.buffer();
 
     const attachment = new Discord.AttachmentBuilder(buffer, { name: "triggered.gif" })

@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const fetch = require('node-fetch');
 
 module.exports = {
     name: 'letra',
@@ -24,7 +23,8 @@ module.exports = {
         const artista = interaction.options.getString('artista');
         const musica = interaction.options.getString('musica');
         try {
-            const info = await fetch(`https://api.vagalume.com.br/search.php?art=${artista}&mus=${musica}`).then(res => res.json());
+            const fetch = await import('node-fetch');
+            const info = await fetch.default(`https://api.vagalume.com.br/search.php?art=${artista}&mus=${musica}`).then(res => res.json());
             const letra = info.mus[0].text;
             interaction.reply({
                 embeds: [
