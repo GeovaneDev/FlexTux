@@ -1,0 +1,17 @@
+version: '3'
+services:
+  nyssabot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+
+
+    #environment:
+    #  - DISCORD_TOKEN=${DISCORD_TOKEN}
+    #  - DONO_ID=${DONO_ID}
+    #  - PREFIX=${PREFIX}
+    #  - MONGODB_URI=${MONGODB_URI}
