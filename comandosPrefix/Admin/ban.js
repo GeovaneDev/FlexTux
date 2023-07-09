@@ -15,6 +15,16 @@ module.exports = {
             let motivo = args[1];
             if (!motivo) motivo = "Não definido.";
 
+            if (!user) {
+                const embedUsage = new Discord.EmbedBuilder()
+                .setColor("Random")
+                .setAuthor({ name: message.author.username, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+                .setTitle("Uso incorreto do comando")
+                .setDescription("Por favor, use o comando da seguinte maneira:\n\n`!ban <@user> <motivo>`\n\nExemplo: `!ban @user Spam`");
+
+            return message.reply({ embeds: [embedUsage] });
+            }
+
             let embed = new Discord.EmbedBuilder()
                 .setAuthor({ name: message.author.username, iconURL: message.author.displayAvatarURL({ dynamic: true })})
                 .setColor("Green")
