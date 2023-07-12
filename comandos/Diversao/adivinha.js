@@ -21,23 +21,13 @@ module.exports = {
                 { name: "8", value: "8" },
                 { name: "9", value: "9" },
                 { name: "10", value: "10" },
-                { name: "11", value: "11" },
-                { name: "12", value: "12" },
-                { name: "13", value: "13" },
-                { name: "14", value: "14" },
-                { name: "15", value: "15" },
-                { name: "16", value: "16" },
-                { name: "17", value: "17" },
-                { name: "18", value: "18" },
-                { name: "19", value: "19" },
-                { name: "20", value: "20" },
             ],
         }
     ],
 
     run: async (client, interaction) => {
         const number = interaction.options.getInteger("numero");
-        const randomNum = Math.floor(Math.random() * 20) + 1;
+        const randomNum = Math.floor(Math.random() * 10) + 1;
         let embedloading = new Discord.EmbedBuilder()
             .setColor("Random")
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })

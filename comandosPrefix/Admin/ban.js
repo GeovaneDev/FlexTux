@@ -6,7 +6,7 @@ module.exports = {
     
     run(client, message, args) {
         if (!message.member.permissions.has(Discord.PermissionFlagsBits.BanMembers)) {
-            message.reply({ content: `Você não possui permissão para utilizar este comando. Você precisa ter a permissão de Banir Membros.`, ephemeral: true });
+            message.reply({ content: `❌ - Você não tem permissão para utilizar este comando. Você precisa ter a permissão "**Banir Membros**".`, ephemeral: true });
         } else {
               if (message.mentions.users.first()) {
                 userr = message.mentions.users.first();

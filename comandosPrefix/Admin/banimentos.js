@@ -6,7 +6,7 @@ module.exports = {
 
     run: async (client, message, args) => {
         if(!message.member.permissions.has(Discord.PermissionFlagsBits.BanMembers))
-         return message.reply({ content: `**❌ - Você não tem permissão para utilizar este comando.**`, ephemeral: true})
+         return message.reply({ content: `❌ - Você não tem permissão para utilizar este comando. Você precisa ter a permissão "**Banir Membros**".`, ephemeral: true})
 
          let fetchBans = message.guild.bans.fetch();
          let banMembers = (await fetchBans)

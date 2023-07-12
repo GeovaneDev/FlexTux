@@ -35,7 +35,7 @@ module.exports = {
                 .setImage(piscarImageUrl)
                 .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random")
-                .setDescription(`**Eu não acho que piscar para você mesmo seja bom ou possível... Aqui, ${client.users.cache.get("944555548148375592")} Piscou para em ${user}.**`)
+                .setDescription(`**Eu não acho que piscar para você mesmo seja bom ou possível... Aqui, ${client.user} Piscou para em ${user}.**`)
             interaction.reply({ embeds: [userembed], components: [buttonDisabled] })
             return
         }

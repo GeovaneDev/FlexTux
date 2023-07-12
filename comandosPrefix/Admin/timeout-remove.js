@@ -7,7 +7,7 @@ module.exports = {
 
     run(client, message, args) {
         if (!message.member.permissions.has(Discord.PermissionFlagsBits.ModerateMembers)) {
-            message.reply({ content: `Você não possui permissão para utilizar este comando. Você precisa ter a permissão de Moderar Membros!`, ephemeral: true });
+            message.reply({ content: `❌ - Você não tem permissão para utilizar este comando. Você precisa ter a permissão "**Moderar Membros**".`, ephemeral: true });
         } else {
             const mentionable = message.mentions.users.first();
             const duration = "1s";

@@ -6,7 +6,7 @@ module.exports = {
 
   run: async (client, message, args) => {
         if (!message.member.permissions.has(Discord.PermissionFlagsBits.KickMembers)) {
-            message.reply({ content: `Você não possui permissão para utilizar este comando.`, epemeral: true })
+            message.reply({ content: `❌ - Você não tem permissão para utilizar este comando. Você precisa ter a permissão "**Expulsar Membros**".`, epemeral: true })
         } else {
             const user = message.mentions.users.first();
             let motivo = args[1];

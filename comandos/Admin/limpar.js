@@ -18,7 +18,7 @@ module.exports = {
         await interaction.deferReply({ ephemeral: true });
 
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageMessages)) {
-            await interaction.editReply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
+            await interaction.editReply({ content: `❌ - Você não tem permissão para utilizar este comando. Você precisa ter a permissão "**Gerenciar Mensagens**".`, ephemeral: true })
             return
         } else if (parseInt(numero) > 100 || parseInt(numero) <= 0) {
             let embed = new Discord.EmbedBuilder()

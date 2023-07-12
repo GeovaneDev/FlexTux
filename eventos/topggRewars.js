@@ -20,30 +20,19 @@ app.post("/dblwebhook", webhook.listener(async vote => {
     const db = mongoClient.db('users');
     const usersCollection = db.collection('users');
 
-    const user = await usersCollection.findOne({ discordId: userId });
-    if (user && user.lastVote) {
-      const lastVoteTime = moment(user.lastVote);
-      const currentTime = moment();
-      const elapsedTime = currentTime.diff(lastVoteTime, 'hours');
-
-      if (elapsedTime < 11) {
-        return;
-      }
-    }
-
     const result = await usersCollection.updateOne(
       { discordId: userId },
       { $inc: { balance: +amount }, $set: { lastVote: moment().toDate() } },
       { upsert: true }
     );
 
-    const fetchedUser = await client.users.fetch(userId);
+    const user = await client.users.fetch(userId);
     let embed = new Discord.EmbedBuilder()
       .setColor("Random")
       .setTitle("Obrigado por votar no top.gg!")
       .setDescription(`Obrigado por votar em mim! Cada voto me ajudar a crescer.\n\nComo forma de agradecimento, você acaba de ganhar **${amount} moedas**!\n\nContinue votando para receber recompensas!`);
 
-    fetchedUser.send({ embeds: [embed] });
+    user.send({ embeds: [embed] });
   } catch (error) {
     console.error(error);
   }
@@ -68,21 +57,21 @@ async function checkAndSendReminders() {
     for (const user of users) {
       const userId = user.discordId;
 
-      const fetchedUser = await client.users.fetch(userId);
+      const user2 = await client.users.fetch(userId);
       let embed = new Discord.EmbedBuilder()
         .setColor("Random")
         .setTitle("Vote na Nyssa Bot no Top.gg!")
-        .setDescription(`Olá! Já se passaram 12 horas desde o seu último voto. Você pode votar novamente no top.gg para me ajudar e, além disso, receber uma recompensa especial.\n\n[Clique aqui para votar]https://top.gg/bot/944555548148375592/vote)`);
+        .setDescription(`Olá! Já se passaram 12 horas desde o seu último voto. Você pode votar novamente no top.gg para me ajudar e, além disso, receber uma recompensa especial.\n\n[Clique aqui para votar](https://top.gg/bot/944555548148375592/vote)`);
 
-      fetchedUser.send({ embeds: [embed] });
-      await usersCollection.updateOne(
-        { discordId: userId },
-        { $unset: { lastVote: "" } }
-      );
+        user2.send({ embeds: [embed] });
+        await usersCollection.updateOne(
+          { discordId: userId },
+          { $unset: { lastVote: "" } }
+        );
     }
   } catch (error) {
     console.error(error);
   }
 }
 
-const interval = setInterval(checkAndSendReminders, 2 * 60 * 1000);
+const interval = setInterval(checkAndSendReminders, 5 * 60 * 1000);

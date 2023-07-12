@@ -50,8 +50,8 @@ module.exports = {
             > \`/parouimpar\` Jogue par ou ímpar comigo e teste sua sorte!
             > \`/pensamento\` Exibe um pensamento filosófico aleatório.
             > \`/roleta russa\` Aposte em um número e veja se você é sortudo(a)!
-            > \`/rps\` Jogue pedra, papel ou tesoura com alguém (BETA)
-            > \`/rps2\` Jogue pedra, papel ou tesoura comigo, eu adoro esse jogo!`);
+            > \`/rps usuario\` Jogue pedra, papel ou tesoura com alguém. (BETA)
+            > \`/rps bot\` Jogue pedra, papel ou tesoura comigo, eu adoro esse jogo! (BETA)`);
 
         let embed_economia = new Discord.EmbedBuilder()
             .setColor("Aqua")

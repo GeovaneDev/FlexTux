@@ -18,7 +18,7 @@ module.exports = {
         interaction.channel.sendTyping();
 
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ModerateMembers)) {
-            interaction.reply({ content: `Você não possui permissão para utilizar este comando. Você precisa ter a permissão de Moderar Membros!`, ephemeral: true });
+            interaction.reply({ content: `❌ - Você não tem permissão para utilizar este comando. Você precisa ter a permissão "**Moderar Membros**".`, ephemeral: true });
         } else {
             const mentionable = interaction.options.get("usuario").value;
             const duration = "1s";

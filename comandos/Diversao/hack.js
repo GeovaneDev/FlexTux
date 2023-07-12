@@ -98,7 +98,7 @@ module.exports = {
         }
 
         let aguarde = new Discord.EmbedBuilder()
-            .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynamic: true }) })
+            .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
             .setDescription(`> **Vítima:** \`Hackeando...\`
         > **ID:** \`Hackeando...\`
         > **Email:** \`Hackeando...\`
@@ -109,7 +109,7 @@ module.exports = {
             .setColor('#f54eea')
 
         let embed = new Discord.EmbedBuilder()
-            .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynamic: true }) })
+            .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
             .setDescription(`> **Vítima:** ${pessoa}
         > **ID:** \`${pessoa.id}\`
         > **Email:** \`${mail}\`

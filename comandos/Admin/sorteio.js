@@ -76,7 +76,7 @@ module.exports = {
         interaction.channel.sendTyping();
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageGuild)) {
 
-            interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
+            interaction.reply({ content: `❌ - Você não tem permissão para utilizar este comando. Você precisa ter a permissão "**Gerenciar Servidor**".`, ephemeral: true })
 
         } else {
             let premio = interaction.options.getString("prêmio");

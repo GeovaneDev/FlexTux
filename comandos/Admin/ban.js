@@ -7,7 +7,7 @@ module.exports = {
     options: [
         {
             name: "user",
-            description: "Mencione um usuário para ser banido.",
+            description: "Selecione um usuário para ser banido.",
             type: Discord.ApplicationCommandOptionType.User,
             required: true,
         },
@@ -21,7 +21,7 @@ module.exports = {
 
     run: async (client, interaction) => {
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.BanMembers)) {
-            interaction.reply({ content: `Você não possui permissão para utilizar este comando. Você precisa ter a permissão de Banir Membros.`, ephemeral: true });
+            interaction.reply({ content: `❌ - Você não tem permissão para utilizar este comando. Você precisa ter a permissão "**Banir Membros**".`, ephemeral: true });
         } else {
             interaction.deferReply();
             let userr = interaction.options.getUser("user");

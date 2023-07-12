@@ -42,7 +42,7 @@ module.exports = {
     
         if (user.id === client.user.id) {
             const botembed = new Discord.EmbedBuilder()
-                .setDescription(`**Awww, obrigada. ${interaction.user} está comemorando com ${user}. Mas o que voê está comemorando?**`)
+                .setDescription(`**${interaction.user} está comemorando com ${user}. Mas o que voê está comemorando?**`)
                 .setImage(comemorarImageUrl)
                 .setFooter({text: `Fonte: api.otakugifs.xyz`})
                 .setColor("Random");

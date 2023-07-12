@@ -18,7 +18,7 @@ client.on('interactionCreate', async (interaction) => {
     } catch (error) {
       console.error(`Erro ao executar o comando "${cmd.name}": ${error}`);
       interaction.reply({
-        content: '😭 Ocorreu um erro ao executar o comando. Informe ao desenvolvedor.',
+        content: '😭 Ocorreu um erro ao executar o comando. Peço desculpa pela Incoveniência.',
         ephemeral: true
       });
     }

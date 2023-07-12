@@ -22,7 +22,7 @@ module.exports = {
     run: async (client, interaction) => {
 
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageNicknames)) {
-            interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
+            interaction.reply({ content: `❌ - Você não tem permissão para utilizar este comando. Você precisa ter a permissão "**Gerenciar Nicks**".`, ephemeral: true })
         } else {
             const user = interaction.options.getUser("membro")
             const membro = interaction.guild.members.cache.get(user.id)

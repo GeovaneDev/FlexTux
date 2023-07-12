@@ -7,7 +7,7 @@ module.exports = {
 
     run: async(client, interaction) => {
         if(!interaction.member.permissions.has(Discord.PermissionFlagsBits.BanMembers))
-         return interaction.reply({ content: `**❌ - Você não tem permissão para utilizar este comando.**`, ephemeral: true})
+         return interaction.reply({ content: `❌ - Você não tem permissão para utilizar este comando. Você precisa ter a permissão "**Banir Membros**".`, ephemeral: true})
 
          let fetchBans = interaction.guild.bans.fetch();
          let banMembers = (await fetchBans)

@@ -8,7 +8,7 @@ module.exports = {
         const numero = args.join(" ");
 
         if (!message.member.permissions.has(Discord.PermissionFlagsBits.ManageMessages)) {
-            message.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
+            message.reply({ content: `❌ - Você não tem permissão para utilizar este comando. Você precisa ter a permissão "**Gerenciar Mensagens**".`, ephemeral: true })
         } else if (parseInt(numero) > 100 || parseInt(numero) <= 0) {
             let embed = new Discord.EmbedBuilder()
                 .setColor("Random")

@@ -2,7 +2,6 @@ const fs = require("fs");
 
 module.exports = async (client) => {
   const SlashsArray = [];
-  const commandCooldowns = {};
 
   fs.readdir(`./comandos`, (error, folder) => {
     folder.forEach((subfolder) => {

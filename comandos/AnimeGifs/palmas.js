@@ -33,7 +33,7 @@ module.exports = {
 
         else if (user.id === client.user.id) { 
             const botembed = new Discord.EmbedBuilder()
-                .setDescription(`**${interaction.user}, por que você está batendo palmas para mim? Eu sou apenas eu!** 🥰👏`)
+                .setDescription(`**${interaction.user}, por que você está batendo palmas para mim?** `)
                 .setColor("Random");
             interaction.reply({ embeds: [botembed] });
             return

@@ -7,7 +7,7 @@ module.exports = {
   run: async (client, message, args) => {
 
         if (!message.member.permissions.has(Discord.PermissionFlagsBits.ManageChannels)) {
-            message.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
+            message.reply({ content: `❌ - Você não tem permissão para utilizar este comando. Você precisa ter a permissão "**Gerenciar Canais**".`, ephemeral: true })
         } else {
             const canal = message.mentions.channels.first() || message.channel;
 
