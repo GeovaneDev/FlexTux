@@ -1,10 +1,10 @@
 # NyssaBot
 
-A Nyssa Bot é um bot desenvolvida em Discord.js v14 que utiliza Slash Commands(/). Ela foi desenvolvida para proporcionar uma experiência mais fácil e rápida para o seu servidor Discord.
+A Nyssa Bot é um bot desenvolvida em Discord.js v14 que utiliza Slash Commands(/) e Prefix(!). Ela foi desenvolvida para proporcionar uma experiência fácil, rápida e eficiente para o seu servidor Discord.
 
 ## Site
 
-A Nyssa Bot agora tem um site onde você pode encontrar informações sobre o bot, documentação e muito mais: [https://nyssabot.pages.dev/](https://nyssabot.pages.dev/)
+A Nyssa Bot tem um site onde você pode encontrar informações sobre o bot, documentação e muito mais: [https://nyssabot.pages.dev/](https://nyssabot.pages.dev/)
 
 ## Funcionalidades
 
@@ -13,9 +13,9 @@ O Bot possui as seguintes funcionalidades:
 - Comandos de diversão
 - Comandos de utilidades
 - Comandos de economia
-- Comandos de gifs de animes (exemplo: abraço, tocaaqui)
+- Comandos de gifs de animes (exemplo: abraço, toca aqui)
 - Comandos de moderação
-- Comandos por prefix(!) em beta
+- Comandos por prefix(!) (em desenvolvimento)
 
 ## Requisitos
 
@@ -23,7 +23,6 @@ Antes de instalar o bot, verifique se você possui os seguintes requisitos:
 
 - Node.js v18 ou superior
 - NPM (Node Package Manager)
-- Discord.js V14
 
 ## Instalação
 
@@ -32,7 +31,7 @@ Para instalar o bot, siga os seguintes passos:
 1. Clone este repositório:
 
 ```
-git clone https://github.com/Nyssa-Bot/NyssaBot
+git clone https://github.com/GeovaneDev/NyssaBot
 ```
 
 2. Instale as dependências necessárias:
@@ -65,11 +64,7 @@ Hospede o bot em uma [VPS](https://rockcontent.com/br/blog/vps/) como [Oracle Cl
 
 ## Comandos
 
-Para utilizar os comandos do bot, digite `/` na caixa de texto do chat do Discord. Use `/ajuda` para ver a lista completa de comandos disponíveis.
-
-## Personalização
-
-Adicione seu ID no aquivo ".env", crie um webhook em um canal para o log de comandos e adicione no arquivo ".env".
+Para utilizar os comandos do bot, digite `/` na caixa de texto do chat do Discord. Use `/ajuda` para ver a lista completa de comandos disponíveis. Alguns comandos estão disponíveis em prefix (!), ainda estão sendo desenvolvidos.
 
 ## FAQ
 
@@ -81,8 +76,8 @@ Eu gostaria de agradecer o [Ferinha](https://www.youtube.com/@OFerinha), que com
 
 ## Contribuição
 
-Sinta-se à vontade para contribuir com este projeto! Se você encontrar bugs ou problemas, por favor, abra uma issue. Se você quiser contribuir com código, crie um pull request.
+Sinta-se à vontade para contribuir com este projeto! Se você encontrar bugs ou problemas, por favor, abra uma issue. Se você quiser contribuir com código, crie um [Pull Request](https://github.com/GeovaneDev/NyssaBot/pulls) ou crie um [Issues](https://github.com/GeovaneDev/NyssaBot/issues) com sua sugestão.
 
 ## Licença
 
-Este projeto é licenciado sob a licença MIT. Para mais informações, consulte o arquivo LICENSE.
+Este projeto é licenciado sob a licença MIT. Para mais informações, consulte o arquivo [LICENSE](https://github.com/GeovaneDev/NyssaBot/blob/main/LICENSE).
