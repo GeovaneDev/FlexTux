@@ -1,10 +1,10 @@
-# NyssaBot
+# FlexTux
 
-A Nyssa Bot é um bot desenvolvida em Discord.js v14 que utiliza Slash Commands(/) e Prefix(!). Ela foi desenvolvida para proporcionar uma experiência fácil, rápida e eficiente para o seu servidor Discord.
+o FlexTux é um bot desenvolvido em Discord.js v14 que utiliza Slash Commands(/) e Prefix(!). Ele foi desenvolvida para proporcionar uma experiência fácil, rápida e eficiente para o seu servidor Discord.
 
 ## Site
 
-A Nyssa Bot tem um site onde você pode encontrar informações sobre o bot, documentação e muito mais: [https://nyssabot.pages.dev/](https://nyssabot.pages.dev/)
+Temos um site onde você pode encontrar informações sobre o bot, documentação e muito mais: [https://flextux.pages.dev/](https://flextux.pages.dev/)
 
 ## Funcionalidades
 
@@ -31,12 +31,12 @@ Para instalar o bot, siga os seguintes passos:
 1. Clone este repositório:
 
 ```
-git clone https://github.com/GeovaneDev/NyssaBot
+git clone https://github.com/GeovaneDev/FlexTux
 ```
 
 2. Instale as dependências necessárias:
 ```
-cd NyssaBot/
+cd FlexTux/
 npm install
 ```
 
@@ -68,7 +68,7 @@ Para utilizar os comandos do bot, digite `/` na caixa de texto do chat do Discor
 
 ## FAQ
 
-Veja nosso FAQ em [NyssaBot FAQ](https://nyssabot.pages.dev/#faq).
+Veja nosso FAQ em [FlexTux FAQ](https://flextux.pages.dev/#faq).
 
 ## Agradecimentos
 
@@ -76,8 +76,8 @@ Eu gostaria de agradecer o [Ferinha](https://www.youtube.com/@OFerinha), que com
 
 ## Contribuição
 
-Sinta-se à vontade para contribuir com este projeto! Se você encontrar bugs ou problemas, por favor, abra uma issue. Se você quiser contribuir com código, crie um [Pull Request](https://github.com/GeovaneDev/NyssaBot/pulls) ou crie um [Issues](https://github.com/GeovaneDev/NyssaBot/issues) com sua sugestão.
+Sinta-se à vontade para contribuir com este projeto! Se você encontrar bugs ou problemas, por favor, abra uma issue. Se você quiser contribuir com código, crie um [Pull Request](https://github.com/GeovaneDev/FlexTux/pulls) ou crie um [Issues](https://github.com/GeovaneDev/FlexTux/issues) com sua sugestão.
 
 ## Licença
 
-Este projeto é licenciado sob a licença MIT. Para mais informações, consulte o arquivo [LICENSE](https://github.com/GeovaneDev/NyssaBot/blob/main/LICENSE).
+Este projeto é licenciado sob a licença MIT. Para mais informações, consulte o arquivo [LICENSE](https://github.com/GeovaneDev/FlexTux/blob/main/LICENSE).

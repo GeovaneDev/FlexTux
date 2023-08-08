@@ -23,17 +23,6 @@ module.exports = {
 
         const buttonAvatar = new Discord.ActionRowBuilder().addComponents(button);
 
-        if (user.id === client.user.id) {
-            let avatar = client.user.displayAvatarURL({ dynamic: true, format: "png", size: 2048 })
-            let embed = new Discord.EmbedBuilder()
-                .setTitle(`🖼・Aqui meu avatar`)
-                .setDescription(`> ${interaction.user} o avatar de ${user.username}!`)
-                .setColor("Random")
-                .setFooter({ text: "Eu sou muito fofa!" })
-                .setImage(avatar)
-            interaction.reply({ embeds: [embed], components: [buttonAvatar] })
-            return;
-        } else {
             let avatar = user.displayAvatarURL({ dynamic: true, format: "png", size: 2048 })
             let embed = new Discord.EmbedBuilder()
                 .setTitle(`🖼・Avatar de ${user.username}`)
@@ -41,7 +30,5 @@ module.exports = {
                 .setColor("Random")
                 .setImage(avatar)
             interaction.reply({ embeds: [embed], components: [buttonAvatar] })
-            return;
-        }
     }
 }

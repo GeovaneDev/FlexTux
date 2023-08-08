@@ -39,9 +39,6 @@ module.exports = {
             .setColor("Random")
             .setImage(avatar);
 
-        if (user === client.user) {
-            embed.setFooter({ text: "Eu sou muito fofa!"});
-        }
         message.reply({ embeds: [embed], components: [buttonAvatar] });
     },
 };

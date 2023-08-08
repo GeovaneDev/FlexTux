@@ -60,8 +60,8 @@ async function checkAndSendReminders() {
       const user2 = await client.users.fetch(userId);
       let embed = new Discord.EmbedBuilder()
         .setColor("Random")
-        .setTitle("Vote na Nyssa Bot no Top.gg!")
-        .setDescription(`Olá! Já se passaram 12 horas desde o seu último voto. Você pode votar novamente no top.gg para me ajudar e, além disso, receber uma recompensa especial.\n\n[Clique aqui para votar](https://top.gg/bot/944555548148375592/vote)`);
+        .setTitle("Vote no FlexTux no Top.gg!")
+        .setDescription(`Olá! Já se passaram 12 horas desde o seu último voto. Você pode votar novamente no top.gg para me ajudar e, além disso, receber uma recompensa.\n\n[Clique aqui para votar](https://top.gg/bot/944555548148375592/vote)`);
 
         user2.send({ embeds: [embed] });
         await usersCollection.updateOne(

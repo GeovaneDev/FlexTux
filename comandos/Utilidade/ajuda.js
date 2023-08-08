@@ -14,18 +14,18 @@ module.exports = {
 
         let embed_utilidade = new Discord.EmbedBuilder()
             .setColor("Aqua")
-            .setTitle(`Aqui estão alguns comandinhos que podem ser úteis para você! 😊`)
+            .setTitle(`Aqui estão alguns comandos úteis`)
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
             .setDescription(`
             > \`/ajuda\` Mostra essa mensagem.
             > \`/ascii\` Converte um texto em ASCII
             > \`/escolher\` Escreva duas escolhas e eu vou estolher uma.
+            > \`/info \` Fornece informações sobre mim.
             > \`/lembrete\` Define um lembrete
             > \`/livro\` Pesquise informações sobre um livro.
             > \`/ping\` Descubra o meu tempo de resposta.
             > \`/qr-code\` Transformar um link em QR code.
             > \`/server-info\` Veja as informações do servidor.
-            > \`/nyssabot info \` Fornece informações sobre mim.
             > \`/sugestao\` Envie uma sugestão, para me ajudar a evoluir!
             > \`/traduzir\`: Traduzir um texto para outro idioma.
             > \`/uptime\` Quanto tempo estou online.
@@ -42,7 +42,6 @@ module.exports = {
             > \`/anagrama\` Mostra quantos anagramas têm a palavra fornecida.
             > \`/animal\` Receba uma foto aleatória de um animal fofo para alegrar o dia!
             > \`/coinflip\` Jogue cara ou coroa para ver quem vence!
-            > \`/coinflip2\` Jogue cara ou coroa comigo, eu amo um bom desafio!
             > \`/dado\` Role um dado virtual para ver qual número sai!
             > \`/f\` Digite F para um usuário!
             > \`/hack\` Comando para hackear alguém. (na brincadeira, claro!)
