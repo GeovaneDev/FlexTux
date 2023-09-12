@@ -69,7 +69,6 @@ module.exports = {
             .setTitle(`Aqui estão alguns comandinhos super divertidos de manupulação de imagem:`)
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynmiac: true }) })
             .setDescription(`
-            > \`/imagem-ednaldo\` Escreva algo no pano do Ednaldo Pereira.
             > \`/imagem-passed\` Aplica o efeito 'passed' a uma imagem de perfil, estilo GTA
             > \`/imagem-stonks\` Cria uma imagem do meme stonks!
             > \`/imagem-triggered\` Aplica o efeito 'triggered' a uma imagem de perfil.

@@ -13,7 +13,7 @@ module.exports = {
                 .setColor("Random")
                 .setAuthor({ name: message.author.username, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setTitle("Uso incorreto do comando")
-                .setDescription("Por favor, use o comando da seguinte maneira:\n\n`!ascii <texto>`\n\nExemplo: `!ascii Nyssa Bot`");
+                .setDescription("Por favor, use o comando da seguinte maneira:\n\n`!ascii <texto>`\n\nExemplo: `!ascii FlexTux`");
 
             return message.reply({ embeds: [embedUsage] });
         }

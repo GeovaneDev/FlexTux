@@ -24,15 +24,15 @@ module.exports = {
         let user = interaction.options.getUser("membro")
 
         var lista1 = [
-            'https://i.imgur.com/QV72Chw.gif',
-            'https://i.imgur.com/0gJH8YG.gif',
-            'https://i.imgur.com/qC6JZLm.gif',
+            'https://flextuxcdn.netlify.app/files/QV72Chw.gif',
+            'https://flextuxcdn.netlify.app/files/0gJH8YG.gif',
+            'https://flextuxcdn.netlify.app/files/qC6JZLm.gif',
         ];
 
         var lista2 = [
-            'https://i.imgur.com/0gJH8YG.gif',
-            'https://i.imgur.com/qC6JZLm.gif',
-            'https://i.imgur.com/QV72Chw.gif',
+            'https://flextuxcdn.netlify.app/files/0gJH8YG.gif',
+            'https://flextuxcdn.netlify.app/files/qC6JZLm.gif',
+            'https://flextuxcdn.netlify.app/files/QV72Chw.gif',
         ];
 
         var random1 = lista1[Math.floor(Math.random() * lista1.length)];
