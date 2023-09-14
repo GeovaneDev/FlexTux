@@ -23,7 +23,8 @@ module.exports = {
     await interaction.deferReply();
     const fetch = await import('node-fetch');
     const response = await fetch.default(`https://some-random-api.com/canvas/overlay/wasted?avatar=${useravatar}`);
-    const buffer = await response.buffer();
+    const arrayBuffer = await response.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
 
     const attachment = new Discord.AttachmentBuilder(buffer, { name: "wasted.png" })
 

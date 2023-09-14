@@ -24,15 +24,15 @@ module.exports = {
         let user = interaction.options.getUser("membro")
 
         var lista1 = [
-            'https://flextuxcdn.netlify.app/files/QV72Chw.gif',
-            'https://flextuxcdn.netlify.app/files/0gJH8YG.gif',
-            'https://flextuxcdn.netlify.app/files/qC6JZLm.gif',
+            'https://flextuxcdn.pages.dev/imagens/QV72Chw.gif',
+            'https://flextuxcdn.pages.dev/imagens/0gJH8YG.gif',
+            'https://flextuxcdn.pages.dev/imagens/qC6JZLm.gif',
         ];
 
         var lista2 = [
-            'https://flextuxcdn.netlify.app/files/0gJH8YG.gif',
-            'https://flextuxcdn.netlify.app/files/qC6JZLm.gif',
-            'https://flextuxcdn.netlify.app/files/QV72Chw.gif',
+            'https://flextuxcdn.pages.dev/imagens/0gJH8YG.gif',
+            'https://flextuxcdn.pages.dev/imagens/qC6JZLm.gif',
+            'https://flextuxcdn.pages.dev/imagens/QV72Chw.gif',
         ];
 
         var random1 = lista1[Math.floor(Math.random() * lista1.length)];
@@ -53,15 +53,6 @@ module.exports = {
                 .setColor("Random")
                 .setDescription(`**Como você dar um toca aqui em você mesmo? Aqui, ${client.user} mandou um toca aqui para${user}**`)
             interaction.reply({ embeds: [userembed], components: [buttonDisabled] })
-            return
-        }
-
-        if (user.id === client.user.id) { 
-            const botembed = new Discord.EmbedBuilder()
-                .setDescription(`**Obrigada. ${interaction.user} mandou um toca aqui para ${user}.**`)
-                .setImage(`${random1}`)
-                .setColor("Random");
-            interaction.reply({ embeds: [botembed], components: [buttonDisabled] });
             return
         }
 

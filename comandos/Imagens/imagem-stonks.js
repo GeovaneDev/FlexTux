@@ -26,7 +26,7 @@ module.exports = {
 
       await new Promise(resolve => setTimeout(resolve, 100));
 
-      const stonks = await loadImage('./imagens/stonks.jpg');
+      const stonks = await loadImage('https://flextuxcdn.pages.dev/imagens/stonks.jpg');
 
       ctx.drawImage(stonks, 0, 0, canvas.width, canvas.height);
 

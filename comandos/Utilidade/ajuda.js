@@ -72,6 +72,7 @@ module.exports = {
             > \`/imagem-passed\` Aplica o efeito 'passed' a uma imagem de perfil, estilo GTA
             > \`/imagem-stonks\` Cria uma imagem do meme stonks!
             > \`/imagem-triggered\` Aplica o efeito 'triggered' a uma imagem de perfil.
+            > \`/imagem-tweet\` Cria um tweet falso
             > \`/imagem-wasted\` Aplica o efeito 'Wasted' a uma imagem de perfil, estilo do GTA.
             > \`/imagem-xbox\` Desbloqueie uma conquista do Xbox.
             > \`/mememaker\` Crie um meme personalizado.`);

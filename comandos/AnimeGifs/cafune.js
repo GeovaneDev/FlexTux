@@ -42,7 +42,7 @@ module.exports = {
 
         if (user.id === client.user.id) {
             const botembed = new Discord.EmbedBuilder()
-                .setDescription(`**Awww, obrigada. ${interaction.user} Fez cafuné em ${user}.**`)
+                .setDescription(`**Obrigado. ${interaction.user} Fez cafuné em ${user}.**`)
                 .setImage(cafuneImageUrl)
                 .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random");

@@ -2,12 +2,12 @@ const Discord = require("discord.js")
 
 module.exports = {
     name: "adivinha",
-    description: "Tente adivinhar um número aleatório entre 1 e 20!",
+    description: "Tente adivinhar um número aleatório entre 1 e 5!",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {
             name: "numero",
-            description: "Escolha um número entre 1 a 20.",
+            description: "Escolha um número entre 1 a 5.",
             type: Discord.ApplicationCommandOptionType.Integer,
             required: true,
             choices: [
@@ -16,11 +16,6 @@ module.exports = {
                 { name: "3", value: "3" },
                 { name: "4", value: "4" },
                 { name: "5", value: "5" },
-                { name: "6", value: "6" },
-                { name: "7", value: "7" },
-                { name: "8", value: "8" },
-                { name: "9", value: "9" },
-                { name: "10", value: "10" },
             ],
         }
     ],
@@ -31,7 +26,7 @@ module.exports = {
         let embedloading = new Discord.EmbedBuilder()
             .setColor("Random")
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
-            .setDescription(`:crystal_ball: Sorteando um número entre 1 a 20.`)
+            .setDescription(`:crystal_ball: Sorteando um número entre 1 a 5.`)
        interaction.reply({ embeds: [embedloading] })
 
         setTimeout(() => {

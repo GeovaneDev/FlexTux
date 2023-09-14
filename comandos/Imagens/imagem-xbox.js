@@ -22,7 +22,7 @@ module.exports = {
             const canvas = Canvas.createCanvas(1018, 560)
             const ctx = canvas.getContext("2d")
 
-            const xbox = await Canvas.loadImage(`https://flextuxcdn.netlify.app/files/conquistaXbox.png`)
+            const xbox = await Canvas.loadImage(`https://flextuxcdn.pages.dev/imagens/conquistaXbox.png`)
 
             ctx.drawImage(xbox, 0, 0, canvas.width, canvas.height)
             ctx.font = "48px sans-serif"

@@ -39,7 +39,7 @@ module.exports = {
                 .setImage(abracoImageUrl2)
                 .setFooter({text: `Fonte: otakugifs.xyz`})
                 .setColor("Random")
-                .setDescription(`**Awww, você está fazendo um facepalm em si mesmo? Não fique triste! Deixa eu te ajudar! ${client.user} deu um abraço para animar o dia de ${user}!**`)
+                .setDescription(`**Você está fazendo um facepalm em si mesmo? Não fique triste! Deixa eu te ajudar! ${client.user} deu um abraço para animar o dia de ${user}!**`)
             interaction.reply({ embeds: [userembed], components: [buttonDisabled] })
             return
         }

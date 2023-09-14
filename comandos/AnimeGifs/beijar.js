@@ -42,17 +42,9 @@ module.exports = {
             return
         }
 
-        if (user.id === client.user.id && interaction.user.id === process.env.DONO_ID) {
-            const userembed = new Discord.EmbedBuilder()
-                .setImage(`https://i.imgur.com/oHMDPq9.gif`)
-                .setColor("Random")
-                .setDescription(`**${interaction.user} meu criador em deu um beijo. Obrigada! 😘**`)
-            interaction.reply({ embeds: [userembed], components: [buttonDisabled] })
-            return
-        }
         else if (user.id === client.user.id) { 
             const botembed = new Discord.EmbedBuilder()
-                .setDescription(`**Não quero te beijar ${interaction.user}, mas gosto de você com amigo. ❤**`)
+                .setDescription(`**Não quero te beijar ${interaction.user}, mas gosto de você com amigo.**`)
                 .setColor("Random");
             interaction.reply({ embeds: [botembed], components: [buttonDisabled] });
             return
