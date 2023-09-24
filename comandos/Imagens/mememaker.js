@@ -70,6 +70,13 @@ module.exports = {
     }
     const image = await Canvas.loadImage(imagem.url);
 
+    const maxWidth1 = 1920;
+    const maxHeight = 1080;
+ 
+    if (image.width > maxWidth1 || image.height > maxHeight) {
+     return await interaction.editReply("A imagem é muito grande. Por favor, envie uma imagem com dimensões menores.");
+    }
+
     const canvas = Canvas.createCanvas(image.width, image.height);
     const ctx = canvas.getContext("2d");
 

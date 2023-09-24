@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
-const fs = require('fs');
-const dotenv = require('dotenv');
+const fs = require("fs");
+const dotenv = require("dotenv");
 dotenv.config();
 "use strict";
 
@@ -11,59 +11,100 @@ const client = new Discord.Client({
     Discord.GatewayIntentBits.GuildModeration,
     Discord.GatewayIntentBits.GuildMessages,
     Discord.GatewayIntentBits.MessageContent,
-  ]
+  ],
 });
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.categories = fs.readdirSync(`./comandosPrefix/`);
 
-fs.readdirSync('./comandosPrefix/').forEach(local => {
-  const comandos = fs.readdirSync(`./comandosPrefix/${local}`).filter(arquivo => arquivo.endsWith('.js'))
+fs.readdirSync("./comandosPrefix/").forEach((local) => {
+  const comandos = fs
+    .readdirSync(`./comandosPrefix/${local}`)
+    .filter((arquivo) => arquivo.endsWith(".js"));
 
-  for(let file of comandos) {
-      let puxar= require(`./comandosPrefix/${local}/${file}`)
+  for (let file of comandos) {
+    let puxar = require(`./comandosPrefix/${local}/${file}`);
 
-      if(puxar.name) {
-          client.commands.set(puxar.name, puxar)
-      } 
-      if(puxar.aliases && Array.isArray(puxar.aliases))
-      puxar.aliases.forEach(x => client.aliases.set(x, puxar.name))
-  } 
+    if (puxar.name) {
+      client.commands.set(puxar.name, puxar);
+    }
+    if (puxar.aliases && Array.isArray(puxar.aliases))
+      puxar.aliases.forEach((x) => client.aliases.set(x, puxar.name));
+  }
 });
 
 client.on("messageCreate", async (message) => {
-
-  let prefix = process.env.PREFIX;
-
   if (message.author.bot) return;
-  if (message.channel.type === Discord.ChannelType.DM) return;     
+  if (message.channel.type === Discord.ChannelType.DM) return;
 
-  if (!message.content.toLowerCase().startsWith(prefix.toLowerCase())) return;
+  const serverId = message.guild.id;
+  const db = client.mongoClient.db("configs");
+  const collection = db.collection("servers");
 
-  if(!message.content.startsWith(prefix)) return;
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  try {
+    const result = await collection.findOne({ server_id: serverId });
 
-  let cmd = args.shift().toLowerCase()
-  if(cmd.length === 0) return;
-  let command = client.commands.get(cmd)
-  if(!command) command = client.commands.get(client.aliases.get(cmd)) 
-  
-try {
-    command.run(client, message, args)
-} catch (err) { 
-   console.error('Erro:' + err); 
-}
+    if (result) {
+      const prefix = result.custom_prefix || process.env.PREFIX;
+
+      if (!message.content.toLowerCase().startsWith(prefix.toLowerCase()))
+        return;
+
+      if (!message.content.startsWith(prefix)) return;
+
+      const args = message.content.slice(prefix.length).trim().split(/ +/g);
+      const cmd = args.shift().toLowerCase();
+
+      if (cmd.length === 0) return;
+      let command = client.commands.get(cmd);
+      if (!command) command = client.commands.get(client.aliases.get(cmd));
+
+      try {
+        command.run(client, message, args);
+      } catch (err) {
+        console.error("Erro:" + err);
+      }
+    } else {
+      const prefix = process.env.PREFIX;
+
+      if (!message.content.toLowerCase().startsWith(prefix.toLowerCase()))
+        return;
+
+      if (!message.content.startsWith(prefix)) return;
+
+      const args = message.content.slice(prefix.length).trim().split(/ +/g);
+      const cmd = args.shift().toLowerCase();
+
+      if (cmd.length === 0) return;
+      let command = client.commands.get(cmd);
+      if (!command) command = client.commands.get(client.aliases.get(cmd));
+
+      try {
+        command.run(client, message, args);
+      } catch (err) {
+        console.error("Erro:" + err);
+      }
+    }
+  } catch (error) {
+    console.error("Erro ao consultar o banco de dados:", error);
+  }
 });
 
-module.exports = client
+module.exports = client;
 
-client.on('ready', () => {
-  console.log(`🔥 Estou online em ${client.guilds.cache.size} Servidores!\n🎈 Estou logado(a) como ${client.user.tag}!`)
+function getTotalMembers() {
+  return client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0);
+}
+
+client.on("ready", () => {
+  console.log(
+    `🔥 Estou online em ${client.guilds.cache.size} Servidores!\n🎈 Estou logado(a) como ${client.user.tag}!`,
+  );
   client.user.setStatus("online");
   let status = [
     {
-      name: '🎁Confira meu site: https://nyssabot.pages.dev',
+      name: "🎁Confira meu site: https://flextux.pages.dev",
       type: Discord.ActivityType.Playing,
     },
     {
@@ -71,15 +112,15 @@ client.on('ready', () => {
       type: Discord.ActivityType.Playing,
     },
     {
-      name: `🎇${client.users.cache.size} Usuários`,
+      name: `🎇${getTotalMembers()} Usuários`,
       type: Discord.ActivityType.Playing,
     },
     {
-      name: '🎉Confira meu perfil no Top.gg',
+      name: "🎉Confira meu perfil no Top.gg",
       type: Discord.ActivityType.Playing,
     },
     {
-      name: '💎Veja meus comandos usando /ajuda.',
+      name: "💎Veja meus comandos usando /ajuda.",
       type: Discord.ActivityType.Playing,
     },
   ];
@@ -96,39 +137,40 @@ client.on('ready', () => {
   //}, 6000000);
 });
 
-process.on('multipleResolutions', (type, reason, promise) => {
-  console.log(`🚫 Erro Detectado\n\n` + type, promise, reason)
+process.on("multipleResolutions", (type, reason, promise) => {
+  console.log(`🚫 Erro Detectado\n\n` + type, promise, reason);
 });
 
-process.on('unhandledRejection', (reason, promise) => {
-  console.log(`🚫 Erro Detectado:\n\n` + reason, promise)
+process.on("unhandledRejection", (reason, promise) => {
+  console.log(`🚫 Erro Detectado:\n\n` + reason, promise);
 });
 
-process.on('uncaughtException', (error, origin) => {
-  console.log(`🚫 Erro Detectado:\n\n` + error, origin)
+process.on("uncaughtException", (error, origin) => {
+  console.log(`🚫 Erro Detectado:\n\n` + error, origin);
 });
 
-process.on('uncaughtExceptionMonitor', (error, origin) => {
-  console.log(`🚫 Erro Detectado:\n\n` + error, origin)
+process.on("uncaughtExceptionMonitor", (error, origin) => {
+  console.log(`🚫 Erro Detectado:\n\n` + error, origin);
 });
 
-fs.readdir('./eventos', (err, file) => {
-  file.forEach(event => {
-    require(`./eventos/${event}`)
-  })
-})
+fs.readdir("./eventos", (err, file) => {
+  file.forEach((event) => {
+    require(`./eventos/${event}`);
+  });
+});
 
-client.slashCommands = new Discord.Collection()
+client.slashCommands = new Discord.Collection();
 
-require('./handler')(client)
+require("./handler")(client);
 
 client.login(process.env.DISCORD_TOKEN);
 
-const { MongoClient } = require('mongodb');
+const { MongoClient } = require("mongodb");
 const uri = process.env.MONGODB_URI;
 const clientMongo = new MongoClient(uri);
 
-clientMongo.connect()
+clientMongo
+  .connect()
   .then(() => {
     console.log("📚 Conectado ao MongoDB!");
   })
