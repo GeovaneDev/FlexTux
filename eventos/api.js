@@ -52,7 +52,7 @@ app.get("/api/user/:userId", async (req, res) => {
     res.json({
       avatarUrl: user.displayAvatarURL(),
       id: user.id,
-      username: user.username,
+      username: user.tag,
       nome: user.displayName,
     });
   } catch (error) {

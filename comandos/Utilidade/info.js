@@ -9,7 +9,9 @@ module.exports = {
 
     run: async (client, interaction) => {
 
-        let membros = client.users.cache.size;
+        function getTotalMembers() {
+            return client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0);
+          }
         let servidores = client.guilds.cache.size;
         let bot = client.user.username;
         let avatar_bot = client.user.displayAvatarURL({ dynamic: true });
@@ -21,7 +23,7 @@ module.exports = {
             .setFooter({ text: mensagem })
             .setTimestamp(new Date())
             .setThumbnail(avatar_bot)
-            .setDescription(`Olá, eu sou o \`${bot}\` meu objetivo é melhorar os servidores de Discord, oferecendo entretenimento, facilidade e muito mais. Atualmente, estou presente em \`${servidores}\` servidores, com \`${membros}\` membros. Desde 5 de janeiro de 2023, venho trabalhando para tornar os servidores ainda melhores.`);
+            .setDescription(`Olá, eu sou o \`${bot}\` meu objetivo é melhorar os servidores de Discord, oferecendo entretenimento, facilidade e muito mais. Atualmente, estou presente em \`${servidores}\` servidores, com \`${getTotalMembers()}\` membros. Desde 5 de janeiro de 2023, venho trabalhando para tornar os servidores ainda melhores.`);
 
         interaction.reply({ embeds: [embed] })
 
