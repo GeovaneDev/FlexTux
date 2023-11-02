@@ -44,7 +44,6 @@ module.exports = {
             > \`/coinflip\` Jogue cara ou coroa para ver quem vence!
             > \`/dado\` Role um dado virtual para ver qual número sai!
             > \`/f\` Digite F para um usuário!
-            > \`/hack\` Comando para hackear alguém. (na brincadeira, claro!)
             > \`/mcsrvstat\` Veja as informações de um servidor de Minecraft!
             > \`/parouimpar\` Jogue par ou ímpar comigo e teste sua sorte!
             > \`/pensamento\` Exibe um pensamento filosófico aleatório.
@@ -105,16 +104,16 @@ module.exports = {
             > \`/kick\` Expulsar um membro.
             > \`/lock\` Bloquear um canal.
             > \`/setnick\` Mudar o apelido de um membro.
-            > \`/slowmode-set\` Configurar modo lento.
-            > \`/slowmode off\` Desativar modo lento.
+            > \`/slowmode definir\` Configurar modo lento.
+            > \`/slowmode desativar\` Desativar modo lento.
             > \`/sorteio\` Realizar um sorteio.
             > \`/timeout\` Castigue um membro!
             > \`/timeout-remove\` Remova o castigo de um membro!
             > \`/unlock\` Desbloquear um canal.
             > \`/cargo-botao\` Ganhe cargos clicando no botão.
-            > \`/webhook-docs\` Documentação de como usar os comandos de webhook!
-            > \`/webhook-embed\` Envia uma embed através de um webhook
-            > \`/webhook-simples\` Envia uma mensagem simples através de um webhook`);
+            > \`/webhook docs\` Documentação de como usar os comandos de webhook!
+            > \`/webhook embed\` Envia uma embed através de um webhook
+            > \`/webhook simples\` Envia uma mensagem simples através de um webhook`);
 
         let painel = new Discord.ActionRowBuilder().addComponents(
             new Discord.StringSelectMenuBuilder()

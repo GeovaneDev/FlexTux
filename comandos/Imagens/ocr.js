@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
-const Tesseract = require('tesseract.js');
+const axios = require('axios');
 
 module.exports = {
   name: 'ocr',
-  description: '｢Imagem｣ Ler o texto de uma imagem ',
+  description: '｢Imagem｣ Ler o texto de uma imagem',
   type: Discord.ApplicationCommandType.ChatInput,
   options: [
     {
@@ -27,22 +27,40 @@ module.exports = {
 
     await interaction.deferReply();
 
-    const result = await Tesseract.recognize(attachment.url);
+    const apiUrl = `https://flextux-ocr-api.onrender.com/?image=${encodeURIComponent(attachment.url)}`;
 
-    let text = result.data.text.trim();
-    if (!text) {
-      return interaction.editReply({
-        content: 'Nenhum texto foi detectado nessa imagem.',
+    try {
+      const response = await axios.get(apiUrl, { timeout: 30000 });
+
+      if (response.status === 200) {
+        const data = response.data;
+
+        if (data.text) {
+          let embed = new Discord.EmbedBuilder()
+            .setColor('Random')
+            .setTitle(':frame_photo: Resultado OCR:')
+            .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true })})
+            .setDescription(data.text);
+
+          interaction.editReply({ embeds: [embed] });
+        } else {
+          interaction.editReply({
+            content: 'Nenhum texto foi detectado nessa imagem.',
+            ephemeral: true,
+          });
+        }
+      } else {
+        interaction.editReply({
+          content: 'Ocorreu um erro ao processar a imagem.',
+          ephemeral: true,
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      interaction.editReply({
+        content: 'Ocorreu um erro ao processar a imagem.',
         ephemeral: true,
       });
     }
-
-    let embed = new Discord.EmbedBuilder()
-      .setColor('Random')
-      .setTitle(':frame_photo: Resultado OCR:')
-      .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
-      .setDescription(text);
-
-    interaction.editReply({ embeds: [embed] });
   },
 };
