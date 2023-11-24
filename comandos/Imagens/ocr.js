@@ -27,7 +27,7 @@ module.exports = {
 
     await interaction.deferReply();
 
-    const apiUrl = `https://flextux-ocr-api.onrender.com/?image=${encodeURIComponent(attachment.url)}`;
+    const apiUrl = `https://ocr-api-txt4.onrender.com/?image=${encodeURIComponent(attachment.url)}`;
 
     try {
       const response = await axios.get(apiUrl, { timeout: 30000 });
