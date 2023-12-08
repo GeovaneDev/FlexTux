@@ -22,9 +22,7 @@ module.exports = {
             .setFooter({ text: mensagem })
             .setTimestamp(new Date())
             .setThumbnail(avatar_bot)
-            .setDescription(`Olá, eu sou a \`${bot}\`(ou, como meus amigos próximos me chamam, "Nyssinha"), tenho 14 anos e o meu objetivo é melhorar os servidores de Discord, oferecendo entretenimento, facilidade e muito mais. Atualmente, estou presente em \`${servidores}\` servidores, com \`${getTotalMembers()}\` membros. Desde 5 de janeiro de 2023, venho trabalhando para tornar os servidores ainda melhores. 😘
-
-            Vamos juntos, ${message.author}\, tornar o mundo dos servidores no Discord ainda melhor! Obrigado por me adicionar aos seus servidores. Sem vocês, eu não estaria online.`);
+            .setDescription(`Olá, eu sou o \`${bot}\` meu objetivo é melhorar os servidores de Discord, oferecendo entretenimento, facilidade e muito mais. Atualmente, estou presente em \`${servidores}\` servidores, com \`${getTotalMembers()}\` membros. Desde 5 de janeiro de 2023, venho trabalhando para tornar os servidores ainda melhores.`);
 
         message.reply({ embeds: [embed] })
     }
